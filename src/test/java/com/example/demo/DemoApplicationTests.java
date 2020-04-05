@@ -1,6 +1,5 @@
 package com.example.demo;
 
-import org.apache.ibatis.session.SqlSessionFactory;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,8 +16,6 @@ import org.springframework.test.context.web.WebAppConfiguration;
 @SpringBootTest
 class DemoApplicationTests {
 
-    @Autowired
-    private SqlSessionFactory sqlSession; //작성
 
 
     @Test
@@ -28,7 +25,7 @@ class DemoApplicationTests {
     @Test
     public void testSqlSession() throws Exception{//작성
 
-        System.out.println("sqlSession : "+sqlSession);
+
 
     }
 
