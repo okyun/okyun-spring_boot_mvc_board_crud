@@ -1,4 +1,4 @@
-package com.example.demo.config;
+package com.example.demo.repository;
 
 import com.example.demo.dto.UserDto;
 import org.springframework.data.domain.Example;

@@ -14,7 +14,7 @@ public class UserDto implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "index")
-    private String index;
+    private Integer index;
 
     @Column(name = "id")
     private String id;
