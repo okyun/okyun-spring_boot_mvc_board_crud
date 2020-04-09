@@ -1,19 +1,20 @@
-package com.example.demo.dto;
+package com.example.demo.domain;
 
-import lombok.*;
+import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.io.Serializable;
-import java.util.Date;
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @Entity
 @Table(name = "board")
-public class BoardDto extends TimeEntity {
+public class BoardEntity extends TimeEntity{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "bno")
     private Integer bno;
 
@@ -27,15 +28,14 @@ public class BoardDto extends TimeEntity {
     private String writer;
     //private Date wirteDate;
 
+
+
+
     @Builder
-    public BoardDto(Integer bno, String title, String content, String writer) {
+    public BoardEntity(Integer bno, String title, String content, String writer) {
         this.bno = bno;
         this.writer = writer;
         this.title = title;
         this.content = content;
     }
-
-
-
-
 }
