@@ -6,16 +6,48 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 
-@Entity
-@Data
-@Table(name = "user")
-public class UserDto implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "index")
-    private Integer index;
+public class UserDto {
 
-    @Column(name = "id")
-    private String id;
+    private String userId;
+    private String userPwd;
+    private String name;
+    private String authType;
+
+    public UserDto(String userId, String name, String authType) {
+        super();
+        this.userId = userId;
+        this.name = name;
+        this.authType = authType;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+    public String getUserPwd() {
+        return userPwd;
+    }
+    public void setUserPwd(String userPwd) {
+        this.userPwd = userPwd;
+    }
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public String getAuthType() {
+        return authType;
+    }
+    public void setAuthType(String authType) {
+        this.authType = authType;
+    }
+
+    @Override
+    public String toString() {
+        return "User [userId=" + userId + ", userPwd=" + userPwd + ", name=" + name + ", authType=" + authType + "]";
+    }
 }
