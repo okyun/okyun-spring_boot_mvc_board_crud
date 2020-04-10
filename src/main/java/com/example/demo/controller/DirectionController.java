@@ -13,6 +13,10 @@ public class DirectionController {
     public String home(){
         return "template/index";
     }
+    @RequestMapping("/codemirror")//기본 화면
+    public String codemirror(){
+        return "index1";
+    }
 /*
     @RequestMapping("/listAll")//기본 화면
     public String listAll(){
