@@ -4,7 +4,7 @@
 	templated.co @templatedco
 	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
 -->
-<html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <title>Generic - Intensify by TEMPLATED</title>
     <meta charset="utf-8"/>
@@ -30,13 +30,13 @@
       <li><p style="color: black;">학생메뉴</p></li>
       <li><a href="index.html">Home</a></li>
       <li><a href="generic.html">Generic</a></li>
-      <li><a href="generic1.html">Generic1</a></li>
+      <li><a href="listAll.html">Generic1</a></li>
       <li><a href="elements.html">Elements</a></li>
       <li><a href="elements1.html">Elements</a></li>
       <li><p style="color: black;">교수메뉴</p></li>
       <li><a href="index.html">Home</a></li>
       <li><a href="generic.html">Generic</a></li>
-      <li><a href="generic1.html">Generic1</a></li>
+      <li><a href="listAll.html">Generic1</a></li>
       <li><a href="elements.html">Elements</a></li>
       <li><a href="elements1.html">Elements</a></li>
   </ul>
@@ -59,37 +59,20 @@
           <table>
               <thead>
               <tr>
-                  <th>Name</th>
+                  <th>제목</th>
                   <th>Description</th>
                   <th>Price</th>
+                  <th>날짜</th>
               </tr>
               </thead>
               <tbody>
-              <tr>
-                  <td>Item 1</td>
-                  <td>Ante turpis integer aliquet porttitor.</td>
-                  <td>29.99</td>
+              <tr th:each="board : ${boardList}">
+                  <td> <span th:text="${board.bno}"></span></td>
+                  <td><span th:text="${board.title}"></span></td>
+                  <td><span th:text="${board.writer}"></span></td>
+
               </tr>
-              <tr>
-                  <td>Item 2</td>
-                  <td>Vis ac commodo adipiscing arcu aliquet.</td>
-                  <td>19.99</td>
-              </tr>
-              <tr>
-                  <td>Item 3</td>
-                  <td> Morbi faucibus arcu accumsan lorem.</td>
-                  <td>29.99</td>
-              </tr>
-              <tr>
-                  <td>Item 4</td>
-                  <td>Vitae integer tempus condimentum.</td>
-                  <td>19.99</td>
-              </tr>
-              <tr>
-                  <td>Item 5</td>
-                  <td>Ante turpis integer aliquet porttitor.</td>
-                  <td>29.99</td>
-              </tr>
+
               </tbody>
               <tfoot>
               <tr>

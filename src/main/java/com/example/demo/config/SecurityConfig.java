@@ -40,7 +40,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .defaultSuccessUrl("/")
                 .permitAll() /* 모두 오픈 ( 반대는 denyAll() ) */
                 .and()
-                .logout().permitAll().logoutSuccessUrl("/"); /* 로그아웃 성공시 리다이렉트 url */
+                .logout().permitAll().logoutSuccessUrl("/")
+                .and()
+                .csrf().disable(); /* 로그아웃 성공시 리다이렉트 url */
 
 
 

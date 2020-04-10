@@ -19,8 +19,6 @@ public class BoardService {
 
     @Transactional
     public void savePost(BoardDto boardDto){
-
-
         boardRepository.save(boardDto.toEntity());//dto->entity로 비꾸기
     }
 
@@ -36,7 +34,6 @@ public class BoardService {
                     .title(boardEntity.getTitle())
                     .content(boardEntity.getContent())
                     .writer(boardEntity.getWriter())
-                    //.createdDate(boardEntity.getCreatedDate())
                     .build();
 
             boardDtoList.add(boardDTO);
