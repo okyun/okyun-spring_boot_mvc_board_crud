@@ -4,7 +4,7 @@
 	templated.co @templatedco
 	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
 -->
-<html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <title>숙제 제출 페이지</title>
     <meta charset="utf-8"/>
@@ -26,18 +26,18 @@
 
 <!-- Menu -->
 <nav id="menu">
-  <ul class="links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="generic.html">Generic</a></li>
-      <li><a href="generic1.html">Generic1</a></li>
-      <li><a href="elements.html">Elements</a></li>
-      <li><a href="elements1.html">Elements</a></li>
-  </ul>
-  <ul class="actions vertical">
-      <li><a href="#" class="button fit">Login</a></li>
-      <li><a href="#" class="button fit">register</a></li>
-  </ul>
-</nav> 
+    <ul class="links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="generic.html">Generic</a></li>
+        <li><a href="generic1.html">Generic1</a></li>
+        <li><a href="elements.html">Elements</a></li>
+        <li><a href="elements1.html">Elements</a></li>
+    </ul>
+    <ul class="actions vertical">
+        <li><a href="#" class="button fit">Login</a></li>
+        <li><a href="#" class="button fit">register</a></li>
+    </ul>
+</nav>
 
 
 <!-- Main -->
@@ -47,36 +47,41 @@
             <h1>숙제 제출 페이지</h1>
             <p>여기서 숙제를 바로 제출할 수 있습니다.</p>
         </header>
-        
-        <form method="post" action="#">
-          <div class="row uniform">
-              <!--제목 -->
-              <div class="9u 12u$(small)">
-                  <input type="text" name="title" id="title" value="" placeholder="제목" readonly/>
-              </div>
-              <!--수업선택 drop select -->
-<!--              <div class="12u$">-->
-<!--                <div class="select-wrapper">-->
-<!--                    <select name="category" id="category">-->
-<!--                        <option value="">- 수업선택 -</option>-->
-<!--                        <option value="1">Manufacturing</option>-->
-<!--                        <option value="1">Shipping</option>-->
-<!--                        <option value="1">Administration</option>-->
-<!--                        <option value="1">Human Resources</option>-->
-<!--                    </select>-->
-<!--                </div>-->
-<!--            </div>-->
-              <!--코드 -->
-              <div class="12u$">
-                <textarea name="content" id="content" placeholder="코드를 입력하세요" rows="6" cols="95" readonly></textarea>
+
+
+            <div class="row uniform">
+                <!--제목 -->
+                <div class="9u 12u$(small)">
+                    <textarea name="title" id="title" placeholder="제목" rows="1" cols="2" th:text="${boardDto.content}" readonly></textarea>
+                </div>
+                <!--수업선택 drop select -->
+                <div class="12u$">
+                    <div class="select-wrapper">
+                        <select name="category" id="category">
+                            <option value="">- 수업선택 -</option>
+                            <option value="1">Manufacturing</option>
+                            <option value="1">Shipping</option>
+                            <option value="1">Administration</option>
+                            <option value="1">Human Resources</option>
+                        </select>
+                    </div>
+                </div>
+                <!--코드 -->
+                <div class="12u$">
+                    <textarea name="content" id="content" placeholder="코드를 입력하세요" rows="6" cols="95" th:text="${boardDto.content}" readonly></textarea>
+                </div>
+                <!--코드 결과물 -->
+                <div class="12u$">
+                    <textarea name="message" id="message" placeholder="코딩 결과물" rows="6" cols="95" readonly></textarea>
+                </div>
+
+                <!--제출 버튼-->
+                <div class="3u$ 12u$(small)">
+                    <input type="submit" value="숙제 제출" class="fit"/>
+                </div>
             </div>
-              <!--코드 결과물 -->
-            <div class="12u$">
-              <textarea name="message" id="message" placeholder="코딩 결과물" rows="6" cols="95" readonly></textarea>
-          </div>
-          </div>
-      </form>
-      </div>
+
+    </div>
     </div>
 </section>
 

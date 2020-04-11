@@ -67,7 +67,11 @@
               </thead>
               <tbody>
               <tr th:each="board : ${boardList}">
-                  <td> <span th:text="${board.bno}"></span></td>
+                  <td>
+                      <a th:href="@{ ${board.bno}}">
+                      <span th:text="${board.bno}"></span>
+                      </a>
+                  </td>
                   <td><span th:text="${board.title}"></span></td>
                   <td><span th:text="${board.writer}"></span></td>
 

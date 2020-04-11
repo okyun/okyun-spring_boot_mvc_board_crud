@@ -28,6 +28,11 @@ public class DirectionController {
         return "template/readCoding";
     }
 
+    @RequestMapping("/updateCoding")
+    public String updateCoding(){
+        return "template/updateCoding";
+    }
+
 
 
 }
