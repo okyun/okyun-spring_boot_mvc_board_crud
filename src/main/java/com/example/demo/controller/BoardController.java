@@ -44,7 +44,7 @@ public class BoardController {
         return "redirect:/listAll";//url: http://localhost:9090/listAll로 이동하기
     }
 
-    @GetMapping("{bno}")
+    @GetMapping("listAll/{bno}")
     public String detail(@PathVariable("bno")Integer bno, Model model){
 
         BoardDto boardDto=boardService.getPost(bno);

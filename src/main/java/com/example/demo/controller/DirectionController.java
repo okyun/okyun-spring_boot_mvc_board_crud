@@ -23,9 +23,9 @@ public class DirectionController {
         return "template/writeCoding";
     }
 
-    @RequestMapping("/readCoding")
+    @RequestMapping("/read/readCoding")
     public String readCoding(){
-        return "template/readCoding";
+        return "template/readCoding1";
     }
 
     @RequestMapping("/updateCoding")
