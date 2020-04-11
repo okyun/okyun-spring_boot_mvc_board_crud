@@ -37,8 +37,10 @@ public class BoardController {
     public String createPost(BoardDto boardDto,Model model){
 
         boardService.savePost(boardDto);
-        model.addAttribute("result","success");
-        return "redirect:/listAll";
+        model.addAttribute("result","success");//?result=success
+        return "redirect:/listAll";//url: http://localhost:9090/listAll로 이동하기
     }
+    
+
 
 }

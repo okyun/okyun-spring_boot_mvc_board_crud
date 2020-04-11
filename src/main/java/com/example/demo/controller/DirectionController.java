@@ -17,12 +17,17 @@ public class DirectionController {
     public String codemirror(){
         return "index1";
     }
-/*
-    @RequestMapping("/listAll")//기본 화면
-    public String listAll(){
-        return "template/listAll";
+
+    @RequestMapping("/writeCoding")
+    public String writeCoding(){
+        return "template/writeCoding";
     }
-*/
+
+    @RequestMapping("/readCoding")
+    public String readCoding(){
+        return "template/readCoding";
+    }
+
 
 
 }
