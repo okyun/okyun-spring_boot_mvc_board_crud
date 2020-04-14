@@ -31,12 +31,12 @@ public class BoardController {
         return "template/listAll";
     }
 
-    @GetMapping("/create")
+    @GetMapping("/create")//게시글 쓰기
     public String creatGet(){
         return "template/writeCoding";
     }
 
-    @PostMapping("/create")
+    @PostMapping("/create")//게시글 쓰기 성공
     public String createPost(BoardDto boardDto,Model model){
 
         boardService.savePost(boardDto);
@@ -44,7 +44,7 @@ public class BoardController {
         return "redirect:/listAll";//url: http://localhost:9090/listAll로 이동하기
     }
 
-    @GetMapping("listAll/{bno}")
+    @GetMapping("listAll/{bno}") //게시글 detail 들어가기
     public String detail(@PathVariable("bno")Integer bno, Model model){
 
         BoardDto boardDto=boardService.getPost(bno);

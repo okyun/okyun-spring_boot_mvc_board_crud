@@ -1,53 +1,40 @@
 package com.example.demo.domain;
 
-import lombok.Data;
-
-import javax.persistence.*;
-import java.io.Serializable;
+import lombok.*;
 
 
-
+@ToString
+@Getter
+@Setter
 public class UserDto {
-
-    private String userId;
-    private String userPwd;
+//uno,id,password,studentNum,name
+private Integer uno;
+    private String id;
+    private String password;
+    private String studentNum;
     private String name;
-    private String authType;
 
-    public UserDto(String userId, String name, String authType) {
-        super();
-        this.userId = userId;
-        this.name = name;
-        this.authType = authType;
-    }
+    public UserEntity toEntity(){
+        UserEntity userEntity= UserEntity.builder()
+                .uno(uno)
+                .id(id)
+                .password(password)
+                .studentNum(studentNum)
+                .name(name)
+                .build();
+        return userEntity;
 
-    public String getUserId() {
-        return userId;
-    }
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-    public String getUserPwd() {
-        return userPwd;
-    }
-    public void setUserPwd(String userPwd) {
-        this.userPwd = userPwd;
-    }
-    public String getName() {
-        return name;
-    }
-    public void setName(String name) {
-        this.name = name;
-    }
-    public String getAuthType() {
-        return authType;
-    }
-    public void setAuthType(String authType) {
-        this.authType = authType;
     }
 
-    @Override
-    public String toString() {
-        return "User [userId=" + userId + ", userPwd=" + userPwd + ", name=" + name + ", authType=" + authType + "]";
+    @Builder
+    public UserDto(Integer uno,String id, String password,String studentNum,String name){
+        this.uno=uno;
+        this.id=id;
+        this.password=password;
+        this.studentNum=studentNum;
+        this.name=name;
+
     }
+
+
 }

@@ -25,24 +25,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/**").permitAll()
-                .antMatchers("/guest/**").permitAll()
-                .antMatchers("/manager/**").hasRole("MANAGER")
-                .antMatchers("/admin/**").hasRole("ADMIN")
+                .antMatchers("/register").permitAll();
 
 
-                .and()
-
-                .formLogin() /* 로그인 폼 나오도록 */
-                .loginPage("/login") /* 내가 만든 로그인 페이지 */
-                .usernameParameter("email") /* username 을 대체할 아이디 param default username */
-                .passwordParameter("password") /* password 를 대체할 패스워드 param default password */
-                .defaultSuccessUrl("/")
-                .permitAll() /* 모두 오픈 ( 반대는 denyAll() ) */
-                .and()
-                .logout().permitAll().logoutSuccessUrl("/")
-                .and()
-                .csrf().disable(); /* 로그아웃 성공시 리다이렉트 url */
 
 
 
@@ -54,13 +39,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     }
     @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+    public void configure(AuthenticationManagerBuilder auth) throws Exception {
         //log.info("build Auth global.......");
-
-        auth.inMemoryAuthentication()
-                .withUser("manager")
-                .password("{noop}1111")
-                .roles("MANAGER");
+        auth
+                // enable in memory based authentication with a user named "user" and "admin"
+                .inMemoryAuthentication().withUser("user").password("password").roles("USER")
+                .and().withUser("admin").password("password").roles("USER", "ADMIN");
     }
 
 }

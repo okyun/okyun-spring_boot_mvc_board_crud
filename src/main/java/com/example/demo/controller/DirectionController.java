@@ -8,7 +8,7 @@ import java.util.List;
 
 @Controller
 public class DirectionController {
-
+////////////////////게시판
     @RequestMapping("/")//기본 화면
     public String home(){
         return "template/index";
@@ -32,6 +32,10 @@ public class DirectionController {
     public String updateCoding(){
         return "template/updateCoding";
     }
+
+
+    ////////////////////로그인
+
 
 
 

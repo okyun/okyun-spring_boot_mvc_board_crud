@@ -25,14 +25,7 @@ public class controller {
     private final Logger log = LoggerFactory.getLogger(this.getClass());
 
 
-    private BoardService boardService;
 
-    @GetMapping("/test")
-    public String getUser(Model model) {
-        UserDto user = new UserDto("kkaok", "테스트", "web") ;
-        model.addAttribute("user", user);
-        return "test";
-    }
 
 
   }
