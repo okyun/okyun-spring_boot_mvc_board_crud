@@ -4,8 +4,10 @@ import com.example.demo.domain.BoardEntity;
 import com.example.demo.domain.UserDto;
 import com.example.demo.domain.UserEntity;
 import com.example.demo.domain.repository.UserRepository;
+import lombok.AllArgsConstructor;
 import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -14,13 +16,16 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@AllArgsConstructor
 public class UserService {
 
-    @Autowired
+
     private UserRepository userRepository;
 
     @Transactional
     public void saveUser(UserDto userDto){
+        BCryptPasswordEncoder passwordEncoder=new BCryptPasswordEncoder();
+        userDto.setPassword(passwordEncoder.encode(userDto.getPassword()));
         userRepository.save(userDto.toEntity());
     }
     @Transactional

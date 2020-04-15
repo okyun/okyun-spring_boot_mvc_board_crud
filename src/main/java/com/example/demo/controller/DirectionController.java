@@ -34,9 +34,21 @@ public class DirectionController {
     }
 
 
-    ////////////////////로그인
+    ////////////////////sep
 
 
+    @RequestMapping("/header")
+    public String header(){
+        return "sep/index_header_menu";
+    }
 
+    @RequestMapping("/footer")
+    public String footer(){
+        return "sep/index_footer";
+    }
+    @RequestMapping("/index")
+    public String testindex(){
+        return "sep/index";
+    }
 
 }

@@ -28,7 +28,7 @@ public class BoardController {
         List<BoardDto> boardList = boardService.getBoardlist();
         model.addAttribute("boardList", boardList);
 
-        return "template/listAll";
+        return "template/listAll.html";
     }
 
     @GetMapping("/create")//게시글 쓰기

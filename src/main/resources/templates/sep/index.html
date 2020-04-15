@@ -4,55 +4,20 @@
 	templated.co @templatedco
 	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
 -->
-<html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
+    <title>Intensify by TEMPLATED</title>
+    <th:block th:replace="/sep/commonHead"></th:block>
 
-</head><title>Intensify by TEMPLATED</title>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<link rel="stylesheet" href="/assets/css/main.css"/>
-<script src="header.js"></script>
-
+</head>
 <body>
 
 <!-- Header -->
-<header id="header">
-  <nav class="left">
-      <a href="#menu"><span>Menu</span></a>
-  </nav>
-  <a href="index.html" class="logo">intensify</a>
-  <nav class="right">
-      <a href="#" class="button alt">Login</a>
-      <a href="#" class="button alt">Logout</a>
-      <a href="#" class="button alt">register</a>
-  </nav>
-</header>
-
-<!--Menu -->
-<nav id="menu">
-  <ul class="links">
-      <li><p style="color: black;">학생메뉴</p></li>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="generic.html">Generic</a></li>
-      <li><a href="/listAll">listAll</a></li>
-      <li><a href="elements.html">Elements</a></li>
-      <li><a href="elements1.html">Elements</a></li>
-      <li><p style="color: black;">교수메뉴</p></li>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="generic.html">Generic</a></li>
-      <li><a href="listAll.html">Generic1</a></li>
-      <li><a href="elements.html">Elements</a></li>
-      <li><a href="elements1.html">Elements</a></li>
-  </ul>
-  <ul class="actions vertical">
-      <li><a href="#" class="button fit">Login</a></li>
-      <li><a href="#" class="button fit">Logout</a></li>
-      <li><a href="#" class="button fit">register</a></li>
-  </ul>
-</nav> 
+<th:block th:replace="/sep/index_header_menu"></th:block>
 
 
 <!-- Banner -->
+<h2>Banner</h2>
 <section id="banner">
     <div class="content">
         <h1>Ipsum sed lorem</h1>
@@ -65,6 +30,7 @@
 </section>
 
 <!-- One -->
+<h2>one</h2>
 <section id="one" class="wrapper">
     <div class="inner flex flex-3">
         <div class="flex-item left">
@@ -94,6 +60,7 @@
 </section>
 
 <!-- Two -->
+<h2>Two</h2>
 <section id="two" class="wrapper style1 special">
     <div class="inner">
         <h2>Feugiat lorem</h2>
@@ -111,6 +78,7 @@
 </section>
 
 <!-- Three -->
+<h2>Three</h2>
 <section id="three" class="wrapper">
     <div class="inner flex flex-3">
         <div class="flex-item box">
@@ -144,27 +112,14 @@
 </section>
 
 <!-- Footer -->
-<footer id="footer">
-    <div class="inner">
-        <h2>Get In Touch</h2>
-        <ul class="actions">
-            <li><span class="icon fa-phone"></span> <a href="#">(000) 000-0000</a></li>
-            <li><span class="icon fa-envelope"></span> <a href="#">information@untitled.tld</a></li>
-            <li><span class="icon fa-map-marker"></span> 123 Somewhere Road, Nashville, TN 00000</li>
-        </ul>
-    </div>
-    <div class="copyright">
-        &copy; Untitled. Design <a href="https://templated.co">TEMPLATED</a>. Images <a href="https://unsplash.com">Unsplash</a>.
-    </div>
-</footer>
-
+<th:block th:replace="/sep/index_footer"></th:block>
 <!-- Scripts -->
 
-<script src="/assets/js/jquery.min.js"></script>
-<script src="/assets/js/jquery.scrolly.min.js"></script>
-<script src="/assets/js/skel.min.js"></script>
-<script src="/assets/js/util.js"></script>
-<script src="/assets/js/main.js"></script>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/skel.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
 
 
 

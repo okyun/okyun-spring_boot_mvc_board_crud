@@ -29,12 +29,15 @@ public class UserEntity {
     private String name;
     //private Date wirteDate;
 
+    @Column(name = "role",length = 10,nullable = false)
+    private String role;
     @Builder
-    public UserEntity(Integer uno, String id,String password,String studentNum,String name){
+    public UserEntity(Integer uno, String id,String password,String studentNum,String name,String role){
         this.uno=uno;
         this.id=id;
         this.password=password;
         this.studentNum=studentNum;
         this.name=name;
+        this.role=role;
     }
 }
