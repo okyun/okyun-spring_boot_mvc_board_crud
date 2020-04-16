@@ -6,9 +6,9 @@ import lombok.*;
 @ToString
 @Getter
 @Setter
-public class UserDto {
+public class UserDto {//dto는 controller에서만 적촉가능
 //uno,id,password,studentNum,name
-private Integer uno;
+    private Integer uno;
     private String id;
     private String password;
     private String studentNum;

@@ -8,10 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -42,6 +39,14 @@ public class BoardController {
         boardService.savePost(boardDto);
         model.addAttribute("result","success");//?result=success
         return "redirect:/listAll";//url: http://localhost:9090/listAll로 이동하기
+    }
+    ///codingResult
+
+    @RequestMapping(value="/codingResult", method=RequestMethod.POST)
+    @ResponseBody
+    public String codingResultPost(BoardDto boardDto,Model model){
+
+        return boardDto.getContent();
     }
 
     @GetMapping("listAll/{bno}") //게시글 detail 들어가기

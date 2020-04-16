@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Getter
 @Entity
 @Table(name = "user")
-public class UserEntity {
+public class UserEntity {//entity는 DB와만 접촉가능
     //uno,id,password,studentNum,name
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,6 +31,7 @@ public class UserEntity {
 
     @Column(name = "role",length = 10,nullable = false)
     private String role;
+
     @Builder
     public UserEntity(Integer uno, String id,String password,String studentNum,String name,String role){
         this.uno=uno;
@@ -40,4 +41,6 @@ public class UserEntity {
         this.name=name;
         this.role=role;
     }
+
+
 }

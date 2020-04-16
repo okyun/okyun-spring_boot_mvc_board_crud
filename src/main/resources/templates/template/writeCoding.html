@@ -8,6 +8,25 @@
 <head>
     <title>숙제 제출 페이지</title>
     <th:block th:replace="/sep/commonHead"></th:block>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/booking-js/2.6.0/booking.min.js"></script>
+    <script>
+        function codingResultAjax() {
+
+            $.ajax({
+                url: "./codingResult",
+                type: "POST",
+                data: $("#writeCodingForm").serialize(),
+                success: function(data){
+
+                    $('#content_result').text(data);
+
+                },
+                error: function(){
+                    alert("serialize err");
+                }
+            });
+        }
+    </script>
 </head>
 <body class="subpage">
 
@@ -23,7 +42,7 @@
             <p>여기서 숙제를 바로 제출할 수 있습니다.</p>
         </header>
 
-        <form  action="/create" method="POST">
+        <form id="writeCodingForm" method="POST">
           <div class="row uniform">
               <!--제목 -->
               <div class="9u 12u$(small)">
@@ -47,12 +66,16 @@
             </div>
               <!--코드 결과물 -->
             <div class="12u$">
-              <textarea name="message" id="message" placeholder="코딩 결과물" rows="6" cols="95" readonly></textarea>
+              <textarea name="content_result" id="content_result" placeholder="코딩 결과물" rows="6" cols="95" readonly></textarea>
           </div>
 
-              <!--제출 버튼-->
+              <!--숙제 제출 버튼-->
               <div class="3u$ 12u$(small)">
-                  <input type="submit" value="숙제 제출" class="fit"/>
+                  <input type="submit" value="숙제 제출" class="fit" formaction="/create"/>
+              </div>
+              <!--코드 결과보기 버튼-->
+              <div class="3u$ 12u$(small)">
+                  <input onclick="codingResultAjax();" id="codingResult" name="codingResult" value="코드 결과보기" class="fit" formaction="/codingResult"/>
               </div>
           </div>
       </form>
@@ -61,19 +84,7 @@
 </section>
 
 <!-- Footer -->
-<footer id="footer">
-    <div class="inner">
-        <h2>Get In Touch</h2>
-        <ul class="actions">
-            <li><span class="icon fa-phone"></span> <a href="#">(000) 000-0000</a></li>
-            <li><span class="icon fa-envelope"></span> <a href="#">information@untitled.tld</a></li>
-            <li><span class="icon fa-map-marker"></span> 123 Somewhere Road, Nashville, TN 00000</li>
-        </ul>
-    </div>
-    <div class="copyright">
-        &copy; Untitled. Design <a href="https://templated.co">TEMPLATED</a>. Images <a href="https://unsplash.com">Unsplash</a>.
-    </div>
-</footer>
+<th:block th:replace="/sep/index_footer"></th:block>
 
 <!-- Scripts -->
 <script src="/assets/js/jquery.min.js"></script>
