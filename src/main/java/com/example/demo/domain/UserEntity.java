@@ -11,11 +11,12 @@ import javax.persistence.*;
 @Table(name = "user")
 public class UserEntity {//entity는 DB와만 접촉가능
     //uno,id,password,studentNum,name
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     @Column(name = "uno")
     private Integer uno;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id",length = 10,nullable = false)
     private String id;
 

@@ -7,6 +7,10 @@ import com.example.demo.domain.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +21,7 @@ import java.util.Optional;
 
 @Service
 @AllArgsConstructor
-public class UserService {
+public class UserService implements UserDetailsService {
 
 
     private UserRepository userRepository;
@@ -29,9 +33,9 @@ public class UserService {
         userRepository.save(userDto.toEntity());
     }
     @Transactional
-    public UserDto getUser(Integer uno){
+    public UserDto getUser(String id){
 
-        Optional<UserEntity>userEntityWapper=userRepository.findById(uno);
+        Optional<UserEntity>userEntityWapper=userRepository.findById(id);
         UserEntity userEntity=userEntityWapper.get();
 
         UserDto userDto=UserDto.builder()
@@ -64,5 +68,21 @@ public class UserService {
 
         return userDtoList;
 
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String id) throws UsernameNotFoundException {
+        Optional<UserEntity>userEntityWapper=userRepository.findById(id);
+        UserEntity userEntity=userEntityWapper.get();
+        List<GrantedAuthority> authorities = new ArrayList<>();
+
+        if (("admin@example.com").equals(userEntity.getRole())) {
+            authorities.add(new SimpleGrantedAuthority(Role.ADMIN.getValue()));
+        } else {
+            authorities.add(new SimpleGrantedAuthority(Role.MEMBER.getValue()));
+        }
+
+
+        return null;
     }
 }
