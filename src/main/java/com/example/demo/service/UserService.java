@@ -1,13 +1,16 @@
 package com.example.demo.service;
 
 import com.example.demo.domain.BoardEntity;
+import com.example.demo.domain.Role;
 import com.example.demo.domain.UserDto;
 import com.example.demo.domain.UserEntity;
 import com.example.demo.domain.repository.UserRepository;
 import lombok.AllArgsConstructor;
-import org.apache.catalina.User;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -39,11 +42,12 @@ public class UserService implements UserDetailsService {
         UserEntity userEntity=userEntityWapper.get();
 
         UserDto userDto=UserDto.builder()
-                .uno(userEntity.getUno())
-                .id(userEntity.getId())
-                .password(userEntity.getPassword())
-                .studentNum(userEntity.getStudentNum())
-                .name(userEntity.getName())
+                .uno(userEntity.getUno())//1
+                .id(userEntity.getId())//2
+                .password(userEntity.getPassword())//3
+                .studentNum(userEntity.getStudentNum())//4
+                .name(userEntity.getName())//5
+                .authority(userEntity.getAuthority())//6
                 .build();
 
         return userDto;
@@ -56,11 +60,12 @@ public class UserService implements UserDetailsService {
 
         for (UserEntity userEntity : userEntities){
             UserDto userDto=UserDto.builder()
-                    .uno(userEntity.getUno())
-                    .id(userEntity.getId())
-                    .password(userEntity.getPassword())
-                    .studentNum(userEntity.getStudentNum())
-                    .name(userEntity.getName())
+                    .uno(userEntity.getUno())//1
+                    .id(userEntity.getId())//2
+                    .password(userEntity.getPassword())//3
+                    .studentNum(userEntity.getStudentNum())//4
+                    .name(userEntity.getName())//5
+                    .authority(userEntity.getAuthority())//6
                     .build();
 
             userDtoList.add(userDto);
@@ -70,19 +75,52 @@ public class UserService implements UserDetailsService {
 
     }
 
+
+
+//    @Override
+//    public UserDetails loadUserByUsername(String id) throws UsernameNotFoundException {
+//        Optional<UserEntity>userEntityWapper=userRepository.findById(id);
+//        UserEntity userEntity=userEntityWapper.get();
+//        List<GrantedAuthority> authorities = new ArrayList<>();
+//
+//      return new User(userEntity.getId(), userEntity.getPassword(), authorities);
+//        UserDto userDto=UserDto.builder()
+//                .uno(userEntity.getUno())//1
+//                .id(userEntity.getId())//2
+//                .password(userEntity.getPassword())//3
+//                .studentNum(userEntity.getStudentNum())//4
+//                .name(userEntity.getName())//5
+//                .authority(userEntity.getAuthority())//6
+//                .build();
+//
+//        return userDto;
+//    }
+
     @Override
     public UserDetails loadUserByUsername(String id) throws UsernameNotFoundException {
         Optional<UserEntity>userEntityWapper=userRepository.findById(id);
         UserEntity userEntity=userEntityWapper.get();
         List<GrantedAuthority> authorities = new ArrayList<>();
 
-        if (("admin@example.com").equals(userEntity.getRole())) {
-            authorities.add(new SimpleGrantedAuthority(Role.ADMIN.getValue()));
-        } else {
-            authorities.add(new SimpleGrantedAuthority(Role.MEMBER.getValue()));
-        }
+//        if (("ROLE_MEMBER").equals(userEntity.getAuthority())) {
+//            authorities.add(new SimpleGrantedAuthority(Role.MEMBER.getValue()));
+//        } if (("ROLE_STUDENT").equals(userEntity.getAuthority())) {
+//            authorities.add(new SimpleGrantedAuthority(Role.STUDENT.getValue()));
+//        } if (("ROLE_TEACHER").equals(userEntity.getAuthority())) {
+//            authorities.add(new SimpleGrantedAuthority(Role.TEACHER.getValue()));
+//        } else {
+//            authorities.add(new SimpleGrantedAuthority(Role.ADMIN.getValue()));
+//        }
+        UserDto userDto=UserDto.builder()
+                .uno(userEntity.getUno())//1
+                .id(userEntity.getId())//2
+                .password(userEntity.getPassword())//3
+                .studentNum(userEntity.getStudentNum())//4
+                .name(userEntity.getName())//5
+                .authority(userEntity.getAuthority())//6
+                .build();
 
+        return new User(userEntity.getId(), userEntity.getPassword(), userDto.getAuthorities());
 
-        return null;
     }
 }
