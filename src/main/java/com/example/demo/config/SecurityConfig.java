@@ -36,25 +36,24 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers("/admin/**").hasRole("ADMIN")
-                .antMatchers("/user/myinfo").hasRole("MEMBER")
+                .antMatchers("/user/info").hasRole("MEMBER")
                 .antMatchers("/student/**").hasRole("STUDENT")
                 .antMatchers("/teacher/**").hasRole("TEACHER")
-                .antMatchers("/**").permitAll()
+
                 .and() // 로그인 설정
                 .formLogin()
-                .loginPage("/user/login")
+                .loginPage("/login")
                 .usernameParameter("id")
-                .defaultSuccessUrl("/user/login/result")
+                .defaultSuccessUrl("/login/result")
                 .permitAll()
                 .and() // 로그아웃 설정
                 .logout()
-                .logoutRequestMatcher(new AntPathRequestMatcher("/user/logout"))
-                .logoutSuccessUrl("/user/logout/result")
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                .logoutSuccessUrl("/index")
                 .invalidateHttpSession(true)
                 .and()
                 // 403 예외처리 핸들링
                 .exceptionHandling().accessDeniedPage("/user/denied")
-
                 .and()
                 .csrf().disable();
 

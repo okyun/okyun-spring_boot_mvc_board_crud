@@ -12,13 +12,15 @@ import javax.persistence.*;
 public class UserEntity {//entity는 DB와만 접촉가능
     //uno,id,password,studentNum,name
 
-    @Column(name = "uno")//1
-    private Integer uno;
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)//2
     @Column(name = "id",length = 10,nullable = false)
     private String id;
+
+    @Column(name = "uno")//1
+    private Integer uno;
+
+
 
     @Column(name = "password",length = 10,nullable = false)//3
     private String password;

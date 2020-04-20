@@ -19,32 +19,59 @@ public class UserController {
     private final Logger log = LoggerFactory.getLogger(this.getClass());
     private UserService userService;
 
+    // 메인 페이지
+    @GetMapping("/index")
+    public String index() {
+        return "user/index";
+    }
+
 
     @GetMapping("/login")//로그인 페이지
     public String loginGet(){
-        return "login/login";
+        return "user/login";
     }
 
-    @PostMapping("/login")
+    @GetMapping("/login/result")//로그인 성공
     public String loginPost(UserDto userDto, Model model){
         userService.saveUser(userDto);
         model.addAttribute("result","success");//?result=success
 
-        return "redirect:/";
+        return "user/loginSuccess";
     }
 
-    @GetMapping("/register")//로그인 페이지
+    @GetMapping("/register")//회원가입 페이지
     public String registerGet(){
-        return "login/register";
+        return "user/register";
     }
 
-    @PostMapping("/register")
-    public String registerPost(UserDto userDto, Model model){
+    @PostMapping("/register")///회원가입 처리
+    public String registerPost(UserDto userDto){
         userService.saveUser(userDto);
-        log.info("userDto다"+userDto.toString());
-        model.addAttribute("result","success");//?result=success
-
         return "redirect:/login";
+    }
+    @GetMapping("/logout")//로그아웃
+    public String logout(){
+
+        return "user/logout";
+    }
+    @GetMapping("/logout/result")
+    public String dispLogout() {
+        return "user/logout";
+    }
+    @GetMapping("/user/info")//마이 페이지
+    public String myinfo(){
+        return "user/myinfo";
+    }
+    // 어드민 페이지
+    @GetMapping("/admin")
+    public String dispAdmin() {
+        return "user/admin";
+    }
+
+
+    @GetMapping("/user/denied")// 접근 거부 페이지
+    public String dispDenied() {
+        return "/denied";
     }
 
 }

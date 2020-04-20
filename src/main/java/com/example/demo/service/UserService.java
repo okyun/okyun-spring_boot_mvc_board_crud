@@ -31,8 +31,7 @@ public class UserService implements UserDetailsService {
 
     @Transactional
     public void saveUser(UserDto userDto){
-        BCryptPasswordEncoder passwordEncoder=new BCryptPasswordEncoder();
-        userDto.setPassword(passwordEncoder.encode(userDto.getPassword()));
+
         userRepository.save(userDto.toEntity());
     }
     @Transactional
