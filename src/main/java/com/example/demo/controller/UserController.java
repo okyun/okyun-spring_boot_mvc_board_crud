@@ -3,14 +3,13 @@ package com.example.demo.controller;
 import com.example.demo.domain.UserDto;
 import com.example.demo.service.UserService;
 import lombok.AllArgsConstructor;
-import org.apache.catalina.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 @AllArgsConstructor
@@ -26,28 +25,27 @@ public class UserController {
     }
 
 
-    @GetMapping("/login")//로그인 페이지
+    @GetMapping("user/login")//로그인 페이지
     public String loginGet(){
-        return "user/login";
+        return "user/login.html";
     }
 
-    @GetMapping("/login/result")//로그인 성공
-    public String loginPost(UserDto userDto, Model model){
-        userService.saveUser(userDto);
-        model.addAttribute("result","success");//?result=success
 
-        return "user/loginSuccess";
+    @GetMapping("/user/login/result")
+    public String dispLoginResult() {
+        return "user/loginS";
     }
 
-    @GetMapping("/register")//회원가입 페이지
+    @GetMapping("user/register")//회원가입 페이지
     public String registerGet(){
         return "user/register";
     }
 
-    @PostMapping("/register")///회원가입 처리
+    @PostMapping("user/register")///회원가입 처리
     public String registerPost(UserDto userDto){
         userService.saveUser(userDto);
-        return "redirect:/login";
+        log.info("아 여기는 registerPost!!!!!!!!!!");
+        return "redirect:/index";
     }
     @GetMapping("/logout")//로그아웃
     public String logout(){
@@ -71,7 +69,7 @@ public class UserController {
 
     @GetMapping("/user/denied")// 접근 거부 페이지
     public String dispDenied() {
-        return "/denied";
+        return "user/denied";
     }
 
 }

@@ -7,6 +7,8 @@ import com.example.demo.domain.UserEntity;
 import com.example.demo.domain.repository.UserRepository;
 import lombok.AllArgsConstructor;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -26,13 +28,18 @@ import java.util.Optional;
 @AllArgsConstructor
 public class UserService implements UserDetailsService {
 
-
     private UserRepository userRepository;
-
+    private final Logger log = LoggerFactory.getLogger(this.getClass());
     @Transactional
     public void saveUser(UserDto userDto){
-
+         //userRepository.save(userDto.toEntity());
+        log.info("아 여기는 회원가입saveUser!!!!!!!!!!");
+    
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        userDto.setPassword(passwordEncoder.encode(userDto.getPassword()));
         userRepository.save(userDto.toEntity());
+
+        log.info("00000000000000"+userDto.toString());
     }
     @Transactional
     public UserDto getUser(String id){
@@ -41,10 +48,9 @@ public class UserService implements UserDetailsService {
         UserEntity userEntity=userEntityWapper.get();
 
         UserDto userDto=UserDto.builder()
-                .uno(userEntity.getUno())//1
-                .id(userEntity.getId())//2
+                .username(userEntity.getUsername())//2
                 .password(userEntity.getPassword())//3
-                .studentNum(userEntity.getStudentNum())//4
+                .studentnum(userEntity.getStudentnum())//4
                 .name(userEntity.getName())//5
                 .authority(userEntity.getAuthority())//6
                 .build();
@@ -59,10 +65,9 @@ public class UserService implements UserDetailsService {
 
         for (UserEntity userEntity : userEntities){
             UserDto userDto=UserDto.builder()
-                    .uno(userEntity.getUno())//1
-                    .id(userEntity.getId())//2
+                    .username(userEntity.getUsername())//2
                     .password(userEntity.getPassword())//3
-                    .studentNum(userEntity.getStudentNum())//4
+                    .studentnum(userEntity.getStudentnum())//4
                     .name(userEntity.getName())//5
                     .authority(userEntity.getAuthority())//6
                     .build();
@@ -94,32 +99,39 @@ public class UserService implements UserDetailsService {
 //
 //        return userDto;
 //    }
-
+//
     @Override
-    public UserDetails loadUserByUsername(String id) throws UsernameNotFoundException {
-        Optional<UserEntity>userEntityWapper=userRepository.findById(id);
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        Optional<UserEntity>userEntityWapper=userRepository.findByUsername(username);
         UserEntity userEntity=userEntityWapper.get();
         List<GrantedAuthority> authorities = new ArrayList<>();
+        log.info("44444444444444loadUserByUsername");
 
-//        if (("ROLE_MEMBER").equals(userEntity.getAuthority())) {
-//            authorities.add(new SimpleGrantedAuthority(Role.MEMBER.getValue()));
-//        } if (("ROLE_STUDENT").equals(userEntity.getAuthority())) {
-//            authorities.add(new SimpleGrantedAuthority(Role.STUDENT.getValue()));
-//        } if (("ROLE_TEACHER").equals(userEntity.getAuthority())) {
-//            authorities.add(new SimpleGrantedAuthority(Role.TEACHER.getValue()));
-//        } else {
-//            authorities.add(new SimpleGrantedAuthority(Role.ADMIN.getValue()));
-//        }
-        UserDto userDto=UserDto.builder()
-                .uno(userEntity.getUno())//1
-                .id(userEntity.getId())//2
-                .password(userEntity.getPassword())//3
-                .studentNum(userEntity.getStudentNum())//4
-                .name(userEntity.getName())//5
-                .authority(userEntity.getAuthority())//6
-                .build();
+        if (("ROLE_USER").equals(userEntity.getAuthority())) {
+            authorities.add(new SimpleGrantedAuthority(Role.USER.getValue()));
+            log.info("5555555555555555555555getrole-USER");
+        }
+        if (("ROLE_MEMBER").equals(userEntity.getAuthority())) {
+            authorities.add(new SimpleGrantedAuthority(Role.MEMBER.getValue()));
+            log.info("5555555555555555555555getrole-MEMBER");
+        }
+        if (("ROLE_ADMIN").equals(userEntity.getAuthority())) {
+            authorities.add(new SimpleGrantedAuthority(Role.ADMIN.getValue()));
+            log.info("5555555555555555555555getrole-ADMIN");
+        } if (("ROLE_STUDENT").equals(userEntity.getAuthority())) {
+            authorities.add(new SimpleGrantedAuthority(Role.STUDENT.getValue()));
+            log.info("5555555555555555555555getrole-STUDENT");
+        }
+        if (("ROLE_TEACHER").equals(userEntity.getAuthority())) {
+            authorities.add(new SimpleGrantedAuthority(Role.TEACHER.getValue()));
+            log.info("5555555555555555555555getrole-TEACHER");
+        }
+         User user=new User(userEntity.getUsername(), userEntity.getPassword(), authorities);
 
-        return new User(userEntity.getId(), userEntity.getPassword(), userDto.getAuthorities());
+        log.info("66666666666666666666666666666666toString"+ user.toString());
+
+
+        return user;
 
     }
 }
