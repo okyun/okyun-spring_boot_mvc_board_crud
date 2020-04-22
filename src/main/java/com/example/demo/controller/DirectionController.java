@@ -1,10 +1,7 @@
 package com.example.demo.controller;
 
-import com.example.demo.domain.BoardEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import java.util.List;
 
 @Controller
 public class DirectionController {
@@ -48,7 +45,7 @@ public class DirectionController {
     }
     @RequestMapping("/index")
     public String testindex(){
-        return "sep/index";
+        return "indexTest";
     }
 
 }

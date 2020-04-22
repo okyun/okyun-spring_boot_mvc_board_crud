@@ -1,39 +1,41 @@
 
 <!-- Header -->
-<header id="header">
+<header id="header" xmlns:sec="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
   <nav class="left">
       <a href="#menu"><span>Menu</span></a>
   </nav>
-  <a href="index.html" class="logo">I C U</a>
+  <a href="indexTest.html" class="logo">I C U</a>
   <nav class="right">
-      <a href="/login" class="button alt">Login</a>
-      <a href="#" class="button alt">Logout</a>
-      <a href="/register" class="button alt">register</a>
+      <a sec:authorize="isAnonymous()" th:href="@{/user/login}"class="button alt">Login</a>
+      <a  sec:authorize="isAuthenticated()" th:href="@{/user/logout}" class="button alt">Logout</a>
+      <a sec:authorize="isAnonymous()" th:href="@{/user/register}" class="button alt">register</a>
   </nav>
 </header>
 
 
 <!--Menu -->
-<nav id="menu">
+<nav id="menu" xmlns:sec="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
   <ul class="links">
-      <li><p style="color: black;"><b>학생메뉴</b></p></li>  
-      <li><a href="/create">숙제제출</a></li>
-      <li><a href="/listAll">listAll</a></li>
-      <li><a href="generic1.html">Generic1</a></li>
-      <li><a href="elements.html">Elements</a></li>
-      <li><a href="elements1.html">Elements</a></li>
+      <li><p sec:authorize="isAnonymous()" style="color: black;"><b>로그인을 하면 메뉴가 보입니다</b></p></li>
 
-      <li><p style="color: black;"><b>교수메뉴</b></p></li>  
-      <li><a href="index.html">숙제검사</a></li>
-      <li><a href="generic.html">Generic</a></li>
-      <li><a href="generic1.html">Generic1</a></li>
-      <li><a href="elements.html">Elements</a></li>
-      <li><a href="elements1.html">Elements</a></li>
+      <li><p sec:authorize="hasRole('ROLE_STUDENT')" style="color: black;"><b>학생메뉴</b></p></li>
+      <li><a sec:authorize="hasRole('ROLE_STUDENT')" href="/create">숙제제출</a></li>
+      <li><a sec:authorize="hasRole('ROLE_STUDENT')" href="/listAll">listAll</a></li>
+      <li><a sec:authorize="hasRole('ROLE_STUDENT')" href="generic1.html">Generic1</a></li>
+      <li><a sec:authorize="hasRole('ROLE_STUDENT')" href="elements.html">Elements</a></li>
+      <li><a sec:authorize="hasRole('ROLE_STUDENT')" href="elements1.html">Elements</a></li>
+
+      <li><p sec:authorize="hasRole('ROLE_TEACHER')" style="color: black;"><b>교수메뉴</b></p></li>
+      <li><a sec:authorize="hasRole('ROLE_TEACHER')" href="indexTest.html">숙제검사</a></li>
+      <li><a sec:authorize="hasRole('ROLE_TEACHER')" href="generic.html">Generic</a></li>
+      <li><a sec:authorize="hasRole('ROLE_TEACHER')" href="generic1.html">Generic1</a></li>
+      <li><a sec:authorize="hasRole('ROLE_TEACHER')" href="elements.html">Elements</a></li>
+      <li><a sec:authorize="hasRole('ROLE_TEACHER')" href="elements1.html">Elements</a></li>
   </ul>
   <ul class="actions vertical">
-      <li><a href="#" class="button fit">Login</a></li>
-      <li><a href="#" class="button fit">Logout</a></li>
-      <li><a href="#" class="button fit">register</a></li>
+      <li><a sec:authorize="isAnonymous()" th:href="@{/user/login}" class="button fit">Login</a></li>
+      <li><a sec:authorize="isAuthenticated()" th:href="@{/user/logout}" class="button fit">Logout</a></li>
+      <li><a sec:authorize="isAnonymous()" th:href="@{/user/register}" class="button fit">register</a></li>
   </ul>
 </nav> 
 

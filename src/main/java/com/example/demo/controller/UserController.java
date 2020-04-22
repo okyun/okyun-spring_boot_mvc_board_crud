@@ -47,7 +47,7 @@ public class UserController {
         log.info("아 여기는 registerPost!!!!!!!!!!");
         return "redirect:/index";
     }
-    @GetMapping("/logout")//로그아웃
+    @GetMapping("user/logout")//로그아웃
     public String logout(){
 
         return "user/logout";

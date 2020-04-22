@@ -13,7 +13,18 @@
     <input type="password" id="passoword" name="password" placeholder="비밀번호">
     <input type="text" id="studentnum" name="studentnum" placeholder="학번 입력">
     <input type="text" id="name" name="name" placeholder="이름 입력해주세요">
-    <input type="text" id="authority" name="authority" placeholder="권한 입력해주세요" value="ROLE_USER">
+<!--    <input type="text"   placeholder="권한 입력해주세요" value="ROLE_USER">-->
+    <div class="12u$">
+        <div class="select-wrapper">
+            <select name="authority" id="authority">
+                <option value="">- 권한 선택 -</option>
+                <option value="ROLE_TEACHER">교수</option>
+                <option value="ROLE_STUDENT">학생</option>
+                <option value="ROLE_MEMBER">멤버</option>
+                <option value="ROLE_USER">유저</option>
+            </select>
+        </div>
+    </div>
     <button type="submit">가입하기</button>
 </form>
 </body>
