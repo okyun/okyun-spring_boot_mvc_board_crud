@@ -35,7 +35,6 @@ public class UserDto {//dto는 controller에서만 적촉가능
 
     @Builder
     public UserDto(String username, String password,String studentnum,String name,String authority){
-
         this.username=username;//2
         this.password=password;//3
         this.studentnum=studentnum;//4

@@ -26,14 +26,22 @@ public class BoardEntity {
     private String writer;
     //private Date wirteDate;
 
+    @Column(name = "classname")
+    private String classname;
+
+    @Column(name = "grade")
+    private String grade;
+
 
 
 
     @Builder
-    public BoardEntity(Integer bno, String title, String content, String writer) {
+    public BoardEntity(Integer bno, String title, String content, String writer,String grade,String classname) {
         this.bno = bno;
         this.writer = writer;
         this.title = title;
         this.content = content;
+        this.grade=grade;
+        this.classname=classname;
     }
 }
