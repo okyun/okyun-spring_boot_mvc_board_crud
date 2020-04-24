@@ -28,12 +28,17 @@ public class BoardController {
         return "template/listAll.html";
     }
 
+    @GetMapping("/codemirror")//게시글 쓰기
+    public String codemirror(){
+        return "template/codeMirror";
+    }
+
     @GetMapping("/create")//게시글 쓰기
     public String creatGet(){
         return "template/writeCoding";
     }
 
-    @PostMapping("/create")//게시글 쓰기 성공
+    @RequestMapping(value="/create", method=RequestMethod.POST)
     public String createPost(BoardDto boardDto,Model model){
 
         boardService.savePost(boardDto);

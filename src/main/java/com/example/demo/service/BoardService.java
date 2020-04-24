@@ -33,8 +33,7 @@ public class BoardService {
                 .title(boardEntity.getTitle())
                 .content(boardEntity.getContent())
                 .writer(boardEntity.getWriter())
-                .grade(boardEntity.getGrade())
-                .classname(boardEntity.getClassname())
+
                 .build();
 
         return boardDto;
@@ -53,8 +52,6 @@ public class BoardService {
                     .title(boardEntity.getTitle())
                     .content(boardEntity.getContent())
                     .writer(boardEntity.getWriter())
-                    .grade(boardEntity.getGrade())
-                    .classname(boardEntity.getClassname())
                     .build();
 
             boardDtoList.add(boardDTO);
