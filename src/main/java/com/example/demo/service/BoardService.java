@@ -32,8 +32,8 @@ public class BoardService {
                 .bno(boardEntity.getBno())
                 .title(boardEntity.getTitle())
                 .content(boardEntity.getContent())
-                .writer(boardEntity.getWriter())
-
+                .name(boardEntity.getName())
+                .username(boardEntity.getUsername())
                 .build();
 
         return boardDto;
@@ -51,7 +51,8 @@ public class BoardService {
                     .bno(boardEntity.getBno())
                     .title(boardEntity.getTitle())
                     .content(boardEntity.getContent())
-                    .writer(boardEntity.getWriter())
+                    .name(boardEntity.getName())
+                    .username(boardEntity.getUsername())
                     .build();
 
             boardDtoList.add(boardDTO);

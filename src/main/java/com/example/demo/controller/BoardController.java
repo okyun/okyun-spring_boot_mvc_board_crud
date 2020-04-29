@@ -1,11 +1,14 @@
 package com.example.demo.controller;
 
 import com.example.demo.domain.BoardDto;
+import com.example.demo.domain.UserDto;
 import com.example.demo.service.BoardService;
+import com.example.demo.service.UserService;
 import com.sun.org.apache.xpath.internal.operations.Mod;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +21,7 @@ public class BoardController {
     private final Logger log = LoggerFactory.getLogger(this.getClass());
 
     private BoardService boardService;
+    private UserService userService;
 
     @GetMapping("/listAll")
     public String list(Model model) {
@@ -35,6 +39,7 @@ public class BoardController {
 
     @GetMapping("/create")//게시글 쓰기
     public String creatGet(){
+
         return "template/writeCoding";
     }
 

@@ -9,10 +9,12 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 
+
+
 @ToString
 @Getter
 @Setter
-public class UserDto {//dto는 controller에서만 적촉가능
+public class UserDto implements UserDetails{//dto는 controller에서만 적촉가능
 //uno,id,password,studentNum,name
 
     private String username;//2
@@ -42,7 +44,33 @@ public class UserDto {//dto는 controller에서만 적촉가능
         this.authority=authority;//6
 
     }
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        ArrayList<GrantedAuthority> auth = new ArrayList<GrantedAuthority>();
+        auth.add(new SimpleGrantedAuthority(authority));
+        return auth;
 
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
 
 
 }

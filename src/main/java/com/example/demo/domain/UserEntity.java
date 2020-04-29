@@ -1,15 +1,20 @@
 package com.example.demo.domain;
 
 import lombok.*;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Collection;
 
 @ToString
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @Entity
 @Table(name = "user")
-public class UserEntity {//entity는 DB와만 접촉가능
+public class UserEntity  {//entity는 DB와만 접촉가능
     //uno,id,password,studentNum,name
 
     @Id
@@ -39,6 +44,7 @@ public class UserEntity {//entity는 DB와만 접촉가능
         this.name=name;
         this.authority=authority;
     }
+
 
 
 }

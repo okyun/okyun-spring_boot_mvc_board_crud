@@ -22,8 +22,8 @@ public class BoardEntity {
     @Column(name = "content",nullable = false)
     private String content;
 
-    @Column(name = "writer",length = 10,nullable = false)
-    private String writer;
+    @Column(name = "name",length = 10,nullable = false)
+    private String name;
     //private Date wirteDate;
 
     @Column(name = "classname")
@@ -32,16 +32,22 @@ public class BoardEntity {
     @Column(name = "grade")
     private String grade;
 
+    @Column(name = "username")
+    private String username;
+
+
+
 
 
 
     @Builder
-    public BoardEntity(Integer bno, String title, String content, String writer,String grade,String classname) {
+    public BoardEntity(Integer bno, String title, String content, String name,String grade,String classname,String username) {
         this.bno = bno;
-        this.writer = writer;
+        this.name = name;
         this.title = title;
         this.content = content;
         this.grade=grade;
         this.classname=classname;
+        this.username=username;
     }
 }

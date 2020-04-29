@@ -41,10 +41,11 @@ public class UserService implements UserDetailsService {
 
         log.info("00000000000000"+userDto.toString());
     }
-    @Transactional
-    public UserDto getUser(String id){
 
-        Optional<UserEntity>userEntityWapper=userRepository.findById(id);
+    @Transactional
+    public UserDto getUser(String username){
+
+        Optional<UserEntity>userEntityWapper=userRepository.findByUsername(username);
         UserEntity userEntity=userEntityWapper.get();
 
         UserDto userDto=UserDto.builder()
@@ -80,26 +81,6 @@ public class UserService implements UserDetailsService {
     }
 
 
-
-//    @Override
-//    public UserDetails loadUserByUsername(String id) throws UsernameNotFoundException {
-//        Optional<UserEntity>userEntityWapper=userRepository.findById(id);
-//        UserEntity userEntity=userEntityWapper.get();
-//        List<GrantedAuthority> authorities = new ArrayList<>();
-//
-//      return new User(userEntity.getId(), userEntity.getPassword(), authorities);
-//        UserDto userDto=UserDto.builder()
-//                .uno(userEntity.getUno())//1
-//                .id(userEntity.getId())//2
-//                .password(userEntity.getPassword())//3
-//                .studentNum(userEntity.getStudentNum())//4
-//                .name(userEntity.getName())//5
-//                .authority(userEntity.getAuthority())//6
-//                .build();
-//
-//        return userDto;
-//    }
-//
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Optional<UserEntity>userEntityWapper=userRepository.findByUsername(username);
@@ -127,11 +108,11 @@ public class UserService implements UserDetailsService {
             log.info("5555555555555555555555getrole-TEACHER");
         }
          User user=new User(userEntity.getUsername(), userEntity.getPassword(), authorities);
+         UserDto userDto=new UserDto(userEntity.getUsername(),userEntity.getPassword(),userEntity.getStudentnum(),userEntity.getName(),userEntity.getAuthority());
+        log.info("66666666666666666666666666666666userEntity.getAuthority()"+ userEntity.getAuthority());
 
-        log.info("66666666666666666666666666666666toString"+ user.toString());
 
-
-        return user;
+        return userDto;
 
     }
 }

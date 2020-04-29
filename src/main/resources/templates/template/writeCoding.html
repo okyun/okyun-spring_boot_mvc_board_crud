@@ -4,7 +4,7 @@
 	templated.co @templatedco
 	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
 -->
-<html xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <title>숙제 제출 페이지</title>
     <th:block th:replace="/sep/commonHead"></th:block>
@@ -47,6 +47,11 @@
               <!--제목 -->
               <div class="9u 12u$(small)">
                   <input name="title" type="text"  id="title" value="" placeholder="제목" required="required"/>
+              </div>
+              <!--작성장 -->
+              <div class="9u 12u$(small)">
+                  작성자:
+                  <span sec:authentication="principal.name"></span>
               </div>
               <!--수업선택 drop select -->
               <div class="12u$">
