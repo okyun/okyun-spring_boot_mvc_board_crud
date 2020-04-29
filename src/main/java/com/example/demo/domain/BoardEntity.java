@@ -19,7 +19,7 @@ public class BoardEntity {
     @Column(name = "title",length = 10,nullable = false)
     private String title;
 
-    @Column(name = "content",columnDefinition = "TEXT",nullable = false)
+    @Column(name = "content",nullable = false)
     private String content;
 
     @Column(name = "writer",length = 10,nullable = false)
