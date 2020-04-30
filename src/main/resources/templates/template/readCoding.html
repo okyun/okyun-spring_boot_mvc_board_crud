@@ -4,7 +4,7 @@
 	templated.co @templatedco
 	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
 -->
-<html xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <title>숙제 제출 페이지</title>
     <th:block th:replace="/sep/commonHead"></th:block>
@@ -29,18 +29,13 @@
                 <div class="9u 12u$(small)">
                     <textarea name="title" id="title" placeholder="제목" rows="1" cols="2" th:text="${boardDto.content}" readonly></textarea>
                 </div>
-                <!--수업선택 drop select -->
-                <div class="12u$">
-                    <div class="select-wrapper">
-                        <select name="category" id="category">
-                            <option value="">- 수업선택 -</option>
-                            <option value="1">Manufacturing</option>
-                            <option value="1">Shipping</option>
-                            <option value="1">Administration</option>
-                            <option value="1">Human Resources</option>
-                        </select>
-                    </div>
+
+                <!--작성장 -->
+                <div class="9u 12u$(small)">
+                    작성자:
+                    <span sec:authentication="principal.name"></span>
                 </div>
+
                 <!--코드 -->
                 <div class="12u$">
                     <textarea name="content" id="content" placeholder="코드를 입력하세요" rows="6" cols="95" th:text="${boardDto.content}" readonly></textarea>

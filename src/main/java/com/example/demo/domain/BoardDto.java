@@ -16,7 +16,7 @@ public class BoardDto {
     private String name;
     private String grade;
     private String classname;
-    private String username;
+
     private LocalDateTime createdDate;
     private LocalDateTime modifiedDate;
 
@@ -28,21 +28,21 @@ public class BoardDto {
                 .name(name)
                 .grade(grade)
                 .classname(classname)
-                .username(username)
+
                 .build();
         return boardEntity;
 
     }
 
     @Builder
-    public BoardDto(Integer bno,String title,String content,String name,String grade,String classname,String username,LocalDateTime createdDate,LocalDateTime modifiedDate){
+    public BoardDto(Integer bno,String title,String content,String name,String grade,String classname,LocalDateTime createdDate,LocalDateTime modifiedDate){
         this.bno=bno;
         this.title=title;
         this.content=content;
         this.name=name;
         this.grade=grade;
         this.classname=classname;
-        this.username=username;
+
         this.createdDate=createdDate;
         this.modifiedDate=modifiedDate;
     }

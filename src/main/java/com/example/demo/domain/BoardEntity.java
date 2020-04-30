@@ -32,8 +32,7 @@ public class BoardEntity {
     @Column(name = "grade")
     private String grade;
 
-    @Column(name = "username")
-    private String username;
+
 
 
 
@@ -41,13 +40,13 @@ public class BoardEntity {
 
 
     @Builder
-    public BoardEntity(Integer bno, String title, String content, String name,String grade,String classname,String username) {
+    public BoardEntity(Integer bno, String title, String content, String name,String grade,String classname) {
         this.bno = bno;
         this.name = name;
         this.title = title;
         this.content = content;
         this.grade=grade;
         this.classname=classname;
-        this.username=username;
+
     }
 }

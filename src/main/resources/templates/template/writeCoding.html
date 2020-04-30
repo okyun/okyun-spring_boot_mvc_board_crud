@@ -53,18 +53,23 @@
                   작성자:
                   <span sec:authentication="principal.name"></span>
               </div>
+              <!--학번 -->
+              <div class="9u 12u$(small)">
+                  학번:
+                  <span sec:authentication="principal.studentnum"></span>
+              </div>
               <!--수업선택 drop select -->
-              <div class="12u$">
-                <div class="select-wrapper">
-                    <select name="category" id="category">
-                        <option value="">- 수업선택 -</option>
-                        <option value="1">Manufacturing</option>
-                        <option value="1">Shipping</option>
-                        <option value="1">Administration</option>
-                        <option value="1">Human Resources</option>
-                    </select>
-                </div>
-            </div>
+<!--              <div class="12u$">-->
+<!--                <div class="select-wrapper">-->
+<!--                    <select name="category" id="category">-->
+<!--                        <option value="">- 수업선택 -</option>-->
+<!--                        <option value="1"></option>-->
+<!--                        <option value="1">Shipping</option>-->
+<!--                        <option value="1">Administration</option>-->
+<!--                        <option value="1">Human Resources</option>-->
+<!--                    </select>-->
+<!--                </div>-->
+<!--            </div>-->
               <!--코드 -->
               <div class="12u$">
                 <textarea name="content" id="content" placeholder="코드를 입력하세요" rows="6" cols="95" required="required"></textarea>

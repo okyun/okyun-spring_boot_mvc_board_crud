@@ -1,4 +1,4 @@
 package com.example.demo.controller;
 
-public class TeacherController {
+public class HomeworkController {
 }

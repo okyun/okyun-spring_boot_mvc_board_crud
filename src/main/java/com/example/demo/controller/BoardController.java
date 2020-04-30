@@ -8,11 +8,15 @@ import com.sun.org.apache.xpath.internal.operations.Mod;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.security.core.Authentication;
+
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 
 @Controller
@@ -44,8 +48,9 @@ public class BoardController {
     }
 
     @RequestMapping(value="/create", method=RequestMethod.POST)
-    public String createPost(BoardDto boardDto,Model model){
-
+    public String createPost(BoardDto boardDto, Model model,Authentication authentication){
+        UserDto auth=(UserDto)authentication.getPrincipal();
+        boardDto.setName(auth.getName());
         boardService.savePost(boardDto);
         model.addAttribute("result","success");//?result=success
         return "redirect:/listAll";//url: http://localhost:9090/listAll로 이동하기
