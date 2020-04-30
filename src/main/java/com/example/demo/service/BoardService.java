@@ -25,11 +25,6 @@ public class BoardService {
     private BoardRepository boardRepository;
 
 
-
-
-
-
-
     @Transactional
     public void savePost(BoardDto boardDto){
         //boardDto.setName(auth.getName());
@@ -45,8 +40,10 @@ public class BoardService {
                 .bno(boardEntity.getBno())
                 .title(boardEntity.getTitle())
                 .content(boardEntity.getContent())
+                .contentresult(boardEntity.getContentresult())
                 .name(boardEntity.getName())
-
+                .grade(boardEntity.getGrade())
+                .createdate(boardEntity.getCreatedate())
                 .build();
 
         return boardDto;
@@ -64,8 +61,10 @@ public class BoardService {
                     .bno(boardEntity.getBno())
                     .title(boardEntity.getTitle())
                     .content(boardEntity.getContent())
+                    .contentresult(boardEntity.getContentresult())
                     .name(boardEntity.getName())
-
+                    .grade(boardEntity.getGrade())
+                    .createdate(boardEntity.getCreatedate())
                     .build();
 
             boardDtoList.add(boardDTO);
@@ -77,6 +76,5 @@ public class BoardService {
     public void deletePost(Integer bno) {//게시물 삭제
         boardRepository.deleteById(bno);
     }
-
 
 }

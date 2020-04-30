@@ -1,11 +1,11 @@
 package com.example.demo.controller;
 
-import com.example.demo.domain.BoardDto;
-import com.example.demo.domain.BoardEntity;
-import com.example.demo.domain.UserDto;
-import com.example.demo.domain.UserEntity;
+import com.example.demo.domain.*;
 import com.example.demo.domain.repository.BoardRepository;
+import com.example.demo.domain.repository.HomeworkRepository;
 import com.example.demo.domain.repository.UserRepository;
+import com.example.demo.service.HomeworkService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.Authentication;
@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 import java.util.Optional;
-
+@AllArgsConstructor
 @RestController
 public class TestController {
 //
@@ -25,8 +25,10 @@ public class TestController {
 //    @Autowired
 //    private BoardRepository boardRepository;
 
-    @Autowired
+
     private UserRepository userRepository;
+    private HomeworkRepository homeworkRepository;
+    private HomeworkService homeworkService;
 
 
 
@@ -47,7 +49,13 @@ public class TestController {
 
         return list;
     }
+    @RequestMapping("/homeworkdRepository")
+    public List homeworkdRepository(){
+        System.out.println("user");
+        List<HomeworkDto> list = homeworkService.getHomeworklist();
 
+        return list;
+    }
     @RequestMapping("/page1")
     public @ResponseBody
     String pageNo1() throws Exception {

@@ -27,22 +27,37 @@
           <table>
               <thead>
               <tr>
+
                   <th>제목</th>
-                  <th>Description</th>
-                  <th>Price</th>
+                  <th>작성장</th>
                   <th>날짜</th>
+                  <th>점수</th>
               </tr>
               </thead>
               <tbody>
               <tr th:each="board : ${boardList}">
+
+
                   <td>
-                      <a th:href="@{'/listAll/' + ${board.bno}}">
-                      <span th:text="${board.bno}"></span>
+                      <a th:href="@{'/listAll/' + ${board.bno}}" style="text-decoration:none; color: black;">
+                      <span th:text="${board.title}"></span>
                       </a>
                   </td>
-                  <td><span th:text="${board.title}"></span></td>
-                  <td><span th:text="${board.name}"></span></td>
-                  <td><span th:text="${board.createdDate}"></span></td>
+                  <td>
+                      <a th:href="@{'/listAll/' + ${board.bno}}" style="text-decoration:none; color: black;">
+                      <span th:text="${board.name}"></span>
+                      </a>
+                  </td>
+                  <td>
+                      <a th:href="@{'/listAll/' + ${board.bno}}" style="text-decoration:none; color: black;">
+                      <span th:text="${board.createdate}"></span>
+                      </a>
+                  </td>
+                  <td>
+                      <a th:href="@{'/listAll/' + ${board.bno}}" style="text-decoration:none; color: black;">
+                      <span th:text="${board.grade}"></span>
+                      </a>
+                  </td>
               </tr>
 
               </tbody>

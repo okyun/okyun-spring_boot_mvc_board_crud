@@ -59,7 +59,7 @@ public class BoardController {
 
     @RequestMapping(value="/codingResult", method=RequestMethod.POST)
     @ResponseBody
-    public String codingResultPost(BoardDto boardDto,Model model){
+    public String codingResultPost(BoardDto boardDto){
 
         return boardDto.getContent();
     }

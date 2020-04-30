@@ -13,7 +13,25 @@
 
 <!-- Header and menu-->
 <th:block th:replace="/sep/index_header_menu"></th:block>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/booking-js/2.6.0/booking.min.js"></script>
+<script>
+    function codingResultAjax() {
 
+        $.ajax({
+            url: "./codingResult",
+            type: "POST",
+            data: $("#readCodingForm").serialize(),
+            success: function(data){
+
+                $('#content_result').text(data);
+
+            },
+            error: function(){
+                alert("serialize err");
+            }
+        });
+    }
+</script>
 
 <!-- Main -->
 <section id="main" class="wrapper">
@@ -23,7 +41,7 @@
             <p>여기서 숙제를 바로 제출할 수 있습니다.</p>
         </header>
 
-
+        <form id="readCodingForm" method="POST">
             <div class="row uniform">
                 <!--제목 -->
                 <div class="9u 12u$(small)">
@@ -42,11 +60,12 @@
                 </div>
                 <!--코드 결과물 -->
                 <div class="12u$">
-                    <textarea name="message" id="message" placeholder="코딩 결과물" rows="6" cols="95" readonly></textarea>
+                    <textarea name="content_result" id="content_result" placeholder="코딩 결과물" rows="6" cols="95" th:text="${boardDto.contentresult}" readonly></textarea>
                 </div>
 
 
             </div>
+
 
     </div>
     </div>
