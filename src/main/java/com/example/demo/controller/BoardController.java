@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import com.example.demo.CodingComfile.CCmd;
+import com.example.demo.CodingComfile.CFileInOutPut;
 import com.example.demo.domain.BoardDto;
 import com.example.demo.domain.UserDto;
 import com.example.demo.service.BoardService;
@@ -61,7 +63,19 @@ public class BoardController {
     @ResponseBody
     public String codingResultPost(BoardDto boardDto){
 
-        return boardDto.getContent();
+        CFileInOutPut cFileInOutPut=new CFileInOutPut();//저장
+        CCmd cCmd=new CCmd();//컴파일
+
+        cFileInOutPut.Input(boardDto.getContent());//파일저장
+
+        String command = cCmd.inputCommand();//코드 넣고
+////        //2.
+        String result = cCmd.execCommand(command);//코드 결과 받아오기
+////
+        System.out.println(result);
+
+
+        return result;
     }
 
     @GetMapping("listAll/{bno}") //게시글 detail 들어가기
