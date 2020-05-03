@@ -6,6 +6,8 @@
   </nav>
   <a href="/" class="logo">I'm CC</a>
   <nav class="right">
+      <a href="#" sec:authorize="hasRole('ROLE_STUDENT')" th:href="@{/student/info}">학생정보 </a>
+      <a href="#" sec:authorize="hasRole('ROLE_TEACHER')" th:href="@{/teacher/info}">교사정보 </a>
       <a sec:authorize="isAnonymous()" th:href="@{/user/login}"class="button alt">Login</a>
       <a  sec:authorize="isAuthenticated()" th:href="@{/user/logout}" class="button alt">Logout</a>
       <a sec:authorize="isAnonymous()" th:href="@{/user/register}" class="button alt">register</a>

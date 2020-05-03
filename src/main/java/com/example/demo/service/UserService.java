@@ -1,15 +1,13 @@
 package com.example.demo.service;
 
-import com.example.demo.domain.BoardEntity;
 import com.example.demo.domain.Role;
 import com.example.demo.domain.UserDto;
 import com.example.demo.domain.UserEntity;
-import com.example.demo.domain.repository.UserRepository;
+import com.example.demo.service.repository.UserRepository;
 import lombok.AllArgsConstructor;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;

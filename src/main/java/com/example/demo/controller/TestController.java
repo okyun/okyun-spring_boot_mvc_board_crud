@@ -1,16 +1,12 @@
 package com.example.demo.controller;
 
 import com.example.demo.domain.*;
-import com.example.demo.domain.repository.BoardRepository;
-import com.example.demo.domain.repository.HomeworkRepository;
-import com.example.demo.domain.repository.UserRepository;
+import com.example.demo.service.repository.BoardRepository;
+import com.example.demo.service.repository.HomeworkRepository;
+import com.example.demo.service.repository.UserRepository;
 import com.example.demo.service.HomeworkService;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,13 +23,9 @@ public class TestController {
 
 
     private UserRepository userRepository;
+    private BoardRepository boardRepository;
     private HomeworkRepository homeworkRepository;
     private HomeworkService homeworkService;
-
-
-
-
-
 //    @RequestMapping("/board")
 //    public List test1(){
 //        System.out.println("board");
@@ -49,10 +41,24 @@ public class TestController {
 
         return list;
     }
+    @RequestMapping("/boardRepository")
+    public List<BoardEntity> boardRepository(){
+        System.out.println("user");
+        List<BoardEntity> list = boardRepository.findByName("일일");
+
+        return list;
+    }
+    @RequestMapping("/boardRepository1")
+    public List<BoardEntity> boardRepository1(){
+        System.out.println("user");
+        List<BoardEntity> list = boardRepository.findByCno(1);
+
+        return list;
+    }
     @RequestMapping("/homeworkdRepository")
     public List homeworkdRepository(){
         System.out.println("user");
-        List<HomeworkDto> list = homeworkService.getHomeworklist();
+        List<HomeworkDto> list = homeworkService.getAllHomeworklist();
 
         return list;
     }
@@ -62,9 +68,6 @@ public class TestController {
         return "Spring Boot : Page No 1";
 
     }
-
-
-
     @RequestMapping("/page2")
     public @ResponseBody String pageNo2() throws Exception {
         return "Spring Boot : Page No 2";

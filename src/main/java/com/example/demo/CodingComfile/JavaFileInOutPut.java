@@ -6,15 +6,11 @@ import java.util.logging.Logger;
 public class JavaFileInOutPut {
     private final static Logger logger = Logger.getGlobal();
 
-    public void Output() {//3.파일 데이터 저장하기
+    public void Input(String str) {//3.파일 데이터 저장하기
         try {
             String filename="test";
             OutputStream output = new FileOutputStream("C:/Compile2020/javac/"+filename+".java");
-            String str = "public class test { \n" +
-                    "  public static void main(String[] args) {\n" +
-                    "      System.out.println(\"Hello JAVA World567\");\n" +
-                    "  }\n" +
-                    "}";
+
             byte[] by = str.getBytes();
             output.write(by);
             logger.info("file output");
@@ -26,7 +22,7 @@ public class JavaFileInOutPut {
 
     }
 
-    public void Input() {//4.파일 데이터 가져오기
+    public void Output() {//4.파일 데이터 가져오기
         try{
             String output="Output";
             //파일 객체 생성

@@ -8,7 +8,6 @@ public class JavaCmd {
 
     private final static Logger logger = Logger.getGlobal();
 
-
     private StringBuffer buffer;
     private Process process;
     private BufferedReader bufferedReader;
@@ -25,7 +24,6 @@ public class JavaCmd {
             buffer.append("cd C:\\Compile2020\\javac& "+"javac test.java&"+"java test");
 //            buffer.append("/c ");
 //            buffer.append("dir ");
-
 
         } else {
             logger.info("222222222222나는 리눅스 ");
@@ -55,7 +53,6 @@ public class JavaCmd {
             e.printStackTrace();
             System.exit(1);
         }
-
         return null;
     }
 

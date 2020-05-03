@@ -11,6 +11,8 @@ import java.time.LocalDateTime;
 public class BoardDto {
 
     private Integer bno;
+    private Integer cno;
+    private Integer hno;
     private String title;
     private String content;
     private String contentresult;
@@ -21,7 +23,9 @@ public class BoardDto {
 
     public BoardEntity toEntity(){
         BoardEntity boardEntity= BoardEntity.builder()
+                .cno(cno)
                 .bno(bno)
+                .hno(hno)
                 .title(title)
                 .content(content)
                 .contentresult(contentresult)
@@ -35,8 +39,10 @@ public class BoardDto {
     }
 
     @Builder
-    public BoardDto(Integer bno,String title,String content,String contentresult,String name,String grade,String classname,LocalDateTime createdate){
+    public BoardDto(Integer bno,Integer cno,Integer hno,String title,String content,String contentresult,String name,String grade,String classname,LocalDateTime createdate){
         this.bno=bno;
+        this.cno=cno;
+        this.hno=hno;
         this.title=title;
         this.content=content;
         this.contentresult=contentresult;

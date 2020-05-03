@@ -32,8 +32,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 // 페이지 권한 설정
                 .antMatchers("/admin/**").hasRole("ADMIN")
                 .antMatchers("/listAll").hasRole("STUDENT")
-                .antMatchers("/TEACHER/**").hasRole("TEACHER")
-                .antMatchers("/STUDENT/**").hasRole("STUDENT")
+                .antMatchers("/teacher/**").hasRole("TEACHER")
+                .antMatchers("/student/**").hasRole("STUDENT")
                 .antMatchers("/**").permitAll()
                 .and() // 로그인 설정
                 .formLogin()
@@ -66,7 +66,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //        auth.inMemoryAuthentication().withUser("student").password("{noop}student").roles("STUDENT");
 //        auth.inMemoryAuthentication().withUser("teacher").password("{noop}teacher").roles("TEACHER");
         auth.userDetailsService(userService).passwordEncoder(passwordEncoder());
-
     }
 
 }

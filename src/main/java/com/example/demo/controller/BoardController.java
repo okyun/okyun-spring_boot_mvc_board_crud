@@ -2,23 +2,21 @@ package com.example.demo.controller;
 
 import com.example.demo.CodingComfile.CCmd;
 import com.example.demo.CodingComfile.CFileInOutPut;
+import com.example.demo.CodingComfile.JavaCmd;
+import com.example.demo.CodingComfile.JavaFileInOutPut;
 import com.example.demo.domain.BoardDto;
 import com.example.demo.domain.UserDto;
 import com.example.demo.service.BoardService;
 import com.example.demo.service.UserService;
-import com.sun.org.apache.xpath.internal.operations.Mod;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.Authentication;
 
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.security.Principal;
 import java.util.List;
 
 @Controller
@@ -29,14 +27,7 @@ public class BoardController {
     private BoardService boardService;
     private UserService userService;
 
-    @GetMapping("/listAll")
-    public String list(Model model) {
 
-        List<BoardDto> boardList = boardService.getBoardlist();
-        model.addAttribute("boardList", boardList);
-
-        return "template/listAll.html";
-    }
 
     @GetMapping("/codemirror")//게시글 쓰기
     public String codemirror(){
@@ -69,13 +60,35 @@ public class BoardController {
         cFileInOutPut.Input(boardDto.getContent());//파일저장
 
         String command = cCmd.inputCommand();//코드 넣고
-////        //2.
+
         String result = cCmd.execCommand(command);//코드 결과 받아오기
-////
-        System.out.println(result);
 
-
+        System.out.println("12121212121212"+result);
         return result;
+    }
+    @RequestMapping(value="/javacodingResult", method=RequestMethod.POST)
+    @ResponseBody
+    public String javacodingResultPost(BoardDto boardDto){
+
+        JavaFileInOutPut javaFileInOutPut=new JavaFileInOutPut();//저장
+        JavaCmd javaCmd=new JavaCmd();//컴파일
+
+        javaFileInOutPut.Input(boardDto.getContent());//파일저장
+
+        String command = javaCmd.inputCommand();//코드 넣고
+
+        String result = javaCmd.execCommand(command);//코드 결과 받아오기
+
+        System.out.println("34343434343434343"+result);
+        return result;
+    }
+    @GetMapping("/listAll")
+    public String list(Model model) {
+
+        List<BoardDto> boardList = boardService.getAllBoardlist();
+        model.addAttribute("boardList", boardList);
+
+        return "template/listAll.html";
     }
 
     @GetMapping("listAll/{bno}") //게시글 detail 들어가기

@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<!--
+	Intensify by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>학생 숙제 리스트</title>
+    <th:block th:replace="/sep/commonHead"></th:block>
+</head>
+<body class="subpage">
+
+<!-- Header and menu-->
+<th:block th:replace="/sep/index_header_menu"></th:block>
+
+
+<!-- Main -->
+<section id="main" class="wrapper">
+    <div class="inner">
+        <header class="align-center">
+            <h1>Generic Page</h1>
+            <p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
+        </header>
+        
+        <div class="table-wrapper">
+          <table>
+              <thead>
+              <tr>
+
+                  <th>제목</th>
+                  <th>작성장</th>
+                  <th>날짜</th>
+                  <th>점수</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr th:each="board : ${boardList}">
+
+
+                  <td>
+                      <a th:href="@{'/listAll/' + ${board.bno}}" style="text-decoration:none; color: black;">
+                      <span th:text="${board.title}"></span>
+                      </a>
+                  </td>
+                  <td>
+                      <a th:href="@{'/listAll/' + ${board.bno}}" style="text-decoration:none; color: black;">
+                      <span th:text="${board.name}"></span>
+                      </a>
+                  </td>
+                  <td>
+                      <a th:href="@{'/listAll/' + ${board.bno}}" style="text-decoration:none; color: black;">
+                      <span th:text="${board.createdate}"></span>
+                      </a>
+                  </td>
+                  <td>
+                      <a th:href="@{'/listAll/' + ${board.bno}}" style="text-decoration:none; color: black;">
+                      <span th:text="${board.grade}"></span>
+                      </a>
+                  </td>
+              </tr>
+
+              </tbody>
+              <tfoot>
+              <tr>
+                  <td colspan="2"></td>
+                  <td>100.00</td>
+              </tr>
+              </tfoot>
+          </table>
+      </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer id="footer">
+    <div class="inner">
+        <h2>Get In Touch</h2>
+        <ul class="actions">
+            <li><span class="icon fa-phone"></span> <a href="#">(000) 000-0000</a></li>
+            <li><span class="icon fa-envelope"></span> <a href="#">information@untitled.tld</a></li>
+            <li><span class="icon fa-map-marker"></span> 123 Somewhere Road, Nashville, TN 00000</li>
+        </ul>
+    </div>
+    <div class="copyright">
+        &copy; Untitled. Design <a href="https://templated.co">TEMPLATED</a>. Images <a href="https://unsplash.com">Unsplash</a>.
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="/assets/js/jquery.min.js"></script>
+<script src="/assets/js/jquery.scrolly.min.js"></script>
+<script src="/assets/js/skel.min.js"></script>
+<script src="/assets/js/util.js"></script>
+<script src="/assets/js/main.js"></script>
+
+</body>
+</html>
