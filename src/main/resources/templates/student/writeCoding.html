@@ -16,12 +16,12 @@
                 url: "/codingResult",
                 type: "POST",
                 data: $("#writeCodingForm").serialize(),
-                success: function(data){
+                success: function (data) {
 
                     $('#contentresult').text(data);
 
                 },
-                error: function(){
+                error: function () {
                     alert("serialize err");
                 }
             });
@@ -34,7 +34,6 @@
 <th:block th:replace="/sep/index_header_menu"></th:block>
 
 
-
 <!-- Main -->
 <section id="main" class="wrapper">
     <div class="inner">
@@ -43,52 +42,62 @@
             <p>여기서 학생들이 숙제를 제출합니다.</p>
         </header>
         <!-- from 시작 -->
-        <form method="post" action="#">
+        <form method="post">
             <div class="row uniform">
+
                 <!-- 수업이름  -->
                 <div class="9u 12u$(small)">
-                    <input type="text"  name="title" id="title" placeholder="숙제 제목" th:value="${homeworkDto.title}" readonly />
+                    <input type="text" name="title" id="title" placeholder="숙제 제목" th:value="${homeworkDto.title}"
+                           readonly/>
                 </div>
 
-                <br>
-                <div>
+
+
                     <!-- 숙제 설명 -->
-                    <div class="12u$" style="float:left;width: 50%;">
-                      <textarea  placeholder="숙제 설명"
-                        style="margin: 0px 0px 0px 0px; width: 450px; height: 690px;resize: none; "
-                        th:text="${homeworkDto.describe}" readonly></textarea>
+                    <div >
+                      <textarea placeholder="숙제 설명"
+                                style="margin: 0px 0px 0px 0px; width: 450px; height: 690px;resize: none; "
+                                th:text="${homeworkDto.describe}" readonly></textarea>
                     </div>
 
-                    <div style="float: right;width:50%;">
+                    <div style="float: left;width:50%;">
 
                         <!-- 코딩 -->
-                        <div class="12u$">
-                <textarea name="content" id="content" placeholder="코드 입력"
-                          style="margin: 0px 3px 0px 0px; width: 455px; height: 345px;resize: none;" ></textarea>
-                        </div>
 
-                        <div>
 
+                        <div><!--start 3-->
+                            <div class="12u$">
+                            <textarea name="content" id="content" placeholder="코드 입력"
+                                      style="margin: 0px 3px 0px 0px; width: 455px; height: 345px;resize: none;">
+
+                            </textarea>
+                            </div>
                             <!-- 코딩결과 -->
                             <div class="12u$">
-                  <textarea name="contentresult" id="contentresult" placeholder="컴파일 버튼으로 결과를 확인하세요" readonly
-                            style="margin: 0px -14px 0px 0px; width: 455px; height: 345px;resize: none;"></textarea>
+                                <textarea name="contentresult" id="contentresult" placeholder="컴파일 버튼으로 결과를 확인하세요"
+                                          readonly
+                                          style="margin: 0px -14px 0px 0px; width: 455px; height: 345px;resize: none;"></textarea>
                             </div>
-                        </div>
+
+                        </div><!--end 3-->
 
                     </div>
-                    <!-- 코딩컴파일 버튼 -->
-                    <div class="3u$ 12u$(small)">
-                        <input onclick="codingResultAjax();" id="codingResult" name="codingResult" value="코드 결과보기" class="fit" formaction="/codingResult"/>
-                    </div>
-
-
-                    <!-- 숙제 저장 버튼-->
-                    <div class="3u$ 12u$(small)" style="float: right; margin-top: 30px;">
-                        <input type="submit" value="숙제 저장" class="fit" th:formaction="@{'/listHomework/' + ${homeworkDto.hno}}+'/create'"/>
-                    </div>
+                <!-- 코딩컴파일 버튼 -->
+                <div class="3u$ 12u$(small)">
+                    <input onclick="codingResultAjax();" id="codingResult" name="codingResult" value="코드 결과보기"
+                           class="fit" formaction="/codingResult"/>
                 </div>
-            </div>
+
+
+                <!-- 숙제 저장 버튼-->
+                <div class="3u$ 12u$(small)" style="float: right; margin-top: 30px;">
+                    <input type="submit" value="숙제 저장" class="fit"
+                           th:formaction="@{'/listHomework/' + ${homeworkDto.hno}}+'/create'"/>
+                </div>
+
+
+                </div>
+
         </form>
     </div>
 
