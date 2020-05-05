@@ -101,6 +101,29 @@ public class BoardService {
         return boardDtoList;
     }
 
+    @Transactional
+    public List<BoardDto> getBoardListByHno(Integer hno){
+        List<BoardEntity> boardEntities = boardRepository.findByHno(hno);
+        List<BoardDto>boardDtoList=new ArrayList<>();
+
+        for ( BoardEntity boardEntity : boardEntities) {
+            BoardDto boardDTO = BoardDto.builder()
+                    .bno(boardEntity.getBno())
+                    .cno(boardEntity.getCno())
+                    .hno(boardEntity.getHno())
+                    .title(boardEntity.getTitle())
+                    .content(boardEntity.getContent())
+                    .contentresult(boardEntity.getContentresult())
+                    .name(boardEntity.getName())
+                    .grade(boardEntity.getGrade())
+                    .createdate(boardEntity.getCreatedate())
+                    .build();
+
+            boardDtoList.add(boardDTO);
+        }
+
+        return boardDtoList;
+    }
 
 
     @Transactional

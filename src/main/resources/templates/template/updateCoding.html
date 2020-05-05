@@ -4,10 +4,29 @@
 	templated.co @templatedco
 	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
 -->
-<html xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
-    <title>숙제 제출 페이지</title>
+    <title>숙제 수정 페이지</title>
     <th:block th:replace="/sep/commonHead"></th:block>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/booking-js/2.6.0/booking.min.js"></script>
+    <script>
+        function codingResultAjax() {
+
+            $.ajax({
+                url: "/codingResult",
+                type: "POST",
+                data: $("#updateCodingForm").serialize(),
+                success: function(data){
+
+                    $('#contentresult').text(data);
+
+                },
+                error: function(){
+                    alert("serialize err");
+                }
+            });
+        }
+    </script>
 </head>
 <body class="subpage">
 
@@ -22,58 +41,63 @@
             <h1>숙제 제출 페이지</h1>
             <p>여기서 숙제를 바로 제출할 수 있습니다.</p>
         </header>
-        
-        <form method="post" action="#">
-          <div class="row uniform">
-              <!--제목 -->
-              <div class="9u 12u$(small)">
-                  <input type="text" name="title" id="title" value="" placeholder="제목" required="required"/>
-              </div>
-              <!--수업선택 drop select -->
-              <div class="12u$">
-                <div class="select-wrapper">
-                    <select name="category" id="category">
-                        <option value="">- 수업선택 -</option>
-                        <option value="1">Manufacturing</option>
-                        <option value="1">Shipping</option>
-                        <option value="1">Administration</option>
-                        <option value="1">Human Resources</option>
-                    </select>
+
+        <form id="updateCodingForm" method="POST" th:action="@{'/student/info/' + ${boardDto.bno}}">
+            <div class="row uniform">
+                <div class="9u 12u$(small)">
+                    <input th:value="${boardDto.bno}" placeholder="bno" required="required"/>
+                </div>
+                <!--제목 -->
+                <div class="9u 12u$(small)">
+                    <input name="title" type="text"  id="title" th:value="${boardDto.title}" placeholder="bno" required="required"/>
+                </div>
+                <!--작성장 -->
+                <div class="9u 12u$(small)">
+                    작성자:
+                    <span sec:authentication="principal.name"></span>
+                </div>
+                <!--학번 -->
+                <div class="9u 12u$(small)">
+                    학번:
+                    <span sec:authentication="principal.studentnum"></span>
+                </div>
+                <!--수업선택 drop select -->
+                <!--              <div class="12u$">-->
+                <!--                <div class="select-wrapper">-->
+                <!--                    <select name="category" id="category">-->
+                <!--                        <option value="">- 수업선택 -</option>-->
+                <!--                        <option value="1"></option>-->
+                <!--                        <option value="1">Shipping</option>-->
+                <!--                        <option value="1">Administration</option>-->
+                <!--                        <option value="1">Human Resources</option>-->
+                <!--                    </select>-->
+                <!--                </div>-->
+                <!--            </div>-->
+                <!--코드 -->
+                <div class="12u$">
+                    <textarea name="content" id="content" placeholder="코드를 입력하세요" rows="6" cols="95" th:text="${boardDto.content}" required="required"></textarea>
+                </div>
+                <!--코드 결과물 -->
+                <div class="12u$">
+                    <textarea name="contentresult" id="contentresult" placeholder="코딩 결과물" rows="6" cols="95"  readonly></textarea>
+                </div>
+
+                <!--숙제 제출 버튼-->
+                <div class="3u$ 12u$(small)">
+                    <input type="submit" value="수정완료" class="fit" />
+                </div>
+                <!--코드 결과보기 버튼-->
+                <div class="3u$ 12u$(small)">
+                    <input onclick="codingResultAjax();" id="codingResult" name="codingResult" value="코드 결과보기" class="fit" formaction="/codingResult"/>
                 </div>
             </div>
-              <!--코드 -->
-              <div class="12u$">
-                <textarea name="content" id="content" placeholder="코드를 입력하세요" rows="6" cols="95" required="required"></textarea>
-            </div>
-              <!--코드 결과물 -->
-            <div class="12u$">
-              <textarea name="message" id="message" placeholder="코딩 결과물" rows="6" cols="95" required="required" readonly></textarea>
-          </div>
-
-              <!--제출 버튼-->
-              <div class="3u$ 12u$(small)">
-                  <input type="submit" value="수정하기" class="fit"/>
-              </div>
-          </div>
-      </form>
-      </div>
+        </form>
+    </div>
     </div>
 </section>
 
 <!-- Footer -->
-<footer id="footer">
-    <div class="inner">
-        <h2>Get In Touch</h2>
-        <ul class="actions">
-            <li><span class="icon fa-phone"></span> <a href="#">(000) 000-0000</a></li>
-            <li><span class="icon fa-envelope"></span> <a href="#">information@untitled.tld</a></li>
-            <li><span class="icon fa-map-marker"></span> 123 Somewhere Road, Nashville, TN 00000</li>
-        </ul>
-    </div>
-    <div class="copyright">
-        &copy; Untitled. Design <a href="https://templated.co">TEMPLATED</a>. Images <a href="https://unsplash.com">Unsplash</a>.
-    </div>
-</footer>
+<th:block th:replace="/sep/index_footer"></th:block>
 
 <!-- Scripts -->
 <script src="/assets/js/jquery.min.js"></script>
@@ -81,6 +105,5 @@
 <script src="/assets/js/skel.min.js"></script>
 <script src="/assets/js/util.js"></script>
 <script src="/assets/js/main.js"></script>
-
 </body>
 </html>

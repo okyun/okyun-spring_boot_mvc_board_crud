@@ -34,16 +34,20 @@ public class HomeworkEntity {
     @Column(name = "content")
     private String content;
 
+    @Column(name = "describe")
+    private String describe;
+
     @Column(name = "lang")
     private String lang;
 
     @Builder
-    public HomeworkEntity(Integer hno,String name,Integer cno,String classname,String dueday,String title,String content,String lang){
+    public HomeworkEntity(Integer hno,String name,Integer cno,String classname,String dueday,String title,String content,String describe,String lang){
         this.hno=hno;
         this.name=name;
         this.cno=cno;
         this.classname=classname;
         this.dueday=dueday;
+        this.describe=describe;
         this.title=title;
         this.content=content;
         this.lang=lang;

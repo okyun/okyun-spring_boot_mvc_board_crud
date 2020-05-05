@@ -5,8 +5,10 @@ import com.example.demo.CodingComfile.CFileInOutPut;
 import com.example.demo.CodingComfile.JavaCmd;
 import com.example.demo.CodingComfile.JavaFileInOutPut;
 import com.example.demo.domain.BoardDto;
+import com.example.demo.domain.HomeworkDto;
 import com.example.demo.domain.UserDto;
 import com.example.demo.service.BoardService;
+import com.example.demo.service.HomeworkService;
 import com.example.demo.service.UserService;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
@@ -26,6 +28,7 @@ public class BoardController {
 
     private BoardService boardService;
     private UserService userService;
+    private HomeworkService homeworkService;
 
 
 
@@ -66,7 +69,12 @@ public class BoardController {
         System.out.println("12121212121212"+result);
         return result;
     }
-    @RequestMapping(value="/javacodingResult", method=RequestMethod.POST)
+    @RequestMapping(value="/result", method=RequestMethod.POST)//ajax-c
+    @ResponseBody
+    public String ResultPost(BoardDto boardDto){
+        return boardDto.getTitle();
+    }
+    @RequestMapping(value="/javacodingResult", method=RequestMethod.POST)//ajax-java
     @ResponseBody
     public String javacodingResultPost(BoardDto boardDto){
 
@@ -88,7 +96,7 @@ public class BoardController {
         List<BoardDto> boardList = boardService.getAllBoardlist();
         model.addAttribute("boardList", boardList);
 
-        return "template/listAll.html";
+        return "template/listAll";
     }
 
     @GetMapping("listAll/{bno}") //게시글 detail 들어가기
@@ -100,9 +108,38 @@ public class BoardController {
         log.info("888888888888888888"+boardDto.toString());
         return "template/readCoding";
     }
+    @GetMapping("/listHomework")
+    public String listHomework(Model model) {
 
+        List<HomeworkDto> homeworkList = homeworkService.getAllHomeworklist();
+        model.addAttribute("homeworkList", homeworkList);
 
+        return "student/listHomework";
+    }
+    @GetMapping("/listHomework/{hno}")
+    public String detailHomework(@PathVariable("hno")Integer hno,Model model) {
 
+        HomeworkDto homeworkDto = homeworkService.getHomeworkById(hno);
 
+        model.addAttribute("homeworkDto", homeworkDto);
+
+        return "student/readHomework";
+    }
+    @GetMapping("/listHomework/{hno}/create")
+    public String creatGet1(Model model,@PathVariable("hno")Integer hno){
+        HomeworkDto homeworkDto = homeworkService.getHomeworkById(hno);
+        model.addAttribute("homeworkDto", homeworkDto);
+        return "student/writeCoding";
+    }
+
+    @RequestMapping(value="/listHomework/{hno}/create", method=RequestMethod.POST)
+    public String createPost1(@PathVariable("hno")Integer hno,BoardDto boardDto, Model model,Authentication authentication){
+        UserDto auth=(UserDto)authentication.getPrincipal();
+        boardDto.setHno(hno);
+        boardDto.setName(auth.getName());
+        boardService.savePost(boardDto);
+        log.info("99999999999999999999999999999"+boardDto.toString());
+        return "redirect:/listHomework";
+    }
 
 }

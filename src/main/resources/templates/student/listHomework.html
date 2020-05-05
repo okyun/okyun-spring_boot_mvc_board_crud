@@ -6,8 +6,16 @@
 -->
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <title>학생들이 낸 숙제 리스트</title><!-- -->
+    <title>Generic - Intensify by TEMPLATED</title>
     <th:block th:replace="/sep/commonHead"></th:block>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap 4</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <style>
+        p { margin:10px 10px 30px 10px; }
+    </style>
+
 </head>
 <body class="subpage">
 
@@ -16,7 +24,7 @@
 
 
 <!-- Main -->
-<section id="main" class="wrapper">
+
     <div class="container" style="margin-bottom: 30px">
         <div class="row">
             <!--1 -->
@@ -25,9 +33,9 @@
                 <div class="card">
                     <div class="card-header">
 
-<!--                        <a th:href="@{'/teacher/info/' + ${homework.hno}}">-->
+                        <a th:href="@{'/listHomework/' + ${homework.hno}}" style="text-decoration:none; color: black;">
                             <span th:text="${homework.hno}"></span>
-<!--                        </a>-->
+                        </a>
                     </div>
                     <div class="card-body">
                         <h5 class="card-title"><span th:text="${homework.dueday}"></span></h5>
@@ -41,16 +49,17 @@
 
         </div>
     </div>
-</section>
+
 
 <!-- Footer -->
 <th:block th:replace="/sep/index_footer"></th:block>
+
 <!-- Scripts -->
-<script src="/assets/js/jquery.min.js"></script>
-<script src="/assets/js/jquery.scrolly.min.js"></script>
-<script src="/assets/js/skel.min.js"></script>
-<script src="/assets/js/util.js"></script>
-<script src="/assets/js/main.js"></script>
+<script src="/static/assets/js/jquery.min.js"></script>
+<script src="/static/assets/js/jquery.scrolly.min.js"></script>
+<script src="/static/assets/js/skel.min.js"></script>
+<script src="/static/assets/js/util.js"></script>
+<script src="/static/assets/js/main.js"></script>
 
 </body>
 </html>

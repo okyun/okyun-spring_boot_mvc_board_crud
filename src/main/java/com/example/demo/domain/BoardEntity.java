@@ -23,16 +23,16 @@ public class BoardEntity {
     @Column(name = "hno")
     private Integer hno;
 
-    @Column(name = "title",length = 10,nullable = false)
+    @Column(name = "title")
     private String title;
 
-    @Column(name = "content",nullable = false)
+    @Column(name = "content")
     private String content;
 
     @Column(name = "contentresult")
     private String contentresult;
 
-    @Column(name = "name",length = 10,nullable = false)
+    @Column(name = "name")
     private String name;
     //private Date wirteDate;
 
@@ -44,11 +44,6 @@ public class BoardEntity {
 
     @Column(name = "createdate")
     private LocalDateTime createdate;
-
-
-
-
-
 
     @Builder
     public BoardEntity(Integer bno, Integer cno,Integer hno,String title, String content, String contentresult, String name,String grade,String classname,LocalDateTime createdate) {

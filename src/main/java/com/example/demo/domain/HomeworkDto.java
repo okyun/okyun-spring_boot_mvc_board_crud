@@ -31,12 +31,13 @@ public class HomeworkDto {
                 .title(title)
                 .content(content)
                 .lang(lang)
+                .describe(describe)
                 .build();
         return homeworkEntity;
 
     }
     @Builder
-    public HomeworkDto(Integer hno,String name,Integer cno,String classname,String dueday,String title,String content,String lang){
+    public HomeworkDto(Integer hno,String name,Integer cno,String classname,String dueday,String title,String content,String lang,String describe){
         this.hno=hno;
         this.name=name;
         this.cno=cno;
@@ -45,6 +46,7 @@ public class HomeworkDto {
         this.title=title;
         this.content=content;
         this.lang=lang;
+        this.describe=describe;
 
     }
 

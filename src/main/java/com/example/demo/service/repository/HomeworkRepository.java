@@ -11,6 +11,7 @@ public interface HomeworkRepository extends JpaRepository<HomeworkEntity,Integer
     List<HomeworkEntity> findByCno(Integer cno);//과목별로
     List<HomeworkEntity> findByTitle(String title);//제목별로
     List<HomeworkEntity> findByName(String name);//교사별로
+    List<HomeworkEntity> findByHno(Integer hno);//교사별로
 
 
 }

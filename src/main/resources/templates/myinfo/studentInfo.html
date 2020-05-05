@@ -20,7 +20,7 @@
     <div class="inner">
         <header class="align-center">
             <h1>Generic Page</h1>
-            <p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
+            <p>  <span th:text="${auth.name}"></span></p>
         </header>
 
         <div class="table-wrapper">
@@ -39,18 +39,18 @@
 
 
                     <td>
-                        <a th:href="@{'/listAll/' + ${board.bno}}" style="text-decoration:none; color: black;">
-                            <span th:text="${board.title}"></span>
+                        <a th:href="@{'/student/info/' + ${board.bno}}" style="text-decoration:none; color: black;">
+                            <span th:text="${board.bno}"></span>
                         </a>
                     </td>
                     <td>
-                             <span th:text="${board.name}"></span>
+                             <span th:text="${board.title}"></span>
                     </td>
                     <td>
-                            <span th:text="${board.createdate}"></span>
+                            <span th:text="${board.content}"></span>
                     </td>
                     <td>
-                             <span th:text="${board.grade}"></span>
+                             <span th:text="${board.contentresult}"></span>
                     </td>
                 </tr>
 
@@ -67,19 +67,7 @@
 </section>
 
 <!-- Footer -->
-<footer id="footer">
-    <div class="inner">
-        <h2>Get In Touch</h2>
-        <ul class="actions">
-            <li><span class="icon fa-phone"></span> <a href="#">(000) 000-0000</a></li>
-            <li><span class="icon fa-envelope"></span> <a href="#">information@untitled.tld</a></li>
-            <li><span class="icon fa-map-marker"></span> 123 Somewhere Road, Nashville, TN 00000</li>
-        </ul>
-    </div>
-    <div class="copyright">
-        &copy; Untitled. Design <a href="https://templated.co">TEMPLATED</a>. Images <a href="https://unsplash.com">Unsplash</a>.
-    </div>
-</footer>
+<th:block th:replace="/sep/index_footer"></th:block>
 
 <!-- Scripts -->
 <script src="/assets/js/jquery.min.js"></script>

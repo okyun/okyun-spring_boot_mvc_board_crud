@@ -6,8 +6,8 @@
   </nav>
   <a href="/" class="logo">I'm CC</a>
   <nav class="right">
-      <a href="#" sec:authorize="hasRole('ROLE_STUDENT')" th:href="@{/student/info}">학생정보 </a>
-      <a href="#" sec:authorize="hasRole('ROLE_TEACHER')" th:href="@{/teacher/info}">교사정보 </a>
+      <a  sec:authorize="hasRole('ROLE_STUDENT')" th:href="@{/student/info}">학생정보  </a>
+      <a  sec:authorize="hasRole('ROLE_TEACHER')" th:href="@{/teacher/info}" style="padding-right: 10px;">나의 교사정보  </a>
       <a sec:authorize="isAnonymous()" th:href="@{/user/login}"class="button alt">Login</a>
       <a  sec:authorize="isAuthenticated()" th:href="@{/user/logout}" class="button alt">Logout</a>
       <a sec:authorize="isAnonymous()" th:href="@{/user/register}" class="button alt">register</a>
@@ -21,15 +21,15 @@
       <li><p sec:authorize="isAnonymous()" style="color: black;"><b>로그인을 하면 메뉴가 보입니다</b></p></li>
 
       <li><p sec:authorize="hasRole('ROLE_STUDENT')" style="color: black;"><b>학생메뉴</b></p></li>
-      <li><a sec:authorize="hasRole('ROLE_STUDENT')" href="/create">숙제제출</a></li>
+      <li><a sec:authorize="hasRole('ROLE_STUDENT')" href="/listHomework">숙제 리스트 페이지(카드형)</a></li>
       <li><a sec:authorize="hasRole('ROLE_STUDENT')" href="/listAll">listAll</a></li>
       <li><a sec:authorize="hasRole('ROLE_STUDENT')" href="generic1.html">Generic1</a></li>
       <li><a sec:authorize="hasRole('ROLE_STUDENT')" href="elements.html">Elements</a></li>
       <li><a sec:authorize="hasRole('ROLE_STUDENT')" href="elements1.html">Elements</a></li>
 
       <li><p sec:authorize="hasRole('ROLE_TEACHER')" style="color: black;"><b>교수메뉴</b></p></li>
-      <li><a sec:authorize="hasRole('ROLE_TEACHER')" href="indexTest.html">숙제검사</a></li>
-      <li><a sec:authorize="hasRole('ROLE_TEACHER')" href="generic.html">Generic</a></li>
+      <li><a sec:authorize="hasRole('ROLE_TEACHER')" href="indexTest.html">교사가 숙제 내는 페이지</a></li>
+      <li><a sec:authorize="hasRole('ROLE_TEACHER')" href="generic.html">교사가 낸 숙제 수정(카드형)</a></li>
       <li><a sec:authorize="hasRole('ROLE_TEACHER')" href="generic1.html">Generic1</a></li>
       <li><a sec:authorize="hasRole('ROLE_TEACHER')" href="elements.html">Elements</a></li>
       <li><a sec:authorize="hasRole('ROLE_TEACHER')" href="elements1.html">Elements</a></li>

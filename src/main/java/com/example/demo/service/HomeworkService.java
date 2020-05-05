@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -20,6 +21,28 @@ public class HomeworkService {
     public void saveHomework(HomeworkDto homeworkDto){
         homeworkRepository.save(homeworkDto.toEntity());
     }
+    @Transactional
+    public HomeworkDto getHomeworkById(Integer hno) {//listAll
+
+        Optional<HomeworkEntity> homeworkWrapper=homeworkRepository.findById(hno);
+        HomeworkEntity homeworkEntity=homeworkWrapper.get();
+
+        HomeworkDto homeworkDto=HomeworkDto.builder()
+                .hno(homeworkEntity.getHno())
+                .cno(homeworkEntity.getCno())
+                .name(homeworkEntity.getName())
+                .dueday(homeworkEntity.getDueday())
+                .title(homeworkEntity.getTitle())
+                .describe(homeworkEntity.getDescribe())
+                .classname(homeworkEntity.getClassname())
+                .lang(homeworkEntity.getLang())
+
+
+                .build();
+        return homeworkDto;
+
+    }
+
     @Transactional
     public List<HomeworkDto> getAllHomeworklist() {//listAll
         //entity로 받은 리스트를 dto로 옯기기

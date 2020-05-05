@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<!--
+	Intensify by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <title>숙제 제출 페이지</title>
+    <th:block th:replace="/sep/commonHead"></th:block>
+
+</head>
+<body class="subpage">
+
+<!-- Header and menu-->
+<th:block th:replace="/sep/index_header_menu"></th:block>
+
+
+<!-- Main -->
+<section id="main" class="wrapper">
+    <div class="inner">
+        <header class="align-center">
+            <h1>숙제 제출 페이지</h1>
+            <p>여기서 숙제를 바로 제출할 수 있습니다.</p>
+        </header>
+
+        <form id="writeHomeworkForm" method="POST">
+          <div class="row uniform">
+              <!--제목 -->
+              <div class="9u 12u$(small)">
+                  <input name="title" type="text"  id="title" th:value="${homeworkDto.title}" placeholder="제목" required="required"/>
+              </div>
+              <!--작성장 -->
+              <div class="9u 12u$(small)">
+                  작성자:
+                  <span sec:authentication="principal.name"></span>
+              </div>
+              <!--학번 -->
+              <div class="9u 12u$(small)">
+                  학번:
+                  <span sec:authentication="principal.studentnum"></span>
+              </div>
+              <!--수업선택 drop select -->
+              <div class="12u$">
+                <div class="select-wrapper">
+                    <select name="lang" id="lang">
+                        <option value="">- 언어 선택 -</option>
+                        <option value="c">c</option>
+                        <option value="java">java</option>
+                    </select>
+                </div>
+            </div>
+              <!--숙제 설명 -->
+              <div class="12u$">
+                <textarea name="describe" th:text="${homeworkDto.describe}" id="describe" placeholder="코드를 입력하세요" rows="6" cols="95" required="required"></textarea>
+            </div>
+
+
+              <!--숙제 내기 버튼-->
+              <div class="3u$ 12u$(small)">
+                  <input type="submit" value="학생에게 숙제 내기" class="fit" formaction="/create"/>
+              </div>
+
+          </div>
+      </form>
+      </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<th:block th:replace="/sep/index_footer"></th:block>
+
+<!-- Scripts -->
+<script src="/static/assets/js/jquery.min.js"></script>
+<script src="/static/assets/js/jquery.scrolly.min.js"></script>
+<script src="/static/assets/js/skel.min.js"></script>
+<script src="/static/assets/js/util.js"></script>
+<script src="/static/assets/js/main.js"></script>
+</body>
+</html>
