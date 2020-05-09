@@ -36,14 +36,14 @@
 
 <!-- Main -->
 <section id="main" class="wrapper">
-    <div class="inner">
+    <div class="inner" >
         <header class="align-center">
-            <h1>숙제 검사 페이지</h1>
-            <p>여기서 학생들이 숙제를 제출합니다.</p>
+            <h1>python</h1>
+            <p>여기서 학생들이 python숙제를 제출합니다.</p>
         </header>
         <!-- from 시작 -->
         <form method="post">
-            <div class="row uniform">
+            <div class="row uniform" >
 
                 <!-- 수업이름  -->
                 <div class="9u 12u$(small)">
@@ -54,10 +54,10 @@
 
 
                     <!-- 숙제 설명 -->
-                    <div >
+                    <div style="margin-left: 60px">
                       <textarea placeholder="숙제 설명"
                                 style="margin: 0px 0px 0px 0px; width: 450px; height: 690px;resize: none; "
-                                th:text="${homeworkDto.describe}" readonly></textarea>
+                                th:text="${homeworkDto.des}" readonly></textarea>
                     </div>
 
                     <div style="float: left;width:50%;">
@@ -68,7 +68,7 @@
                         <div><!--start 3-->
                             <div class="12u$">
                             <textarea name="content" id="content" placeholder="코드 입력"
-                                      style="margin: 0px 3px 0px 0px; width: 455px; height: 345px;resize: none;">
+                                      style="margin: 0px 3px 0px 0px; width: 500px; height: 345px;resize: none;">
 
                             </textarea>
                             </div>
@@ -76,11 +76,11 @@
                             <div class="12u$">
                                 <textarea name="contentresult" id="contentresult" placeholder="컴파일 버튼으로 결과를 확인하세요"
                                           readonly
-                                          style="margin: 0px -14px 0px 0px; width: 455px; height: 345px;resize: none;"></textarea>
+                                          style="margin: 0px -14px 0px 0px; width: 500px; height: 345px;resize: none;"></textarea>
                             </div>
 
                         </div><!--end 3-->
-
+                    </div>
                     </div>
                 <!-- 코딩컴파일 버튼 -->
                 <div class="3u$ 12u$(small)">
@@ -96,7 +96,7 @@
                 </div>
 
 
-                </div>
+
 
         </form>
     </div>

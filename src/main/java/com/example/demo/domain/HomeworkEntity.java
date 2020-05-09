@@ -19,8 +19,6 @@ public class HomeworkEntity {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "cno")
-    private Integer cno;
 
     @Column(name = "classname")
     private String classname;
@@ -34,20 +32,20 @@ public class HomeworkEntity {
     @Column(name = "content")
     private String content;
 
-    @Column(name = "describe")
-    private String describe;
+    @Column(name = "des")
+    private String des;
 
     @Column(name = "lang")
     private String lang;
 
     @Builder
-    public HomeworkEntity(Integer hno,String name,Integer cno,String classname,String dueday,String title,String content,String describe,String lang){
+    public HomeworkEntity(Integer hno,String name,String classname,String dueday,String title,String content,String des,String lang){
         this.hno=hno;
         this.name=name;
-        this.cno=cno;
+
         this.classname=classname;
         this.dueday=dueday;
-        this.describe=describe;
+        this.des=des;
         this.title=title;
         this.content=content;
         this.lang=lang;

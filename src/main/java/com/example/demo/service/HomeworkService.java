@@ -29,11 +29,11 @@ public class HomeworkService {
 
         HomeworkDto homeworkDto=HomeworkDto.builder()
                 .hno(homeworkEntity.getHno())
-                .cno(homeworkEntity.getCno())
+
                 .name(homeworkEntity.getName())
                 .dueday(homeworkEntity.getDueday())
                 .title(homeworkEntity.getTitle())
-                .describe(homeworkEntity.getDescribe())
+                .des(homeworkEntity.getDes())
                 .classname(homeworkEntity.getClassname())
                 .lang(homeworkEntity.getLang())
 
@@ -53,11 +53,12 @@ public class HomeworkService {
             HomeworkDto homeworkDto = HomeworkDto.builder()
                     .hno(homeworkEntity.getHno())
                     .name(homeworkEntity.getName())
-                    .cno(homeworkEntity.getCno())
+
                     .classname(homeworkEntity.getClassname())
                     .dueday(homeworkEntity.getDueday())
                     .title(homeworkEntity.getTitle())
                     .content(homeworkEntity.getContent())
+                    .des(homeworkEntity.getDes())
                     .lang(homeworkEntity.getLang())
                     .build();
             homeworkDtoList.add(homeworkDto);
@@ -75,11 +76,12 @@ public class HomeworkService {
             HomeworkDto homeworkDto=HomeworkDto.builder()
                     .hno(homeworkEntity.getHno())
                     .name(homeworkEntity.getName())
-                    .cno(homeworkEntity.getCno())
+
                     .classname(homeworkEntity.getClassname())
                     .dueday(homeworkEntity.getDueday())
                     .title(homeworkEntity.getTitle())
                     .content(homeworkEntity.getContent())
+                    .des(homeworkEntity.getDes())
                     .lang(homeworkEntity.getLang())
                     .build();
             homeworkDtoList.add(homeworkDto);

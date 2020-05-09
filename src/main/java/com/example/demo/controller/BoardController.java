@@ -69,6 +69,38 @@ public class BoardController {
         System.out.println("12121212121212"+result);
         return result;
     }
+    @RequestMapping(value="/javaCodingResult", method=RequestMethod.POST)
+    @ResponseBody
+    public String JavacodingResultPost(BoardDto boardDto){
+
+        CFileInOutPut cFileInOutPut=new CFileInOutPut();//저장
+        CCmd cCmd=new CCmd();//컴파일
+
+        cFileInOutPut.Input(boardDto.getContent());//파일저장
+
+        String command = cCmd.inputCommand();//코드 넣고
+
+        String result = cCmd.execCommand(command);//코드 결과 받아오기
+
+        System.out.println("12121212121212"+result);
+        return result;
+    }
+    @RequestMapping(value="/pythonCodingResult", method=RequestMethod.POST)
+    @ResponseBody
+    public String PythoncodingResultPost(BoardDto boardDto){
+
+        CFileInOutPut cFileInOutPut=new CFileInOutPut();//저장
+        CCmd cCmd=new CCmd();//컴파일
+
+        cFileInOutPut.Input(boardDto.getContent());//파일저장
+
+        String command = cCmd.inputCommand();//코드 넣고
+
+        String result = cCmd.execCommand(command);//코드 결과 받아오기
+
+        System.out.println("12121212121212"+result);
+        return result;
+    }
     @RequestMapping(value="/result", method=RequestMethod.POST)//ajax-c
     @ResponseBody
     public String ResultPost(BoardDto boardDto){
@@ -125,11 +157,20 @@ public class BoardController {
 
         return "student/readHomework";
     }
-    @GetMapping("/listHomework/{hno}/create")
+    @RequestMapping("/listHomework/{hno}/create")
     public String creatGet1(Model model,@PathVariable("hno")Integer hno){
         HomeworkDto homeworkDto = homeworkService.getHomeworkById(hno);
         model.addAttribute("homeworkDto", homeworkDto);
-        return "student/writeCoding";
+        //c,java,python으로 페이지 나누기
+        if(homeworkDto.getLang().equals("c"))
+            return "student/writeCCoding";
+        if(homeworkDto.getLang().equals("java"))
+            return "student/writeJavaCoding";
+        if(homeworkDto.getLang().equals("python"))
+            return "student/writePythonCoding";
+        else return "student/writeCCoding";
+
+
     }
 
     @RequestMapping(value="/listHomework/{hno}/create", method=RequestMethod.POST)
@@ -141,5 +182,52 @@ public class BoardController {
         log.info("99999999999999999999999999999"+boardDto.toString());
         return "redirect:/listHomework";
     }
+    @GetMapping("/createHomework")//게시글 쓰기
+    public String creatHomework(){
+
+        return "template/writeHomework";
+    }
+    @PostMapping("/createHomework")
+    public String postcreatHomework(HomeworkDto homeworkDto,Authentication authentication){
+        UserDto auth=(UserDto)authentication.getPrincipal();
+        homeworkDto.setName(auth.getName());
+        log.info("00000000000000000000000000000"+homeworkDto.toString());
+        homeworkService.saveHomework(homeworkDto);
+
+
+        return "redirect:/teacher/info";
+    }
+
+
+
+    @GetMapping("/updateHomeworklist")
+    public String updateHomeworklist(Model model, Authentication authentication){
+
+        UserDto auth=(UserDto)authentication.getPrincipal();
+        List<HomeworkDto> homeworkList=homeworkService.getHomeworkListByName(auth.getName());
+        model.addAttribute("homeworkList",homeworkList);
+        return "template/updatelist";
+    }
+    @GetMapping("/updateHomeworklist/{hno}")
+    public String updateHomeworkget(Model model, Authentication authentication,@PathVariable("hno")Integer hno){
+
+        HomeworkDto homeworkDto=homeworkService.getHomeworkById(hno);
+        model.addAttribute("homeworkDto", homeworkDto);
+
+        return "template/updateHomework";
+
+    }
+    @PostMapping("/updateHomeworklist/{hno}")
+    public String updateHomeworpost(Model model,HomeworkDto homeworkDto,Authentication authentication,@PathVariable("hno")Integer hno){
+
+        UserDto auth=(UserDto)authentication.getPrincipal();
+        homeworkDto.setName(auth.getName());
+        homeworkService.saveHomework(homeworkDto);
+        log.info("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"+homeworkDto.toString());
+
+        return "redirect:/updateHomeworklist";
+
+    }
+
 
 }

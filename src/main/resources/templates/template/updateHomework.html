@@ -20,50 +20,53 @@
 <section id="main" class="wrapper">
     <div class="inner">
         <header class="align-center">
-            <h1>숙제 제출 페이지</h1>
-            <p>여기서 숙제를 바로 제출할 수 있습니다.</p>
+            <h1>updateHomework</h1>
+            <p>updateHomework</p>
         </header>
 
-        <form id="updateHomeworkForm" method="POST">
-        <div class="row uniform">
-            <!--제목 -->
-            <div class="9u 12u$(small)">
-                <input name="title" type="text"  id="title" value="" placeholder="제목" required="required"/>
-            </div>
-            <!--작성장 -->
-            <div class="9u 12u$(small)">
-                작성자:
-                <span sec:authentication="principal.name"></span>
-            </div>
-            <!--학번 -->
-            <div class="9u 12u$(small)">
-                학번:
-                <span sec:authentication="principal.studentnum"></span>
-            </div>
-            <!--수업선택 drop select -->
-            <div class="12u$">
-                <div class="select-wrapper">
-                    <select name="lang" id="lang">
-                        <option value="">- 언어 선택 -</option>
-                        <option value="c">c</option>
-                        <option value="java">java</option>
-                    </select>
+        <form  method="POST" th:action="@{'/updateHomeworklist/' + ${homeworkDto.hno}}">
+            <div class="row uniform">
+                <!--제목 -->
+                <div class="9u 12u$(small)">
+                    <input name="title" type="text"  id="title" th:value="${homeworkDto.title}" placeholder="제목" required="required"/>
                 </div>
-            </div>
-            <!--숙제 설명 -->
-            <div class="12u$">
-                <textarea name="describe" id="describe" placeholder="코드를 입력하세요" rows="6" cols="95" required="required"></textarea>
-            </div>
+                <div class="9u 12u$(small)">
+                    <input name="dueday" type="text"  id="dueday" th:value="${homeworkDto.dueday}" placeholder="dueday" required="required"/>
+                </div>
+                <!--작성장 -->
+                <div class="9u 12u$(small)">
+                    작성자:
+                    <span sec:authentication="principal.name"></span>
+                </div>
+                <!--학번 -->
+                <!--                <div class="9u 12u$(small)">-->
+                <!--                    학번:-->
+                <!--                    <span sec:authentication="principal.studentnum"></span>-->
+                <!--                </div>-->
+                <!--수업선택 drop select -->
+                <div class="12u$">
+                    <div class="select-wrapper">
+                        <select name="lang" id="lang">
+                            <option value="">- 수업선택 -</option>
+                            <option value="c">c</option>
+                            <option value="java">java</option>
+                            <option value="python">python</option>
+                        </select>
+                    </div>
+                </div>
+                <!--코드 -->
+                <div class="12u$">
+                    <textarea name="des" id="des" placeholder="설명를 입력하세요" th:text="${homeworkDto.des}" rows="6" cols="95" required="required"></textarea>
+                </div>
 
+                <!--숙제 제출 버튼-->
+                <div class="3u$ 12u$(small)">
+                    <input type="submit" value="숙제 update" class="fit"/>
+                </div>
 
-            <!--숙제 내기 버튼-->
-            <div class="3u$ 12u$(small)">
-                <input type="submit" value="숙제 수정" class="fit" formaction="/create"/>
             </div>
-
-        </div>
         </form>
-      </div>
+    </div>
     </div>
 </section>
 

@@ -28,11 +28,9 @@
       <li><a sec:authorize="hasRole('ROLE_STUDENT')" href="elements1.html">Elements</a></li>
 
       <li><p sec:authorize="hasRole('ROLE_TEACHER')" style="color: black;"><b>교수메뉴</b></p></li>
-      <li><a sec:authorize="hasRole('ROLE_TEACHER')" href="indexTest.html">교사가 숙제 내는 페이지</a></li>
-      <li><a sec:authorize="hasRole('ROLE_TEACHER')" href="generic.html">교사가 낸 숙제 수정(카드형)</a></li>
-      <li><a sec:authorize="hasRole('ROLE_TEACHER')" href="generic1.html">Generic1</a></li>
-      <li><a sec:authorize="hasRole('ROLE_TEACHER')" href="elements.html">Elements</a></li>
-      <li><a sec:authorize="hasRole('ROLE_TEACHER')" href="elements1.html">Elements</a></li>
+      <li><a sec:authorize="hasRole('ROLE_TEACHER')" href="/createHomework">교사가 숙제 내는 페이지</a></li>
+      <li><a sec:authorize="hasRole('ROLE_TEACHER')" href="/updateHomeworklist">교사가 낸 숙제 수정(카드형)</a></li>
+
   </ul>
   <ul class="actions vertical">
       <li><a sec:authorize="isAnonymous()" th:href="@{/user/login}" class="button fit">Login</a></li>
