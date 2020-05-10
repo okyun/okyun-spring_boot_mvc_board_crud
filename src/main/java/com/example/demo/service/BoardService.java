@@ -38,7 +38,7 @@ public class BoardService {
 
         BoardDto boardDto=BoardDto.builder()
                 .bno(boardEntity.getBno())
-                .cno(boardEntity.getCno())
+
                 .hno(boardEntity.getHno())
                 .title(boardEntity.getTitle())
                 .content(boardEntity.getContent())
@@ -46,6 +46,7 @@ public class BoardService {
                 .name(boardEntity.getName())
                 .grade(boardEntity.getGrade())
                 .createdate(boardEntity.getCreatedate())
+                .lang(boardEntity.getLang())
                 .build();
 
         return boardDto;
@@ -61,7 +62,7 @@ public class BoardService {
         for ( BoardEntity boardEntity : boardEntities) {
             BoardDto boardDTO = BoardDto.builder()
                     .bno(boardEntity.getBno())
-                    .cno(boardEntity.getCno())
+
                     .hno(boardEntity.getHno())
                     .title(boardEntity.getTitle())
                     .content(boardEntity.getContent())
@@ -69,6 +70,7 @@ public class BoardService {
                     .name(boardEntity.getName())
                     .grade(boardEntity.getGrade())
                     .createdate(boardEntity.getCreatedate())
+                    .lang(boardEntity.getLang())
                     .build();
 
             boardDtoList.add(boardDTO);
@@ -85,7 +87,7 @@ public class BoardService {
         for ( BoardEntity boardEntity : boardEntities) {
             BoardDto boardDTO = BoardDto.builder()
                     .bno(boardEntity.getBno())
-                    .cno(boardEntity.getCno())
+
                     .hno(boardEntity.getHno())
                     .title(boardEntity.getTitle())
                     .content(boardEntity.getContent())
@@ -93,6 +95,7 @@ public class BoardService {
                     .name(boardEntity.getName())
                     .grade(boardEntity.getGrade())
                     .createdate(boardEntity.getCreatedate())
+                    .lang(boardEntity.getLang())
                     .build();
 
             boardDtoList.add(boardDTO);
@@ -109,7 +112,7 @@ public class BoardService {
         for ( BoardEntity boardEntity : boardEntities) {
             BoardDto boardDTO = BoardDto.builder()
                     .bno(boardEntity.getBno())
-                    .cno(boardEntity.getCno())
+
                     .hno(boardEntity.getHno())
                     .title(boardEntity.getTitle())
                     .content(boardEntity.getContent())
@@ -117,6 +120,7 @@ public class BoardService {
                     .name(boardEntity.getName())
                     .grade(boardEntity.getGrade())
                     .createdate(boardEntity.getCreatedate())
+                    .lang(boardEntity.getLang())
                     .build();
 
             boardDtoList.add(boardDTO);

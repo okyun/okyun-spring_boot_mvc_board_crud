@@ -1,12 +1,12 @@
-package com.example.demo.CodingComfile;
+package com.example.demo.CodingComfile.cmd;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.logging.Logger;
 
-public class CCmd {
-    private final static Logger logger = Logger.getGlobal();
+public class JavaCmd {
 
+    private final static Logger logger = Logger.getGlobal();
 
     private StringBuffer buffer;
     private Process process;
@@ -16,15 +16,14 @@ public class CCmd {
     public String inputCommand() {//1.
 
         buffer = new StringBuffer();
-        String filename="test";
 
         if (System.getProperty("os.name").indexOf("Windows") > -1) {
             logger.info("1111111111나는 윈도우 ");
             buffer.append("cmd.exe ");
             buffer.append("/c ");
-            buffer.append("cd C:\\2020_grad\\comfile\\c& "+"gcc "+filename+".c& "+"a.exe");
-
-
+            buffer.append("cd C:\\Compile2020\\javac& "+"javac test.java&"+"java test");
+//            buffer.append("/c ");
+//            buffer.append("dir ");
 
         } else {
             logger.info("222222222222나는 리눅스 ");
@@ -54,7 +53,7 @@ public class CCmd {
             e.printStackTrace();
             System.exit(1);
         }
-
         return null;
     }
+
 }

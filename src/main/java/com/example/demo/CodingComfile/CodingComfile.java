@@ -1,5 +1,8 @@
 package com.example.demo.CodingComfile;
 
+import com.example.demo.CodingComfile.cmd.CCmd;
+import com.example.demo.CodingComfile.cmd.JavaCmd;
+
 public class CodingComfile {//여기다가 컴파일 시험하고, 도커도 시험한다.
     public static void main(String args[]) {
 //        1.

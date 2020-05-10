@@ -48,13 +48,12 @@ public class TestController {
 
         return list;
     }
-    @RequestMapping("/boardRepository1")
-    public List<BoardEntity> boardRepository1(){
-        System.out.println("user");
-        List<BoardEntity> list = boardRepository.findByCno(1);
-
-        return list;
-    }
+//    @RequestMapping("/boardRepository1")
+//    public List<BoardEntity> boardRepository1(){
+//        System.out.println("user");
+//
+//
+//    }
     @RequestMapping("/homeworkdRepository")
     public List homeworkdRepository(){
         System.out.println("user");

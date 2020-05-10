@@ -40,6 +40,25 @@ public class InfoController {
         //log.info("888888888888888888"+boardDto.toString());
         return "myinfo/listhno";
     }
+    @RequestMapping("/teacher/info/{hno}/{bno}") //숙제list
+    public String hnolistdetail(@PathVariable("hno")Integer hno, @PathVariable("bno")Integer bno,Model model){
+        BoardDto boardDto=boardService.getPost(bno);
+        HomeworkDto homeworkDto=homeworkService.getHomeworkById(hno);
+
+        model.addAttribute("boardDto", boardDto);
+        model.addAttribute("homeworkDto", homeworkDto);
+
+        if(homeworkDto.getLang().equals("c"))
+            return "myinfo/readCCoding";
+        if(homeworkDto.getLang().equals("java"))
+            return "myinfo/readJavaCoding";
+        if(homeworkDto.getLang().equals("python"))
+            return "myinfo/readPythonCoding";
+        else return "myinfo/readCCoding";
+
+        //log.info("888888888888888888"+boardDto.toString());
+
+    }
     @RequestMapping("/student/info")//기본 화면
     public String studentinfo(Model model,Authentication authentication){
         UserDto auth=(UserDto)authentication.getPrincipal();
@@ -50,20 +69,31 @@ public class InfoController {
 
         return "myinfo/studentInfo";
     }
-    @GetMapping("/student/info/{bno}") //게시글 수정하기
+    @GetMapping("/student/info/{bno}") //게시글 수정하기-update1
     public String detail(@PathVariable("bno")Integer bno, Model model){
 
         BoardDto boardDto=boardService.getPost(bno);
-        model.addAttribute("boardDto", boardDto);
 
-        //log.info("888888888888888888"+boardDto.toString());
-        return "template/updateCoding";
+        model.addAttribute("boardDto", boardDto);
+        HomeworkDto homeworkDto = homeworkService.getHomeworkById(boardDto.getHno());
+        model.addAttribute("homeworkDto", homeworkDto);
+
+        if(boardDto.getLang().equals("c"))
+            return "student/updateCCoding";
+        if(boardDto.getLang().equals("java"))
+            return "student/updateJavaCoding";
+        if(boardDto.getLang().equals("python"))
+            return "student/updatePythonCoding";
+        else  return "student/updateCCoding";
+       // return "template/updateCoding";
     }
-    @PostMapping("/student/info/{bno}")
+    @PostMapping("/student/info/{bno}")//게시글 수정하기-update2
     public String updatePost(@PathVariable("bno")Integer bno,BoardDto boardDto,Authentication authentication){
 
         UserDto auth=(UserDto)authentication.getPrincipal();
+        HomeworkDto homeworkDto = homeworkService.getHomeworkById(boardDto.getHno());
         boardDto.setName(auth.getName());
+
         boardService.savePost(boardDto);
         log.info("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"+boardDto.toString());
 

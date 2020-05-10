@@ -1,8 +1,8 @@
 package com.example.demo.controller;
 
-import com.example.demo.CodingComfile.CCmd;
+import com.example.demo.CodingComfile.cmd.CCmd;
 import com.example.demo.CodingComfile.CFileInOutPut;
-import com.example.demo.CodingComfile.JavaCmd;
+import com.example.demo.CodingComfile.cmd.JavaCmd;
 import com.example.demo.CodingComfile.JavaFileInOutPut;
 import com.example.demo.domain.BoardDto;
 import com.example.demo.domain.HomeworkDto;
@@ -47,6 +47,7 @@ public class BoardController {
     public String createPost(BoardDto boardDto, Model model,Authentication authentication){
         UserDto auth=(UserDto)authentication.getPrincipal();
         boardDto.setName(auth.getName());
+
         boardService.savePost(boardDto);
         model.addAttribute("result","success");//?result=success
         return "redirect:/listAll";//url: http://localhost:9090/listAll로 이동하기
@@ -175,8 +176,10 @@ public class BoardController {
 
     @RequestMapping(value="/listHomework/{hno}/create", method=RequestMethod.POST)
     public String createPost1(@PathVariable("hno")Integer hno,BoardDto boardDto, Model model,Authentication authentication){
+        HomeworkDto homeworkDto = homeworkService.getHomeworkById(hno);
         UserDto auth=(UserDto)authentication.getPrincipal();
         boardDto.setHno(hno);
+        boardDto.setLang(homeworkDto.getLang());
         boardDto.setName(auth.getName());
         boardService.savePost(boardDto);
         log.info("99999999999999999999999999999"+boardDto.toString());

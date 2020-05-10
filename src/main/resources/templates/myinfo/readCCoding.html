@@ -1,0 +1,131 @@
+<!DOCTYPE HTML>
+<!--
+	Intensify by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <title>C update 페이지</title>
+    <th:block th:replace="/sep/commonHead"></th:block>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/booking-js/2.6.0/booking.min.js"></script>
+    <script>
+        function codingResultAjax() {
+
+            $.ajax({
+                url: "/codingResult",
+                type: "POST",
+                data: $("#writeCodingForm").serialize(),
+                success: function (data) {
+
+                    $('#contentresult').text(data);
+
+                },
+                error: function () {
+                    alert("serialize err");
+                }
+            });
+        }
+    </script>
+</head>
+<body class="subpage">
+
+<!-- Header and menu-->
+<th:block th:replace="/sep/index_header_menu"></th:block>
+
+
+<!-- Main -->
+<section id="main" class="wrapper">
+    <div class="inner" >
+        <header class="align-center">
+            <h1>C숙제를 검사 </h1>
+            <p> C숙제를 검사</p>
+        </header>
+        <!-- from 시작 -->
+        <form method="POST">
+            <div class="row uniform" >
+
+                <!-- 수업이름  -->
+                <div class="9u 12u$(small)">
+                    <input type="text" title="title" name="title"  placeholder="숙제 제목" th:value="${homeworkDto.title}"
+                           readonly/>
+                </div>
+                <!-- hno  -->
+                <div class="9u 12u$(small)" style ="display:none">
+                    <input type="text" title="hno" name="hno"  placeholder="숙제 제목" th:value="${homeworkDto.hno} "
+                           readonly/>
+                </div>
+                <!-- grade -->
+                <div class="9u 12u$(small)" style ="display:none">
+                    <input type="text" title="grade" name="grade"  placeholder="숙제 제목" th:value="${boardDto.grade} "
+                           readonly/>
+                </div>
+                <!-- lang -->
+                <div class="9u 12u$(small)" style ="display:none">
+                    <input type="text" title="lang" name="lang"  placeholder="숙제 제목" th:value="${boardDto.lang} "
+                           readonly/>
+                </div>
+
+
+                    <!-- 숙제 설명 -->
+                    <div style="margin-left: 60px">
+                      <textarea placeholder="숙제 설명"
+                                style="margin: 0px 0px 0px 0px; width: 450px; height: 690px;resize: none; "
+                                th:text="${homeworkDto.des}" readonly></textarea>
+                    </div>
+
+                    <div style="float: left;width:50%;">
+
+                        <!-- 코딩 -->
+
+
+                        <div><!--start 3-->
+                            <div class="12u$">
+                            <textarea name="content" id="content" placeholder="코드 입력" th:text="${boardDto.content}"
+                                      style="margin: 0px 3px 0px 0px; width: 500px; height: 345px;resize: none;" readonly>
+
+                            </textarea>
+                            </div>
+                            <!-- 코딩결과 -->
+                            <div class="12u$">
+                                <textarea name="contentresult" id="contentresult" placeholder="컴파일 버튼으로 결과를 확인하세요"
+                                          readonly
+                                          style="margin: 0px -14px 0px 0px; width: 500px; height: 345px;resize: none;"></textarea>
+                            </div>
+
+                        </div><!--end 3-->
+                    </div>
+                    </div>
+<!--                &lt;!&ndash; 코딩컴파일 버튼 &ndash;&gt;-->
+<!--                <div class="3u$ 12u$(small)">-->
+<!--                    <input onclick="codingResultAjax();" id="codingResult" name="codingResult" value="c코드 결과보기"-->
+<!--                           class="fit" formaction="/codingResult"/>-->
+<!--                </div>-->
+
+
+                <!-- 숙제 저장 버튼-->
+<!--                <div class="3u$ 12u$(small)" style="float: right; margin-top: 30px;">-->
+<!--                    <input type="submit" value="숙제 수정" class="fit"-->
+<!--                           />-->
+<!--                </div>-->
+
+
+
+
+        </form>
+    </div>
+
+</section>
+
+
+<!-- Footer -->
+<th:block th:replace="/sep/index_footer"></th:block>
+
+<!-- Scripts -->
+<script src="/assets/js/jquery.min.js"></script>
+<script src="/assets/js/jquery.scrolly.min.js"></script>
+<script src="/assets/js/skel.min.js"></script>
+<script src="/assets/js/util.js"></script>
+<script src="/assets/js/main.js"></script>
+</body>
+</html>

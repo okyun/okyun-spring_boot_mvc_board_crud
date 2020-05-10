@@ -38,7 +38,7 @@
 
 
                   <td>
-                      <a th:href="@{'/listAll/' + ${board.bno}}" style="text-decoration:none; color: black;">
+                      <a th:href="@{'/teacher/info/'+ ${board.hno}+ '/'+${board.bno}}" style="text-decoration:none; color: black;">
                       <span th:text="${board.title}"></span>
                       </a>
                   </td>
