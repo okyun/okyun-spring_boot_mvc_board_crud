@@ -90,6 +90,10 @@ public class HomeworkService {
         return homeworkDtoList;
 
     }
+    @Transactional
+    public void deleteHomework(Integer hno) {//게시물 삭제
+        homeworkRepository.deleteById(hno);
+    }
 
 
 

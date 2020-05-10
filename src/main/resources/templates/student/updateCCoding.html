@@ -103,11 +103,16 @@
                 </div>
 
 
-                <!-- 숙제 저장 버튼-->
+                <!-- 숙제 수정 버튼-->
                 <div class="3u$ 12u$(small)" style="float: right; margin-top: 30px;">
                     <input type="submit" value="숙제 수정" class="fit"
                            />
                 </div>
+            <!-- 숙제 삭제 버튼-->
+            <div class="3u$ 12u$(small)" style="float: right; margin-top: 30px;">
+                <input type="submit" value="숙제 삭제" class="fit" th:formaction="@{'/student/info/delete/' + ${boardDto.bno}}"
+                />
+            </div>
 
 
 

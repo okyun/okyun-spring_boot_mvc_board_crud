@@ -100,6 +100,15 @@ public class InfoController {
         return "redirect:/student/info";
     }
 
+    @PostMapping("/student/info/delete/{bno}")//게시글 수정하기-update2
+    public String deletePost(@PathVariable("bno")Integer bno,BoardDto boardDto,Authentication authentication){
+
+        boardService.deletePost(bno);
+        log.info("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"+boardDto.toString());
+
+        return "redirect:/student/info";
+    }
+
 
 
 

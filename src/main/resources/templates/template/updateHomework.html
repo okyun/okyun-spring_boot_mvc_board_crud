@@ -47,7 +47,7 @@
                 <div class="12u$">
                     <div class="select-wrapper">
                         <select name="lang" id="lang">
-                            <option value="">- 수업선택 -</option>
+                            <option value="">- 언어선택 -</option>
                             <option value="c">c</option>
                             <option value="java">java</option>
                             <option value="python">python</option>
@@ -62,6 +62,11 @@
                 <!--숙제 제출 버튼-->
                 <div class="3u$ 12u$(small)">
                     <input type="submit" value="숙제 update" class="fit"/>
+                </div>
+                <!-- 숙제 삭제 버튼-->
+                <div class="3u$ 12u$(small)" style="float: right; margin-top: 30px;">
+                    <input type="submit" value="숙제 삭제" class="fit" th:formaction="@{'/updateHomeworklist/delete/' + ${homeworkDto.hno}}"
+                    />
                 </div>
 
             </div>

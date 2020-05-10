@@ -231,6 +231,14 @@ public class BoardController {
         return "redirect:/updateHomeworklist";
 
     }
+    @PostMapping("/updateHomeworklist/delete/{hno}")
+    public String deleteHomeworpost(Model model,HomeworkDto homeworkDto,Authentication authentication,@PathVariable("hno")Integer hno){
+
+       homeworkService.deleteHomework(hno);
+
+        return "redirect:/updateHomeworklist";
+
+    }
 
 
 }
