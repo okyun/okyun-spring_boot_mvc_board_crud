@@ -59,6 +59,7 @@ public class InfoController {
         //log.info("888888888888888888"+boardDto.toString());
 
     }
+
     @RequestMapping("/student/info")//기본 화면
     public String studentinfo(Model model,Authentication authentication){
         UserDto auth=(UserDto)authentication.getPrincipal();
