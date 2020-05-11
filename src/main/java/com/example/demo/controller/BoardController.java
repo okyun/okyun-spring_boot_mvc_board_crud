@@ -181,6 +181,7 @@ public class BoardController {
         boardDto.setHno(hno);
         boardDto.setLang(homeworkDto.getLang());
         boardDto.setName(auth.getName());
+        boardDto.setClassname(homeworkDto.getClassname());
         boardService.savePost(boardDto);
         log.info("99999999999999999999999999999"+boardDto.toString());
         return "redirect:/listHomework";

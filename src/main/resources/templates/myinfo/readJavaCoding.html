@@ -38,8 +38,8 @@
 <section id="main" class="wrapper">
     <div class="inner" >
         <header class="align-center">
-            <h1>java 숙제를 검사</h1>
-            <p>여기서 학생들이 java숙제를  숙제를 검사</p>
+            <h1>java 숙제를 검사, 점수 매기기</h1>
+            <p>여기서 학생들이 java숙제를  숙제를 검사, 점수 매기기</p>
         </header>
         <!-- from 시작 -->
         <form method="post">
@@ -52,17 +52,28 @@
                 </div>
                 <!-- hno  -->
                 <div class="9u 12u$(small)" style ="display:none">
-                    <input type="text" title="hno" name="hno"  placeholder="숙제 제목" th:value="${homeworkDto.hno} "
+                    <input type="text" title="hno" name="hno"  placeholder="hno" th:value="${homeworkDto.hno} "
                            readonly/>
                 </div>
-                <!-- grade -->
-                <div class="9u 12u$(small)" style ="display:none">
-                    <input type="text" title="grade" name="grade"  placeholder="숙제 제목" th:value="${boardDto.grade} "
-                           readonly/>
-                </div>
+
                 <!-- lang -->
                 <div class="9u 12u$(small)" style ="display:none">
-                    <input type="text" title="lang" name="lang"  placeholder="숙제 제목" th:value="${boardDto.lang} "
+                    <input type="text" title="lang" name="lang"  placeholder="lang" th:value="${boardDto.lang} "
+                           readonly/>
+                </div>
+                <!-- bno -->
+                <div class="9u 12u$(small)" style ="display:none">
+                    <input type="text" title="hno" name="hno"  placeholder="hno" th:value="${boardDto.bno} "
+                           readonly/>
+                </div>
+                <!-- name -->
+                <div class="9u 12u$(small)" style ="display:none">
+                    <input type="text" title="name" name="name"  placeholder="작성자" th:value="${boardDto.name} "
+                           readonly/>
+                </div>
+                <!-- classname -->
+                <div class="9u 12u$(small)" style ="display:none">
+                    <input type="text" title="classname" name="classname"  placeholder="작성자" th:value="${boardDto.classname} "
                            readonly/>
                 </div>
 
@@ -114,7 +125,7 @@
             <!--수업선택 drop select -->
             <div class="12u$">
                 <div class="select-wrapper">
-                    <select name="lang" id="lang">
+                    <select name="grade" id="grade">
                         <option value="">- 점수 선택 -</option>
                         <option value="A">A</option>
                         <option value="B">B</option>
@@ -130,6 +141,7 @@
             <!-- 숙제 저장 버튼-->
             <div class="3u$ 12u$(small)" style="float: right; margin-top: 30px;">
                 <input type="submit" value="점수 저장" class="fit"
+                       th:formaction=""
                 />
             </div>
 

@@ -43,6 +43,7 @@ public class BoardService {
                 .title(boardEntity.getTitle())
                 .content(boardEntity.getContent())
                 .contentresult(boardEntity.getContentresult())
+                .classname(boardEntity.getClassname())
                 .name(boardEntity.getName())
                 .grade(boardEntity.getGrade())
                 .createdate(boardEntity.getCreatedate())
@@ -62,7 +63,7 @@ public class BoardService {
         for ( BoardEntity boardEntity : boardEntities) {
             BoardDto boardDTO = BoardDto.builder()
                     .bno(boardEntity.getBno())
-
+                    .classname(boardEntity.getClassname())
                     .hno(boardEntity.getHno())
                     .title(boardEntity.getTitle())
                     .content(boardEntity.getContent())
@@ -87,7 +88,7 @@ public class BoardService {
         for ( BoardEntity boardEntity : boardEntities) {
             BoardDto boardDTO = BoardDto.builder()
                     .bno(boardEntity.getBno())
-
+                    .classname(boardEntity.getClassname())
                     .hno(boardEntity.getHno())
                     .title(boardEntity.getTitle())
                     .content(boardEntity.getContent())
@@ -112,7 +113,7 @@ public class BoardService {
         for ( BoardEntity boardEntity : boardEntities) {
             BoardDto boardDTO = BoardDto.builder()
                     .bno(boardEntity.getBno())
-
+                    .classname(boardEntity.getClassname())
                     .hno(boardEntity.getHno())
                     .title(boardEntity.getTitle())
                     .content(boardEntity.getContent())

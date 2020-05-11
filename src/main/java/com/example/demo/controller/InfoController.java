@@ -59,6 +59,18 @@ public class InfoController {
         //log.info("888888888888888888"+boardDto.toString());
 
     }
+    @PostMapping("/teacher/info/{hno}/{bno}")//점수주기
+    public String Postgrade(@PathVariable("bno")Integer bno,BoardDto boardDto,Authentication authentication){
+
+        UserDto auth=(UserDto)authentication.getPrincipal();
+        HomeworkDto homeworkDto = homeworkService.getHomeworkById(boardDto.getHno());
+        boardDto.setName(auth.getName());
+
+        boardService.savePost(boardDto);
+        log.info("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"+boardDto.toString());
+
+        return "redirect:/teacher/info/{hno}";
+    }
 
     @RequestMapping("/student/info")//기본 화면
     public String studentinfo(Model model,Authentication authentication){
