@@ -28,38 +28,65 @@
                 <thead>
                 <tr>
 
-                    <th>제목</th>
-                    <th>작성장</th>
-                    <th>날짜</th>
-                    <th>점수</th>
+                    <th>hno</th>
+                    <th>bno</th>
+                    <th>숙제 제목</th>
+                    <th>교수님</th>
+                    <th>작성날짜</th>
+                    <th>수업명</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr th:each="board : ${boardList}">
-
-
+                    <!--hno -->
                     <td>
                         <a th:href="@{'/student/info/' + ${board.bno}}" style="text-decoration:none; color: black;">
-                            <span th:text="${board.bno}"></span>
+
+                            <span th:text="${board.hno}"></span>
                         </a>
                     </td>
+                    <!--bno -->
                     <td>
-                             <span th:text="${board.title}"></span>
+                        <a th:href="@{'/student/info/' + ${board.bno}}" style="text-decoration:none; color: black;">
+
+                        <span th:text="${board.bno}"></span>
+                        </a>
                     </td>
+                    <!--제목 -->
                     <td>
-                            <span th:text="${board.content}"></span>
+                        <a th:href="@{'/student/info/' + ${board.bno}}" style="text-decoration:none; color: black;">
+                            <span th:text="${board.title}"></span>
+                        </a>
                     </td>
+                    <!--교수님 -->
                     <td>
-                             <span th:text="${board.contentresult}"></span>
+                        <a th:href="@{'/student/info/' + ${board.bno}}" style="text-decoration:none; color: black;">
+
+                        <span th:text="${board.title}"></span>
+                        </a>
+                    </td>
+                    <!--작성날짜 -->
+                    <td>
+                        <a th:href="@{'/student/info/' + ${board.bno}}" style="text-decoration:none; color: black;">
+
+                        <span th:text="${board.createdate}"></span>
+                        </a>
+                    </td>
+                    <!--수업명 -->
+                    <td>
+                        <a th:href="@{'/student/info/' + ${board.bno}}" style="text-decoration:none; color: black;">
+
+                        <span th:text="${board.classname}"></span>
+                        </a>
                     </td>
                 </tr>
 
                 </tbody>
                 <tfoot>
-                <tr>
-                    <td colspan="2"></td>
-                    <td>100.00</td>
-                </tr>
+<!--                <tr>-->
+<!--                    <td colspan="2"></td>-->
+<!--                    <td>100.00</td>-->
+<!--                </tr>-->
                 </tfoot>
             </table>
         </div>

@@ -31,19 +31,20 @@
     <div class="row">
         <!--1 -->
         <div class="col-4" th:each="homework : ${homeworkList}">
-            <p><span th:text="${homework.title}"></span></p>
+            <p> hno:<span th:text="${homework.hno}"></span></p>
             <div class="card">
                 <div class="card-header">
-
-                    <a th:href="@{'/listHomework/' + ${homework.hno}}" style="text-decoration:none; color: black;">
-                        <span th:text="${homework.hno}"></span>
-                    </a>
+                    <div style="text-align: left">
+                      <span th:text="${homework.classname}"></span>
+                    </div>
+                    <div style="text-align: right">
+                    <span  th:text="${homework.name}"></span>
+                    </div>
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title"><span th:text="${homework.dueday}"></span></h5>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam egestas sed sem
-                        ut malesuada.</p>
-                    <a href="#" class="btn btn-primary">More</a>
+                    <h5 style="text-overflow:ellipsis;" class="card-title">제목:<span th:text="${homework.title}"></span></h5>
+                    <p style="text-overflow:ellipsis;" class="card-text"><span th:text="${homework.des}"></span></p>
+                    <a th:href="@{'/listHomework/' + ${homework.hno}}" class="btn btn-primary">More</a>
                 </div>
             </div>
         </div>
