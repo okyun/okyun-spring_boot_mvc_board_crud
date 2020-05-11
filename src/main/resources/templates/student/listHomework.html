@@ -30,10 +30,10 @@
 <div class="container" style="margin-bottom: 30px">
     <div class="row">
         <!--1 -->
-        <div class="col-4" th:each="homework : ${homeworkList}">
+        <div class="col-4" th:each="homework : ${homeworkList}" >
             <p> hno:<span th:text="${homework.hno}"></span></p>
-            <div class="card">
-                <div class="card-header">
+            <div class="card" style="border-color: #f78a76">
+                <div class="card-header" style="background-color: #f78a76">
                     <div style="text-align: left">
                       <span th:text="${homework.classname}"></span>
                     </div>
@@ -44,7 +44,7 @@
                 <div class="card-body">
                     <h5 style="text-overflow:ellipsis;" class="card-title">제목:<span th:text="${homework.title}"></span></h5>
                     <p style="text-overflow:ellipsis;" class="card-text"><span th:text="${homework.des}"></span></p>
-                    <a th:href="@{'/listHomework/' + ${homework.hno}}" class="btn btn-primary">More</a>
+                    <a th:href="@{'/listHomework/' + ${homework.hno}}" style="background-color: #f78a76; border-color: #f78a76" class="btn btn-primary">Go</a>
                 </div>
             </div>
         </div>

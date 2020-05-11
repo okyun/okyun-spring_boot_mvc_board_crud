@@ -47,8 +47,13 @@ public class BoardEntity {
     @Column(name = "lang")
     private String lang;
 
+    @Column(name = "teacher")
+    private String teacher;
+
+    @Column(name = "dueday")
+    private String dueday;
     @Builder
-    public BoardEntity(Integer bno, Integer hno,String title, String content, String contentresult, String name,String grade,String classname,LocalDateTime createdate,String lang) {
+    public BoardEntity(Integer bno, Integer hno,String title, String content, String contentresult, String name,String grade,String classname,LocalDateTime createdate,String lang,String teacher,String dueday) {
         this.bno = bno;
         this.hno=hno;
 
@@ -60,6 +65,8 @@ public class BoardEntity {
         this.classname=classname;
         this.createdate=createdate;
         this.lang=lang;
+        this.teacher=teacher;
+        this.dueday=dueday;
 
     }
 }

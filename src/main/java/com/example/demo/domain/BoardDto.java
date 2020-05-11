@@ -20,6 +20,8 @@ public class BoardDto {
     private String grade;
     private String classname;
     private String lang;
+    private String teacher;
+    private String dueday;
     private LocalDateTime createdate;
 
 
@@ -36,13 +38,15 @@ public class BoardDto {
                 .classname(classname)
                 .createdate(createdate)
                 .lang(lang)
+                .teacher(teacher)
+                .dueday(dueday)
                 .build();
         return boardEntity;
 
     }
 
     @Builder
-    public BoardDto(Integer bno,Integer cno,Integer hno,String title,String content,String contentresult,String name,String grade,String classname,LocalDateTime createdate,String lang){
+    public BoardDto(Integer bno,Integer cno,Integer hno,String title,String content,String contentresult,String name,String grade,String classname,LocalDateTime createdate,String lang,String teacher,String dueday){
         this.bno=bno;
 
         this.hno=hno;
@@ -54,6 +58,8 @@ public class BoardDto {
         this.classname=classname;
         this.createdate=createdate;
         this.lang=lang;
+        this.teacher=teacher;
+        this.dueday=dueday;
 
 
     }

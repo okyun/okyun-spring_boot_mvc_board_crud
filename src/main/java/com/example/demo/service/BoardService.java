@@ -48,6 +48,8 @@ public class BoardService {
                 .grade(boardEntity.getGrade())
                 .createdate(boardEntity.getCreatedate())
                 .lang(boardEntity.getLang())
+                .teacher(boardEntity.getTeacher())
+                .dueday(boardEntity.getDueday())
                 .build();
 
         return boardDto;
@@ -72,6 +74,8 @@ public class BoardService {
                     .grade(boardEntity.getGrade())
                     .createdate(boardEntity.getCreatedate())
                     .lang(boardEntity.getLang())
+                    .teacher(boardEntity.getTeacher())
+                    .dueday(boardEntity.getDueday())
                     .build();
 
             boardDtoList.add(boardDTO);
@@ -97,6 +101,8 @@ public class BoardService {
                     .grade(boardEntity.getGrade())
                     .createdate(boardEntity.getCreatedate())
                     .lang(boardEntity.getLang())
+                    .teacher(boardEntity.getTeacher())
+                    .dueday(boardEntity.getDueday())
                     .build();
 
             boardDtoList.add(boardDTO);
@@ -122,6 +128,8 @@ public class BoardService {
                     .grade(boardEntity.getGrade())
                     .createdate(boardEntity.getCreatedate())
                     .lang(boardEntity.getLang())
+                    .teacher(boardEntity.getTeacher())
+                    .dueday(boardEntity.getDueday())
                     .build();
 
             boardDtoList.add(boardDTO);

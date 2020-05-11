@@ -182,6 +182,8 @@ public class BoardController {
         boardDto.setLang(homeworkDto.getLang());
         boardDto.setName(auth.getName());
         boardDto.setClassname(homeworkDto.getClassname());
+        boardDto.setTeacher(homeworkDto.getName());
+        boardDto.setDueday(homeworkDto.getDueday());
         boardService.savePost(boardDto);
         log.info("99999999999999999999999999999"+boardDto.toString());
         return "redirect:/listHomework";
