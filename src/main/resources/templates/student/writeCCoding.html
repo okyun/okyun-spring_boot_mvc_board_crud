@@ -18,7 +18,7 @@
                 data: $("#writeCodingForm").serialize(),
                 success: function (data) {
 
-                    $('#contentresult').text(data);
+                     $('#contentresult').text(data);
 
                 },
                 error: function () {
@@ -42,7 +42,7 @@
             <p>여기서 학생들이  cC숙제를 제출합니다.</p>
         </header>
         <!-- from 시작 -->
-        <form method="post">
+        <form id="writeCodingForm" method="POST">
             <div class="row uniform" >
 
                 <!-- 수업이름  -->
@@ -82,11 +82,11 @@
                         </div><!--end 3-->
                     </div>
                     </div>
-                <!-- 코딩컴파일 버튼 -->
-                <div class="3u$ 12u$(small)">
-                    <input onclick="codingResultAjax();" id="codingResult" name="codingResult" value="코드 결과보기"
-                           class="fit" formaction="/codingResult"/>
-                </div>
+
+            <!--코드 결과보기 버튼-->
+            <div class="3u$ 12u$(small)">
+                <input onclick="codingResultAjax();" id="codingResult" name="codingResult" value="코드 결과보기" class="fit" formaction="/codingResult"/>
+            </div>
 
 
                 <!-- 숙제 저장 버튼-->

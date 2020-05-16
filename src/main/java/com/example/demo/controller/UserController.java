@@ -45,7 +45,7 @@ public class UserController {
     public String registerPost(UserDto userDto){
         userService.saveUser(userDto);
         log.info("아 여기는 registerPost!!!!!!!!!!");
-        return "redirect:/index";
+        return "redirect:/";
     }
     @GetMapping("user/logout")//로그아웃
     public String logout(){

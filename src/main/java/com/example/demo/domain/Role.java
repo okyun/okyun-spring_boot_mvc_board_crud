@@ -9,7 +9,7 @@ public enum  Role {
     USER("ROLE_USER"),
     MEMBER("ROLE_MEMBER"),
     ADMIN("ROLE_ADMIN"),
-    STUDENT("ROLE_STUDENT"),
-    TEACHER("ROLE_TEACHER");
+    STUDENT("ROLE_STUDENT"),//학생
+    TEACHER("ROLE_TEACHER");//교수
     private String value;
 }

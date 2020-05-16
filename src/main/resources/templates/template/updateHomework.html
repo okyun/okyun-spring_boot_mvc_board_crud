@@ -30,8 +30,26 @@
                 <div class="9u 12u$(small)">
                     <input name="title" type="text"  id="title" th:value="${homeworkDto.title}" placeholder="제목" required="required"/>
                 </div>
+                <!--dueday -->
                 <div class="9u 12u$(small)">
                     <input name="dueday" type="text"  id="dueday" th:value="${homeworkDto.dueday}" placeholder="dueday" required="required"/>
+                </div>
+
+                <!-- hno  -->
+                <div class="9u 12u$(small)" style ="display:none">
+                    <input type="text" title="hno" name="hno"  placeholder="숙제 제목" th:value="${homeworkDto.hno} "
+                           readonly/>
+                </div>
+
+                <!-- classname  -->
+                <div class="9u 12u$(small)" style ="display:none">
+                    <input type="text" title="classname" name="classname"  placeholder="숙제 제목" th:value="${homeworkDto.classname} "
+                           readonly/>
+                </div>
+                <!-- lang  -->
+                <div class="9u 12u$(small)" style ="">
+                    <input type="text" title="lang" name="lang" id="lang"  th:value="${homeworkDto.lang}"
+                           readonly/>
                 </div>
                 <!--작성장 -->
                 <div class="9u 12u$(small)">
@@ -44,20 +62,12 @@
                 <!--                    <span sec:authentication="principal.studentnum"></span>-->
                 <!--                </div>-->
                 <!--수업선택 drop select -->
-                <div class="12u$" style="display: none">
-                    <div class="select-wrapper">
-                        <select name="lang" id="lang">
-                            <option value="">- 언어선택 -</option>
-                            <option value="c">c</option>
-                            <option value="java">java</option>
-                            <option value="python">python</option>
-                        </select>
-                    </div>
-                </div>
-                <!--코드 -->
+
+                <!--des -->
                 <div class="12u$">
                     <textarea name="des" id="des" placeholder="설명를 입력하세요" th:text="${homeworkDto.des}" rows="6" cols="95" required="required"></textarea>
                 </div>
+
 
                 <!--숙제 제출 버튼-->
                 <div class="3u$ 12u$(small)">

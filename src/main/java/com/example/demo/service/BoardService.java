@@ -50,6 +50,7 @@ public class BoardService {
                 .lang(boardEntity.getLang())
                 .teacher(boardEntity.getTeacher())
                 .dueday(boardEntity.getDueday())
+                .studentnum(boardEntity.getStudentnum())
                 .build();
 
         return boardDto;
@@ -76,6 +77,7 @@ public class BoardService {
                     .lang(boardEntity.getLang())
                     .teacher(boardEntity.getTeacher())
                     .dueday(boardEntity.getDueday())
+                    .studentnum(boardEntity.getStudentnum())
                     .build();
 
             boardDtoList.add(boardDTO);
@@ -103,6 +105,7 @@ public class BoardService {
                     .lang(boardEntity.getLang())
                     .teacher(boardEntity.getTeacher())
                     .dueday(boardEntity.getDueday())
+                    .studentnum(boardEntity.getStudentnum())
                     .build();
 
             boardDtoList.add(boardDTO);
@@ -130,6 +133,7 @@ public class BoardService {
                     .lang(boardEntity.getLang())
                     .teacher(boardEntity.getTeacher())
                     .dueday(boardEntity.getDueday())
+                    .studentnum(boardEntity.getStudentnum())
                     .build();
 
             boardDtoList.add(boardDTO);
@@ -143,5 +147,10 @@ public class BoardService {
     public void deletePost(Integer bno) {//게시물 삭제
         boardRepository.deleteById(bno);
     }
+    @Transactional
+    public void deletePostList(Integer hno) {//게시물 삭제2
+        boardRepository.deleteAllByHno(hno);
+    }
+
 
 }

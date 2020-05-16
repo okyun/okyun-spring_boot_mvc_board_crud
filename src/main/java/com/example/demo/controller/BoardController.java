@@ -178,12 +178,16 @@ public class BoardController {
     public String createPost1(@PathVariable("hno")Integer hno,BoardDto boardDto, Model model,Authentication authentication){
         HomeworkDto homeworkDto = homeworkService.getHomeworkById(hno);
         UserDto auth=(UserDto)authentication.getPrincipal();
+
+        boardDto.setName(auth.getName());
+        boardDto.setStudentnum(auth.getStudentnum());
+
         boardDto.setHno(hno);
         boardDto.setLang(homeworkDto.getLang());
-        boardDto.setName(auth.getName());
         boardDto.setClassname(homeworkDto.getClassname());
         boardDto.setTeacher(homeworkDto.getName());
         boardDto.setDueday(homeworkDto.getDueday());
+
         boardService.savePost(boardDto);
         log.info("99999999999999999999999999999"+boardDto.toString());
         return "redirect:/listHomework";
@@ -238,6 +242,8 @@ public class BoardController {
     public String deleteHomeworpost(Model model,HomeworkDto homeworkDto,Authentication authentication,@PathVariable("hno")Integer hno){
 
        homeworkService.deleteHomework(hno);
+       boardService.deletePostList(hno);
+
 
         return "redirect:/updateHomeworklist";
 
