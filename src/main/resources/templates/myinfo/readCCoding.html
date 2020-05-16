@@ -45,7 +45,7 @@
         <form method="POST">
             <div class="row uniform" >
 
-                <!-- 수업이름  -->
+                <!-- 숙제 제목  -->
                 <div class="9u 12u$(small)">
                     <input type="text" title="title" name="title"  placeholder="숙제 제목" th:value="${homeworkDto.title}"
                            readonly/>
@@ -66,8 +66,8 @@
                     <input type="text" title="hno" name="hno"  placeholder="hno" th:value="${boardDto.bno} "
                            readonly/>
                 </div>
-                <!-- bno -->
-                <div class="9u 12u$(small)" style ="display:none">
+                <!-- name -->
+                <div class="9u 12u$(small)" style ="">
                     <input type="text" title="name" name="name"  placeholder="작성자" th:value="${boardDto.name} "
                            readonly/>
                 </div>

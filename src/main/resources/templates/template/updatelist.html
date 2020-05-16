@@ -34,17 +34,17 @@
         <!--1 -->
         <div class="col-4"  th:each="homework : ${homeworkList}">
             <p><span th:text="${homework.title}"></span></p>
-            <div class="card">
-                <div class="card-header">
+            <div class="card" style="border-color:#25a2c3 ">
+                <div class="card-header" style="background-color: #25a2c3">
 
-                    <a th:href="@{'/updateHomeworklist/' + ${homework.hno}}">
+                    <a th:href="@{'/updateHomeworklist/' + ${homework.hno}}" style="color: #333333;text-decoration: none " >
                         <span th:text="${homework.hno}"></span>
                     </a>
                 </div>
                 <div class="card-body">
                     <h5 class="card-title"><span th:text="${homework.dueday}"></span></h5>
                     <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam egestas sed sem ut malesuada.</p>
-                    <a href="#" class="btn btn-primary">More</a>
+                    <a th:href="@{'/updateHomeworklist/' + ${homework.hno}}" class="btn btn-primary" style="border-color:#25a2c3;background-color: #25a2c3 ;color: #333333;text-decoration: none ">More</a>
                 </div>
             </div>
         </div>

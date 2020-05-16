@@ -64,7 +64,7 @@ public class InfoController {
 
         UserDto auth=(UserDto)authentication.getPrincipal();
         HomeworkDto homeworkDto = homeworkService.getHomeworkById(boardDto.getHno());
-        boardDto.setName(auth.getName());
+
 
         boardService.savePost(boardDto);
         log.info("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"+boardDto.toString());
