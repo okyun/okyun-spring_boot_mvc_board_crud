@@ -52,77 +52,7 @@ public class BoardController {
         model.addAttribute("result","success");//?result=success
         return "redirect:/listAll";//url: http://localhost:9090/listAll로 이동하기
     }
-    ///codingResult
 
-    @RequestMapping(value="/codingResult", method=RequestMethod.POST)
-    @ResponseBody
-    public String codingResultPost(BoardDto boardDto){
-
-        CFileInOutPut cFileInOutPut=new CFileInOutPut();//저장
-        CCmd cCmd=new CCmd();//컴파일
-
-        cFileInOutPut.Input(boardDto.getContent());//파일저장
-
-        String command = cCmd.inputCommand();//코드 넣고
-
-        String result = cCmd.execCommand(command);//코드 결과 받아오기
-
-        System.out.println("12121212121212"+result);
-        return result;
-    }
-    @RequestMapping(value="/javaCodingResult", method=RequestMethod.POST)
-    @ResponseBody
-    public String JavacodingResultPost(BoardDto boardDto){
-
-        CFileInOutPut cFileInOutPut=new CFileInOutPut();//저장
-        CCmd cCmd=new CCmd();//컴파일
-
-        cFileInOutPut.Input(boardDto.getContent());//파일저장
-
-        String command = cCmd.inputCommand();//코드 넣고
-
-        String result = cCmd.execCommand(command);//코드 결과 받아오기
-
-        System.out.println("12121212121212"+result);
-        return result;
-    }
-    @RequestMapping(value="/pythonCodingResult", method=RequestMethod.POST)
-    @ResponseBody
-    public String PythoncodingResultPost(BoardDto boardDto){
-
-        CFileInOutPut cFileInOutPut=new CFileInOutPut();//저장
-        CCmd cCmd=new CCmd();//컴파일
-
-        cFileInOutPut.Input(boardDto.getContent());//파일저장
-
-        String command = cCmd.inputCommand();//코드 넣고
-
-        String result = cCmd.execCommand(command);//코드 결과 받아오기
-
-        System.out.println("12121212121212"+result);
-        return result;
-    }
-    @RequestMapping(value="/result", method=RequestMethod.POST)//ajax-c
-    @ResponseBody
-    public String ResultPost(BoardDto boardDto){
-        return boardDto.getTitle();
-    }
-    @RequestMapping(value="/javacodingResult", method=RequestMethod.POST)//ajax-java
-    @ResponseBody
-    public String javacodingResultPost(BoardDto boardDto){
-
-        JavaFileInOutPut javaFileInOutPut=new JavaFileInOutPut();//저장
-        JavaCmd javaCmd=new JavaCmd();//컴파일
-
-        javaFileInOutPut.Input(boardDto.getContent());//파일저장
-
-        String command = javaCmd.inputCommand();//코드 넣고
-
-        String result = javaCmd.execCommand(command);//코드 결과 받아오기
-
-        System.out.println("34343434343434343"+result);
-        return result;
-    }
     @GetMapping("/listAll")
     public String list(Model model) {
 

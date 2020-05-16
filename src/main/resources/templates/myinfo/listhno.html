@@ -27,34 +27,39 @@
           <table>
               <thead>
               <tr>
-                  <th>제목</th>
-                  <th>작성장</th>
-                  <th>날짜</th>
-                  <th>점수</th>
+                  <th>제목</th><!-- 1-->
+                  <th>작성장</th><!-- 2-->
+                  <th>날짜</th><!-- 3-->
+                  <th>점수</th><!-- 4-->
               </tr>
               </thead>
               <tbody>
               <tr th:each="board : ${boardList}">
 
-
+<!--1 -->
                   <td>
                       <a th:href="@{'/teacher/info/'+ ${board.hno}+ '/'+${board.bno}}" style="text-decoration:none; color: black;">
                       <span th:text="${board.title}"></span>
                       </a>
                   </td>
+<!--2 -->
                   <td>
-                      <a th:href="@{'/listAll/' + ${board.bno}}" style="text-decoration:none; color: black;">
+                      <a th:href="@{'/teacher/info/'+ ${board.hno}+ '/'+${board.bno}}" style="text-decoration:none; color: black;">
+
                       <span th:text="${board.name}"></span>
                       </a>
                   </td>
+<!--3 -->
                   <td>
-                      <a th:href="@{'/listAll/' + ${board.bno}}" style="text-decoration:none; color: black;">
+                      <a th:href="@{'/teacher/info/'+ ${board.hno}+ '/'+${board.bno}}" style="text-decoration:none; color: black;">
+
                       <span th:text="${board.createdate}"></span>
                       </a>
                   </td>
+<!--4 -->
                   <td>
-                      <a th:href="@{'/listAll/' + ${board.bno}}" style="text-decoration:none; color: black;">
-                      <span th:text="${board.hno}"></span>
+                      <a th:href="@{'/teacher/info/'+ ${board.hno}+ '/'+${board.bno}}" style="text-decoration:none; color: black;">
+                      <span th:text="${board.grade}"></span>
                       </a>
                   </td>
               </tr>
