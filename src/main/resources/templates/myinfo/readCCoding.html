@@ -45,98 +45,99 @@
         <form method="POST">
             <div class="row uniform" >
 
-                <!-- 숙제 제목  -->
-                <div class="9u 12u$(small)">
-                    <input type="text" title="title" name="title"  placeholder="숙제 제목" th:value="${homeworkDto.title}"
-                           readonly/>
-                </div>
-                <!-- hno  -->
-                <div class="9u 12u$(small)" style ="display:none">
-                    <input type="text" title="hno" name="hno"  placeholder="hno" th:value="${homeworkDto.hno} "
-                           readonly/>
-                </div>
+<!--                &lt;!&ndash; 숙제 제목  &ndash;&gt;-->
+<!--                <div class="9u 12u$(small)">-->
+<!--                    <input type="text" title="title" name="title"  placeholder="숙제 제목" th:value="${homeworkDto.title}"-->
+<!--                           readonly/>-->
+<!--                </div>-->
+<!--                &lt;!&ndash; hno  &ndash;&gt;-->
+<!--                <div class="9u 12u$(small)" style ="display:none">-->
+<!--                    <input type="text" title="hno" name="hno"  placeholder="hno" th:value="${homeworkDto.hno} "-->
+<!--                           readonly/>-->
+<!--                </div>-->
 
-                <!-- lang -->
-                <div class="9u 12u$(small)" style ="display:none">
-                    <input type="text" title="lang" name="lang"  placeholder="lang" th:value="${boardDto.lang} "
-                           readonly/>
-                </div>
-                <!-- bno -->
-                <div class="9u 12u$(small)" style ="display:none">
-                    <input type="text" title="hno" name="hno"  placeholder="hno" th:value="${boardDto.bno} "
-                           readonly/>
-                </div>
-                <!-- name -->
-                <div class="9u 12u$(small)" style ="">
-                    <input type="text" title="name" name="name"  placeholder="작성자" th:value="${boardDto.name} "
-                           readonly/>
-                </div>
-                <!-- classname -->
-                <div class="9u 12u$(small)" style ="">
-                    <input type="text" title="classname" name="classname"  placeholder="수업이름" th:value="${boardDto.classname} "
-                           readonly/>
-                </div>
+<!--                &lt;!&ndash; lang &ndash;&gt;-->
+<!--                <div class="9u 12u$(small)" style ="display:none">-->
+<!--                    <input type="text" title="lang" name="lang"  placeholder="lang" th:value="${boardDto.lang} "-->
+<!--                           readonly/>-->
+<!--                </div>-->
+<!--                &lt;!&ndash; bno &ndash;&gt;-->
+<!--                <div class="9u 12u$(small)" style ="display:none">-->
+<!--                    <input type="text" title="hno" name="hno"  placeholder="hno" th:value="${boardDto.bno} "-->
+<!--                           readonly/>-->
+<!--                </div>-->
+<!--                &lt;!&ndash; name &ndash;&gt;-->
+<!--                <div class="9u 12u$(small)" style ="">-->
+<!--                    <input type="text" title="name" name="name"  placeholder="작성자" th:value="${boardDto.name} "-->
+<!--                           readonly/>-->
+<!--                </div>-->
+<!--                &lt;!&ndash; classname &ndash;&gt;-->
+<!--                <div class="9u 12u$(small)" style ="">-->
+<!--                    <input type="text" title="classname" name="classname"  placeholder="수업이름" th:value="${boardDto.classname} "-->
+<!--                           readonly/>-->
+<!--                </div>-->
 
-                    <!-- 숙제 설명 -->
-                    <div style="margin-left: 60px">
-                      <textarea placeholder="숙제 설명"
-                                style="margin: 0px 0px 0px 0px; width: 450px; height: 690px;resize: none; "
-                                th:text="${homeworkDto.des}" readonly></textarea>
-                    </div>
+<!--                    &lt;!&ndash; 숙제 설명 &ndash;&gt;-->
+<!--                    <div style="margin-left: 60px">-->
+<!--                      <textarea placeholder="숙제 설명"-->
+<!--                                style="margin: 0px 0px 0px 0px; width: 450px; height: 690px;resize: none; "-->
+<!--                                th:text="${homeworkDto.des}" readonly></textarea>-->
+<!--                    </div>-->
 
-                    <div style="float: left;width:50%;">
+<!--                    <div style="float: left;width:50%;">-->
 
-                        <!-- 코딩 -->
-
-
-                        <div><!--start 3-->
-                            <div class="12u$">
-                            <textarea name="content" id="content" placeholder="코드 입력" th:text="${boardDto.content}"
-                                      style="margin: 0px 3px 0px 0px; width: 500px; height: 345px;resize: none;" readonly>
-
-                            </textarea>
-                            </div>
-                            <!-- 코딩결과 -->
-                            <div class="12u$">
-                                <textarea name="contentresult" id="contentresult" placeholder="컴파일 버튼으로 결과를 확인하세요"
-                                          th:text="${boardDto.contentresult}" readonly
-                                          style="margin: 0px -14px 0px 0px; width: 500px; height: 345px;resize: none; "></textarea>
-                            </div>
-
-                        </div><!--end 3-->
-                    </div>
-                    </div>
+<!--                        &lt;!&ndash; 코딩 &ndash;&gt;-->
 
 
-            <!--수업선택 drop select -->
-            <div class="12u$">
-                <div class="select-wrapper">
-                    <select name="grade" id="grade">
-                        <option value="">- 점수 선택 -</option>
-                        <option value="A">A</option>
-                        <option value="B">B</option>
-                        <option value="C">C</option>
-                        <option value="D">D</option>
-                        <option value="F">F</option>
-                    </select>
-                </div>
+<!--                        <div>&lt;!&ndash;start 3&ndash;&gt;-->
+<!--                            <div class="12u$">-->
+<!--                            <textarea name="content" id="content" placeholder="코드 입력" th:text="${boardDto.content}"-->
+<!--                                      style="margin: 0px 3px 0px 0px; width: 500px; height: 345px;resize: none;" readonly>-->
+
+<!--                            </textarea>-->
+<!--                            </div>-->
+<!--                            &lt;!&ndash; 코딩결과 &ndash;&gt;-->
+<!--                            <div class="12u$">-->
+<!--                                <textarea name="contentresult" id="contentresult" placeholder="컴파일 버튼으로 결과를 확인하세요"-->
+<!--                                          th:text="${boardDto.contentresult}" readonly-->
+<!--                                          style="margin: 0px -14px 0px 0px; width: 500px; height: 345px;resize: none; "></textarea>-->
+<!--                            </div>-->
+
+<!--                        </div>&lt;!&ndash;end 3&ndash;&gt;-->
+<!--                    </div>-->
+<!--                    </div>-->
+
+
+<!--            &lt;!&ndash;수업선택 drop select &ndash;&gt;-->
+<!--            <div class="12u$">-->
+<!--                <div class="select-wrapper">-->
+<!--                    <select name="grade" id="grade">-->
+<!--                        <option value="">- 점수 선택 -</option>-->
+<!--                        <option value="A">A</option>-->
+<!--                        <option value="B">B</option>-->
+<!--                        <option value="C">C</option>-->
+<!--                        <option value="D">D</option>-->
+<!--                        <option value="F">F</option>-->
+<!--                    </select>-->
+<!--                </div>-->
+<!--            </div>-->
+
+
+
+<!--                &lt;!&ndash; 숙제 저장 버튼&ndash;&gt;-->
+<!--                <div class="3u$ 12u$(small)" style="float: right; margin-top: 30px;">-->
+<!--                    <input type="submit" value="점수 저장" class="fit"-->
+<!--                           th:formaction="@{'/teacher/info/' + ${boardDto.hno}+'/'+ ${boardDto.bno}}" />-->
+<!--                </div>-->
+<!--            &lt;!&ndash;                &lt;!&ndash; 코딩컴파일 버튼 &ndash;&gt;&ndash;&gt;-->
+<!--            &lt;!&ndash;                <div class="3u$ 12u$(small)">&ndash;&gt;-->
+<!--            &lt;!&ndash;                    <input onclick="codingResultAjax();" id="codingResult" name="codingResult" value="c코드 결과보기"&ndash;&gt;-->
+<!--            &lt;!&ndash;                           class="fit" formaction="/codingResult"/>&ndash;&gt;-->
+<!--            &lt;!&ndash;                </div>&ndash;&gt;-->
+
+
+
             </div>
-
-
-
-                <!-- 숙제 저장 버튼-->
-                <div class="3u$ 12u$(small)" style="float: right; margin-top: 30px;">
-                    <input type="submit" value="점수 저장" class="fit"
-                           th:formaction="@{'/teacher/info/' + ${boardDto.hno}+'/'+ ${boardDto.bno}}" />
-                </div>
-            <!--                &lt;!&ndash; 코딩컴파일 버튼 &ndash;&gt;-->
-            <!--                <div class="3u$ 12u$(small)">-->
-            <!--                    <input onclick="codingResultAjax();" id="codingResult" name="codingResult" value="c코드 결과보기"-->
-            <!--                           class="fit" formaction="/codingResult"/>-->
-            <!--                </div>-->
-
-
-
         </form>
     </div>
 
