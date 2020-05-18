@@ -76,6 +76,14 @@
                     <input type="text" title="classname" name="classname"  placeholder="수업명" th:value="${boardDto.classname} "
                            readonly/>
                 </div>
+                <div class="9u 12u$(small)" style ="">
+                    <input type="text" title="teacher" name="teacher"  placeholder="선생님" th:value="${homeworkDto.name} "
+                           readonly/>
+                </div>
+                <div class="9u 12u$(small)" style ="">
+                    <input type="text" title="dueday" name="dueday"  placeholder="선생님" th:value="${homeworkDto.dueday} "
+                           readonly/>
+                </div>
 
 
 
@@ -128,11 +136,11 @@
 
 
 <!--            &lt;!&ndash; 숙제 저장 버튼&ndash;&gt;-->
-<!--            <div class="3u$ 12u$(small)" style="float: right; margin-top: 30px;">-->
-<!--                <input type="submit" value="점수 저장" class="fit"-->
-<!--                       th:formaction=""-->
-<!--                />-->
-<!--            </div>-->
+            <div class="3u$ 12u$(small)" style="float: right; margin-top: 30px;">
+                <input type="submit" value="점수 저장" class="fit"
+                       th:formaction="@{'/teacher/info/' + ${boardDto.hno}+'/'+ ${boardDto.bno}}"
+                />
+            </div>
 
 
 
