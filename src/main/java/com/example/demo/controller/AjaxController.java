@@ -23,9 +23,20 @@ public class AjaxController {
 
         cFileInOutPut.Input(boardDto.getContent());//파일저장
 
-        String command = cCmd.inputCommand();//코드 넣고
 
-        String result = cCmd.execCommand(command);//코드 결과 받아오기
+
+
+        String command = cCmd.inputCommand1();
+        String result = cCmd.execCommand(command);
+
+        if(result.equals("")){
+            System.out.println("null1");
+            String command2=cCmd.inputCommand2();
+            result=cCmd.execCommand(command2);
+            System.out.println("result2:"+result);
+        }else {
+            System.out.println("not null2");
+        }
 
         System.out.println("12121212121212"+result);
         return result;
@@ -47,12 +58,8 @@ public class AjaxController {
         System.out.println("12121212121212"+result);
         return result;
     }
-    @RequestMapping(value="/result", method=RequestMethod.POST)//ajax-c
-    @ResponseBody
-    public String ResultPost(BoardDto boardDto){
-        return boardDto.getTitle();
-    }
-    @RequestMapping(value="/javacodingResult", method=RequestMethod.POST)//ajax-java
+
+    @RequestMapping(value="/javaCodingResult", method=RequestMethod.POST)//ajax-java
     @ResponseBody
     public String javacodingResultPost(BoardDto boardDto){
 
@@ -61,27 +68,25 @@ public class AjaxController {
 
         javaFileInOutPut.Input(boardDto.getContent());//파일저장
 
-        String command = javaCmd.inputCommand();//코드 넣고
+        String command = javaCmd.inputCommand1();//코드 넣고 1
 
-        String result = javaCmd.execCommand(command);//코드 결과 받아오기
+        String result = javaCmd.execCommand(command);//코드 결과 받아오기 2
+
+        if(result.equals("")){
+            System.out.println("null");
+            String command2=javaCmd.inputCommand2();
+            result=javaCmd.execCommand(command2);
+            System.out.println("성공:"+result);
+        }else {
+            System.out.println("not null");
+            System.out.println("오류:"+result);//3
+        }
+
+
+
 
         System.out.println("34343434343434343"+result);
         return result;
     }
-    @RequestMapping(value="/javaCodingResult", method=RequestMethod.POST)
-    @ResponseBody
-    public String JavacodingResultPost(BoardDto boardDto){
 
-        CFileInOutPut cFileInOutPut=new CFileInOutPut();//저장
-        CCmd cCmd=new CCmd();//컴파일
-
-        cFileInOutPut.Input(boardDto.getContent());//파일저장
-
-        String command = cCmd.inputCommand();//코드 넣고
-
-        String result = cCmd.execCommand(command);//코드 결과 받아오기
-
-        System.out.println("12121212121212"+result);
-        return result;
-    }
 }

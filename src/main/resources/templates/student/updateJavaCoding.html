@@ -13,7 +13,7 @@
         function codingResultAjax() {
 
             $.ajax({
-                url: "/codingResult",
+                url: "/javaCodingResult",
                 type: "POST",
                 data: $("#writeCodingForm").serialize(),
                 success: function (data) {
@@ -42,7 +42,7 @@
             <p>여기서 학생들이 java숙제를 update 제출합니다.</p>
         </header>
         <!-- from 시작 -->
-        <form method="post">
+        <form id="writeCodingForm" method="POST" >
             <div class="row uniform"  th:action="@{'/student/info/' + ${boardDto.bno}}">
 
                 <!-- 수업이름  -->
@@ -55,33 +55,38 @@
                     <input type="text" title="hno" name="hno"  placeholder="숙제 제목" th:value="${homeworkDto.hno} "
                            readonly/>
                 </div>
+                <!-- bno -->
+                <div class="9u 12u$(small)" style ="">
+                    <input type="text" title="grade" name="grade"  placeholder="bno" th:value="${boardDto.bno} "
+                           readonly/>
+                </div>
                 <!-- grade -->
-                <div class="9u 12u$(small)" style ="display:none">
-                    <input type="text" title="grade" name="grade"  placeholder="숙제 제목" th:value="${boardDto.grade} "
+                <div class="9u 12u$(small)" style ="">
+                    <input type="text" title="grade" name="grade"  placeholder="grade" th:value="${boardDto.grade} "
                            readonly/>
                 </div>
                 <!-- lang -->
-                <div class="9u 12u$(small)" style ="display:none">
-                    <input type="text" title="lang" name="lang"  placeholder="숙제 제목" th:value="${boardDto.lang} "
+                <div class="9u 12u$(small)" style ="">
+                    <input type="text" title="lang" name="lang"  placeholder="lang" th:value="${boardDto.lang} "
                            readonly/>
                 </div>
                 <!-- classname -->
-                <div class="9u 12u$(small)" style ="display:none">
-                    <input type="text" title="classname" name="classname"  placeholder="숙제 제목" th:value="${boardDto.classname} "
+                <div class="9u 12u$(small)" style ="">
+                    <input type="text" title="classname" name="classname"  placeholder="classname" th:value="${boardDto.classname} "
                            readonly/>
                 </div>
                 <!-- teacher -->
-                <div class="9u 12u$(small)" style ="display:none">
+                <div class="9u 12u$(small)" style ="">
                     <input type="text" title="teacher" name="teacher"  placeholder="teacher" th:value="${boardDto.teacher} "
                            readonly/>
                 </div>
                 <!-- dueday -->
-                <div class="9u 12u$(small)" style ="display:none">
+                <div class="9u 12u$(small)" style ="">
                     <input type="text" title="dueday" name="dueday"  placeholder="dueday" th:value="${boardDto.dueday} "
                            readonly/>
                 </div>
                 <!-- studentnum -->
-                <div class="9u 12u$(small)" style ="display:none">
+                <div class="9u 12u$(small)" style ="">
                     <input type="text" title="studentnum" name="studentnum"  placeholder="studentnum" th:value="${boardDto.studentnum} "
                            readonly/>
                 </div>
@@ -121,7 +126,7 @@
                 <!-- 코딩컴파일 버튼 -->
                 <div class="3u$ 12u$(small)">
                     <input onclick="codingResultAjax();" id="codingResult" name="codingResult" value="코드 결과보기"
-                           class="fit" formaction="/codingResult"/>
+                           class="fit" formaction="/javaCodingResult"/>
                 </div>
 
 

@@ -42,7 +42,7 @@
             <p>여기서 학생들이 python숙제를 update합니다.</p>
         </header>
         <!-- from 시작 -->
-        <form method="post"  th:action="@{'/student/info/' + ${boardDto.bno}}">
+        <form id="writeCodingForm" method="POST" th:action="@{'/student/info/' + ${boardDto.bno}}">
             <div class="row uniform" >
 
                 <!-- 수업이름  -->

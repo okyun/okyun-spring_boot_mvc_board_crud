@@ -13,11 +13,11 @@ public class JavaFileInOutPut {
 
             byte[] by = str.getBytes();
             output.write(by);
-            logger.info("file output");
+            logger.info("file input");
 
         } catch (Exception e) {
             e.getStackTrace();
-            logger.info("FAIL");
+            logger.info(" file input-FAIL");
         }
 
     }

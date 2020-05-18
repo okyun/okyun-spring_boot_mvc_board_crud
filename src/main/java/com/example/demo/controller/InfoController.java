@@ -86,11 +86,9 @@ public class InfoController {
     public String detail(@PathVariable("bno")Integer bno, Model model){
 
         BoardDto boardDto=boardService.getPost(bno);
-
-        model.addAttribute("boardDto", boardDto);
         HomeworkDto homeworkDto = homeworkService.getHomeworkById(boardDto.getHno());
         model.addAttribute("homeworkDto", homeworkDto);
-
+        model.addAttribute("boardDto", boardDto);
         if(boardDto.getLang().equals("c"))
             return "student/updateCCoding";
         if(boardDto.getLang().equals("java"))
