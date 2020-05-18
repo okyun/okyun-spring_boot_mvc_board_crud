@@ -2,8 +2,10 @@ package com.example.demo.controller;
 
 import com.example.demo.CodingComfile.CFileInOutPut;
 import com.example.demo.CodingComfile.JavaFileInOutPut;
+import com.example.demo.CodingComfile.PythonFileInOutPut;
 import com.example.demo.CodingComfile.cmd.CCmd;
 import com.example.demo.CodingComfile.cmd.JavaCmd;
+import com.example.demo.CodingComfile.cmd.PythonCmd;
 import com.example.demo.domain.BoardDto;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -46,14 +48,15 @@ public class AjaxController {
     @ResponseBody
     public String PythoncodingResultPost(BoardDto boardDto){
 
-        CFileInOutPut cFileInOutPut=new CFileInOutPut();//저장
-        CCmd cCmd=new CCmd();//컴파일
+        PythonCmd pythonCmd=new PythonCmd();
+        PythonFileInOutPut pythonFileInOutPut=new PythonFileInOutPut();
 
-        cFileInOutPut.Input(boardDto.getContent());//파일저장
 
-        String command = cCmd.inputCommand();//코드 넣고
+        pythonFileInOutPut.Input(boardDto.getContent());//파일저장
 
-        String result = cCmd.execCommand(command);//코드 결과 받아오기
+        String command = pythonCmd.inputCommand();//코드 넣고
+
+        String result = pythonCmd.execCommand(command);//코드 결과 받아오기
 
         System.out.println("12121212121212"+result);
         return result;

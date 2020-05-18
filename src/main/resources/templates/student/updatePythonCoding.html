@@ -13,7 +13,7 @@
         function codingResultAjax() {
 
             $.ajax({
-                url: "/codingResult",
+                url: "/pythonCodingResult",
                 type: "POST",
                 data: $("#writeCodingForm").serialize(),
                 success: function (data) {
@@ -119,7 +119,7 @@
                 <!-- 코딩컴파일 버튼 -->
                 <div class="3u$ 12u$(small)">
                     <input onclick="codingResultAjax();" id="codingResult" name="codingResult" value="코드 결과보기"
-                           class="fit" formaction="/codingResult"/>
+                           class="fit" formaction="/pythonCodingResult"/>
                 </div>
 
 
