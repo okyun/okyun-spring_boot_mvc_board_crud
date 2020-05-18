@@ -26,7 +26,8 @@ public class JavaFileInOutPut {
         try{
             String output="Output";
             //파일 객체 생성
-            File file = new File("C:/Compile2020/"+output+".java");
+            File file = new File("C:/Compile2020/javac/"+output+".java");
+
             //입력 스트림 생성
             FileReader file_reader = new FileReader(file);
             int cur = 0;
