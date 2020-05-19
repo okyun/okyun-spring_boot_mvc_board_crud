@@ -44,7 +44,7 @@
         <!-- from 시작 -->
         <form id="writeCodingForm" method="POST" th:action="@{'/student/info/' + ${boardDto.bno}}">
             <div class="row uniform" >
-
+                <div style="width: 100%;margin-left: 80px">
                 <!-- 수업이름  -->
                 <div class="9u 12u$(small)">
                     <input type="text" title="title" name="title"  placeholder="숙제 제목" th:value="${homeworkDto.title}"
@@ -86,7 +86,7 @@
                            readonly/>
                 </div>
 
-
+                </div>
                 <!-- 숙제 설명 -->
                     <div style="margin-left: 60px">
                       <textarea placeholder="숙제 설명"

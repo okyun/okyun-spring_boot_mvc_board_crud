@@ -27,20 +27,32 @@
             <div class="row uniform">
                 <!--제목 -->
                 <div class="9u 12u$(small)">
+
+                    제목:
                     <input name="title" type="text"  id="title" th:value="${homeworkDto.title}" placeholder="제목" required="required" readonly/>
                 </div>
-                <!--작성장 -->
+                <!--수업명 -->
                 <div class="9u 12u$(small)">
+                    수업명:
+                    <input name="classname" type="text"  id="classname" th:value="${homeworkDto.classname}" placeholder="수업명" required="required" readonly/>
+                </div>
+                <!--작성장 -->
+
+                <div class="9u 12u$(small)">
+                    담당 교수님:
                     <input name="" type="text"   th:value="${homeworkDto.name}" placeholder="제목" required="required" readonly/>
                 </div>
 
                 <!--수업선택 drop select -->
                 <!--lang -->
+
                 <div class="9u 12u$(small)">
+                    언어:
                     <input name="lang" type="text"  id="lang"  th:value="${homeworkDto.lang}" placeholder="lang" required="required" readonly/>
                 </div>
                 <!--숙제 설명 -->
                 <div class="12u$">
+                    숙제 설명:
                     <textarea name="des" id="des" placeholder="숙제 설명하시오" rows="6" cols="95" th:text="${homeworkDto.des}" readonly></textarea>
                 </div>
 

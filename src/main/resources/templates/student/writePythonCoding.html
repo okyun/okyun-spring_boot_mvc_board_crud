@@ -42,16 +42,16 @@
             <p>여기서 학생들이 python숙제를 제출합니다.</p>
         </header>
         <!-- from 시작 -->
-        <form method="post">
+        <form id="writeCodingForm" method="POST">
             <div class="row uniform" >
-
+                <div style="width: 100%;margin-left: 80px">
                 <!-- 수업이름  -->
                 <div class="9u 12u$(small)">
                     <input type="text" name="title" id="title" placeholder="숙제 제목" th:value="${homeworkDto.title}"
                            readonly/>
                 </div>
 
-
+                </div>
 
                     <!-- 숙제 설명 -->
                     <div style="margin-left: 60px">

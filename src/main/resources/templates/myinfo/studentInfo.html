@@ -34,6 +34,7 @@
                     <th>교수님</th>
                     <th>작성날짜</th>
                     <th>수업명</th>
+                    <th>언어</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -77,6 +78,12 @@
                         <a th:href="@{'/student/info/' + ${board.bno}}" style="text-decoration:none; color: black;">
 
                         <span th:text="${board.classname}"></span>
+                        </a>
+                    </td>
+                    <td>
+                        <a th:href="@{'/student/info/' + ${board.bno}}" style="text-decoration:none; color: black;">
+
+                            <span th:text="${board.lang}"></span>
                         </a>
                     </td>
                 </tr>

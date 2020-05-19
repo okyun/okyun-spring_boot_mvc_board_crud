@@ -44,10 +44,17 @@
         <!-- from 시작 -->
         <form id="writeCodingForm" method="POST" >
             <div class="row uniform"  th:action="@{'/student/info/' + ${boardDto.bno}}">
-
+                <div style="width: 100%;margin-left: 80px">
                 <!-- 수업이름  -->
                 <div class="9u 12u$(small)">
+                    숙제제목:
                     <input type="text" title="title" name="title"  placeholder="숙제 제목" th:value="${homeworkDto.title}"
+                           readonly/>
+                </div>
+                <!-- 과목명  -->
+                <div class="9u 12u$(small)">
+                    과목명:
+                    <input type="text" name="classname" id="classname" placeholder="숙제제목" th:value="${homeworkDto.classname}"
                            readonly/>
                 </div>
                 <!-- hno  -->
@@ -67,21 +74,20 @@
                 </div>
                 <!-- lang -->
                 <div class="9u 12u$(small)" style ="">
+                    언어:
                     <input type="text" title="lang" name="lang"  placeholder="lang" th:value="${boardDto.lang} "
                            readonly/>
                 </div>
-                <!-- classname -->
-                <div class="9u 12u$(small)" style ="">
-                    <input type="text" title="classname" name="classname"  placeholder="classname" th:value="${boardDto.classname} "
-                           readonly/>
-                </div>
+
                 <!-- teacher -->
                 <div class="9u 12u$(small)" style ="">
+                    교수님:
                     <input type="text" title="teacher" name="teacher"  placeholder="teacher" th:value="${boardDto.teacher} "
                            readonly/>
                 </div>
                 <!-- dueday -->
                 <div class="9u 12u$(small)" style ="">
+                    기한:
                     <input type="text" title="dueday" name="dueday"  placeholder="dueday" th:value="${boardDto.dueday} "
                            readonly/>
                 </div>
@@ -91,9 +97,10 @@
                            readonly/>
                 </div>
 
-
+                </div>
                 <!-- 숙제 설명 -->
                     <div style="margin-left: 60px">
+                        숙제 설명:
                       <textarea placeholder="숙제 설명"
                                 style="margin: 0px 0px 0px 0px; width: 450px; height: 690px;resize: none; "
                                 th:text="${homeworkDto.des}" readonly></textarea>
@@ -106,6 +113,7 @@
 
                         <div><!--start 3-->
                             <div class="12u$">
+                                코드입력:
                             <textarea name="content" id="content" placeholder="코드 입력" th:text="${boardDto.content}"
                                       style="margin: 0px 3px 0px 0px; width: 500px; height: 345px;resize: none;">
 

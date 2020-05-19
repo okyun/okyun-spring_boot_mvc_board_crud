@@ -33,7 +33,7 @@
     <div class="row">
         <!--1 -->
         <div class="col-4"  th:each="homework : ${homeworkList}">
-            <p><span th:text="${homework.title}"></span></p>
+            <p><span th:text="${homework.lang}"></span></p>
             <div class="card" style="border-color: #c8e7f0">
                 <div class="card-header" style="background-color:#c8e7f0">
 
@@ -42,8 +42,8 @@
                     </a>
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title"><span th:text="${homework.dueday}"></span></h5>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam egestas sed sem ut malesuada.</p>
+                    <h5 class="card-title"><span th:text="${homework.title}"></span></h5>
+                    <p class="card-text"><span th:text="${homework.des}"></span></p>
                     <a th:href="@{'/teacher/info/' + ${homework.hno}}" class="btn btn-primary" style="border-color: #c8e7f0; background-color:#c8e7f0 ">More</a>
                 </div>
             </div>
