@@ -27,7 +27,7 @@ public class UserController {
 
     @GetMapping("user/login")//로그인 페이지
     public String loginGet(){
-        return "user/login.html";
+        return "user/login";
     }
 
 
