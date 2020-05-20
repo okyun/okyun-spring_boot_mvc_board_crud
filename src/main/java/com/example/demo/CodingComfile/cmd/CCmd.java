@@ -12,9 +12,10 @@ public class CCmd {
     private Process process;
     private BufferedReader successBufferedReader;
     private BufferedReader errorBufferReader;
+    private BufferedReader errorBufferReader1;
     private StringBuffer readBuffer;
 
-    public String inputCommand() {//1.
+    public String inputCommand() {
 
         buffer = new StringBuffer();
         String filename="test";
@@ -23,7 +24,7 @@ public class CCmd {
             logger.info("1111111111나는 윈도우 ");
             buffer.append("cmd.exe ");
             buffer.append("/c ");
-            buffer.append("cd C:\\2020_grad\\comfile\\c& "+"gcc "+filename+".c& "+"a.exe");
+            buffer.append("cd C:\\Compile2020\\gcc& "+"gcc "+filename+".c& "+"a.exe");
 
         } else {
             logger.info("222222222222나는 리눅스 ");
@@ -43,7 +44,7 @@ public class CCmd {
             logger.info("1111111111나는 윈도우 ");
             buffer.append("cmd.exe ");
             buffer.append("/c ");
-            buffer.append("cd C:\\2020_grad\\comfile\\c& "+"gcc "+filename+".c");
+            buffer.append("cd C:\\Compile2020\\gcc& "+"gcc "+filename+".c");
 
         } else {
             logger.info("222222222222나는 리눅스 ");
@@ -54,7 +55,7 @@ public class CCmd {
 
         return buffer.toString();
     }
-    public String inputCommand2() {//1.
+    public String inputCommand2() {//2.
 
         buffer = new StringBuffer();
 
@@ -63,7 +64,7 @@ public class CCmd {
             logger.info("1111111111나는 윈도우 ");
             buffer.append("cmd.exe ");
             buffer.append("/c ");
-            buffer.append("cd C:\\2020_grad\\comfile\\c& "+"a.exe");
+            buffer.append("cd C:\\Compile2020\\gcc& "+"a.exe");
 
 
 
@@ -76,11 +77,12 @@ public class CCmd {
 
         return buffer.toString();
     }
-    public String execCommand(String cmd) {//2.
+    public String execCommand(String cmd) {//3.
         try {
             process = Runtime.getRuntime().exec(cmd);
             successBufferedReader = new BufferedReader(new InputStreamReader(process.getInputStream(),"MS949"));
             errorBufferReader = new BufferedReader(new InputStreamReader(process.getErrorStream(), "MS949"));
+
 
 
             String line = null;

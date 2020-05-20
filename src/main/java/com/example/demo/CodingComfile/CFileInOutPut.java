@@ -9,7 +9,7 @@ public class CFileInOutPut {
     public void Input(String str) {//3.파일 데이터 저장하기
         try {
             String filename="test";
-            OutputStream output = new FileOutputStream("C:/2020_grad/comfile/c/"+filename+".c");
+            OutputStream output = new FileOutputStream("C:/Compile2020/gcc/"+filename+".c");
             byte[] by = str.getBytes();
             output.write(by);
             logger.info("file output");
@@ -25,7 +25,7 @@ public class CFileInOutPut {
         try{
             String output="Output";
             //파일 객체 생성
-            File file = new File("C:/2020_grad/comfile/c/"+output+".c");
+            File file = new File("C:/Compile2020/gcc/"+output+".c");
             //입력 스트림 생성
             FileReader file_reader = new FileReader(file);
             int cur = 0;
