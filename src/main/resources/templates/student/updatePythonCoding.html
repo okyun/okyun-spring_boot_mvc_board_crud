@@ -45,46 +45,50 @@
         <form id="writeCodingForm" method="POST" th:action="@{'/student/info/' + ${boardDto.bno}}">
             <div class="row uniform" >
                 <div style="width: 100%;margin-left: 80px">
-                <!-- 수업이름  -->
-                <div class="9u 12u$(small)">
-                    <input type="text" title="title" name="title"  placeholder="숙제 제목" th:value="${homeworkDto.title}"
-                           readonly/>
-                </div>
-                <!-- hno  -->
-                <div class="9u 12u$(small)" style ="display:none">
-                    <input type="text" title="hno" name="hno"  placeholder="숙제 제목" th:value="${homeworkDto.hno} "
-                           readonly/>
-                </div>
-                <!-- grade -->
-                <div class="9u 12u$(small)" style ="display:none">
-                    <input type="text" title="grade" name="grade"  placeholder="숙제 제목" th:value="${boardDto.grade} "
-                           readonly/>
-                </div>
-                <!-- lang -->
-                <div class="9u 12u$(small)" style ="display:none">
-                    <input type="text" title="grade" name="grade"  placeholder="숙제 제목" th:value="${boardDto.lang} "
-                           readonly/>
-                </div>
-                <!-- classname -->
-                <div class="9u 12u$(small)" style ="display:none">
-                    <input type="text" title="classname" name="classname"  placeholder="숙제 제목" th:value="${boardDto.classname} "
-                           readonly/>
-                </div>
-                <!-- teacher -->
-                <div class="9u 12u$(small)" style ="display:none">
-                    <input type="text" title="teacher" name="teacher"  placeholder="teacher" th:value="${boardDto.teacher} "
-                           readonly/>
-                </div>
-                <!-- dueday -->
-                <div class="9u 12u$(small)" style ="display:none">
-                    <input type="text" title="dueday" name="dueday"  placeholder="dueday" th:value="${boardDto.dueday} "
-                           readonly/>
-                </div>
-                <!-- studentnum -->
-                <div class="9u 12u$(small)" style ="display:none">
-                    <input type="text" title="studentnum" name="studentnum"  placeholder="studentnum" th:value="${boardDto.studentnum} "
-                           readonly/>
-                </div>
+                    <!-- 수업이름  -->
+                    <div class="9u 12u$(small)" >
+                        숙제제목:
+                        <input type="text" title="title" name="title"  placeholder="숙제 제목" th:value="${homeworkDto.title}"
+                               readonly/>
+                    </div>
+                    <!-- 과목명  -->
+                    <div class="9u 12u$(small)">
+                        과목명:
+                        <input type="text" name="classname" id="classname" placeholder="숙제제목" th:value="${homeworkDto.classname}"
+                               readonly/>
+                    </div>
+                    <!-- hno  -->
+                    <div class="9u 12u$(small)" style ="display:none">
+                        <input type="text" title="hno" name="hno"  placeholder="숙제 제목" th:value="${homeworkDto.hno} "
+                               readonly/>
+                    </div>
+                    <!-- grade -->
+                    <div class="9u 12u$(small)" style ="display:none">
+                        <input type="text" title="grade" name="grade"  placeholder="숙제 제목" th:value="${boardDto.grade} "
+                               readonly/>
+                    </div>
+                    <!-- lang -->
+                    <div class="9u 12u$(small)" style ="display:none">
+                        <input type="text" title="lang" name="lang"  placeholder="숙제 제목" th:value="${boardDto.lang} "
+                               readonly/>
+                    </div>
+
+                    <!-- teacher -->
+                    <div class="9u 12u$(small)" style ="display:none">
+                        <input type="text" title="teacher" name="teacher"  placeholder="teacher" th:value="${boardDto.teacher} "
+                               readonly/>
+                    </div>
+                    <!-- dueday -->
+                    <div class="9u 12u$(small)" style ="">
+                        마감기간:
+                        <input type="text" title="dueday" name="dueday"  placeholder="dueday" th:value="${boardDto.dueday} "
+                               readonly/>
+                    </div>
+                    <!-- studentnum -->
+                    <div class="9u 12u$(small)" style ="display:none">
+                        <input type="text" title="studentnum" name="studentnum"  placeholder="studentnum" th:value="${boardDto.studentnum} "
+                               readonly/>
+                    </div>
 
                 </div>
                 <!-- 숙제 설명 -->

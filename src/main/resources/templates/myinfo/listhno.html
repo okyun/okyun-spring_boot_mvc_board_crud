@@ -29,8 +29,9 @@
               <tr>
                   <th>제목</th><!-- 1-->
                   <th>작성장</th><!-- 2-->
-                  <th>날짜</th><!-- 3-->
-                  <th>점수</th><!-- 4-->
+                  <th>학번</th><!-- 3-->
+                  <th>마감기간</th><!-- 4-->
+                  <th>점수</th><!-- 5-->
               </tr>
               </thead>
               <tbody>
@@ -53,13 +54,19 @@
                   <td>
                       <a th:href="@{'/teacher/info/'+ ${board.hno}+ '/'+${board.bno}}" style="text-decoration:none; color: black;">
 
-                      <span th:text="${board.createdate}"></span>
+                      <span th:text="${board.studentnum}"></span>
                       </a>
                   </td>
 <!--4 -->
                   <td>
                       <a th:href="@{'/teacher/info/'+ ${board.hno}+ '/'+${board.bno}}" style="text-decoration:none; color: black;">
-                      <span th:text="${board.grade}"></span>
+                      <span th:text="${board.dueday}"></span>
+                      </a>
+                  </td>
+<!--5 -->
+                  <td>
+                      <a th:href="@{'/teacher/info/'+ ${board.hno}+ '/'+${board.bno}}" style="text-decoration:none; color: black;">
+                          <span th:text="${board.grade}"></span>
                       </a>
                   </td>
               </tr>
