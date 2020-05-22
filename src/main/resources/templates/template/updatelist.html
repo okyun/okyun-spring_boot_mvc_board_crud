@@ -25,25 +25,35 @@
 <th:block th:replace="/sep/index_header_menu"></th:block>
 <section id="main" class="wrapper">
     <header class="align-center">
-        <h1>교사 마이페이지</h1><br>
-        <p>여기서 내가 낸 숙제들 update.</p>
+        <h1>숙제 update,delete</h1><br>
+        <p>본인의 숙제 수정,삭제 가능</p>
     </header>
 </section>
 <div class="container" style="margin-bottom: 30px">
     <div class="row">
         <!--1 -->
         <div class="col-4"  th:each="homework : ${homeworkList}">
-            <p><span th:text="${homework.lang}"></span></p>
+<!--            <p><span th:text="${homework.lang}"></span></p>-->
             <div class="card" style="border-color:#25a2c3 ">
                 <div class="card-header" style="background-color: #25a2c3">
-
+<div style="text-align: left">
+    수업명:
                     <a th:href="@{'/updateHomeworklist/' + ${homework.hno}}" style="color: #333333;text-decoration: none " >
-                        <span th:text="${homework.hno}"></span>
+                        <span th:text="${homework.classname}"></span>
                     </a>
+</div>
+                    <div style="text-align: right">
+                        언어:
+                        <span  th:text="${homework.lang}"></span>
+                    </div>
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title"><span th:text="${homework.title}"></span></h5>
-                    <p class="card-text"><span th:text="${homework.des}"></span></p>
+                    <h5 class="card-title">
+                        제목:
+                        <span th:text="${homework.title}"></span></h5>
+                    <p class="card-text">
+                        내용:
+                        <span th:text="${homework.des}"></span></p>
                     <div>  <a th:href="@{'/updateHomeworklist/' + ${homework.hno}}" class="btn btn-primary" style="border-color:#25a2c3;background-color: #25a2c3 ;color: #333333;text-decoration: none ">More</a>
                         기간:<span th:text="${homework.dueday}"></span></div>
                              </div>

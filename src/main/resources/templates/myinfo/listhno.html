@@ -17,10 +17,11 @@
 
 <!-- Main -->
 <section id="main" class="wrapper">
-    <div class="inner">
+    <div class="inner"  th:each="board : ${boardList}">
         <header class="align-center">
-            <h1>Generic Page</h1>
-            <p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
+            <h1>숙제 낸 학생들</h1>
+            <p> 수업명:<span th:text="${board.classname}"> </span>
+                </p>
         </header>
         
         <div class="table-wrapper">
@@ -35,7 +36,7 @@
               </tr>
               </thead>
               <tbody>
-              <tr th:each="board : ${boardList}">
+              <tr>
 
 <!--1 -->
                   <td>
@@ -73,10 +74,7 @@
 
               </tbody>
               <tfoot>
-              <tr>
-                  <td colspan="2"></td>
-                  <td>100.00</td>
-              </tr>
+              
               </tfoot>
           </table>
       </div>

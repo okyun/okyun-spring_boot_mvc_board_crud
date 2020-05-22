@@ -33,25 +33,36 @@
     <div class="row">
         <!--1 -->
         <div class="col-4"  th:each="homework : ${homeworkList}">
-            <p><span th:text="${homework.lang}"></span></p>
-            <div class="card" style="border-color: #c8e7f0">
-                <div class="card-header" style="background-color:#c8e7f0">
-
-                    <a th:href="@{'/teacher/info/' + ${homework.hno}}">
-                    <span th:text="${homework.hno}"></span>
-                    </a>
+            <!--            <p><span th:text="${homework.lang}"></span></p>-->
+            <div class="card" style="border-color: #c8e7f0 ">
+                <div class="card-header" style="background-color:  #c8e7f0">
+                    <div style="text-align: left">
+                        수업명:
+<!--                        <a th:href="@{'/updateHomeworklist/' + ${homework.hno}}" style="color: #333333;text-decoration: none " >-->
+                            <span th:text="${homework.classname}"></span>
+<!--                        </a>-->
+                    </div>
+                    <div style="text-align: right">
+                        언어:
+                        <span  th:text="${homework.lang}"></span>
+                    </div>
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title"><span th:text="${homework.title}"></span></h5>
-                    <p class="card-text"><span th:text="${homework.des}"></span></p>
-                    <a th:href="@{'/teacher/info/' + ${homework.hno}}" class="btn btn-primary" style="border-color: #c8e7f0; background-color:#c8e7f0 ">More</a>
+                    <h5 class="card-title">
+                        제목:
+                        <span th:text="${homework.title}"></span></h5>
+                    <p class="card-text">
+                        내용:
+                        <span th:text="${homework.des}"></span></p>
+                    <div>                 <a th:href="@{'/teacher/info/' + ${homework.hno}}" class="btn btn-primary" style="border-color: #c8e7f0; background-color:#c8e7f0 ">More</a>
+                        기간:<span th:text="${homework.dueday}"></span></div>
                 </div>
             </div>
         </div>
 
 
 
-</div>
+    </div>
 </div>
 
 <!-- Footer -->

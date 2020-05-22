@@ -30,21 +30,27 @@
 <div class="container" style="margin-bottom: 30px">
     <div class="row">
         <!--1 -->
-        <div class="col-4" th:each="homework : ${homeworkList}" >
-            <p> hno:<span th:text="${homework.hno}"></span></p>
+        <div class="col-4" th:each="homework : ${homeworkList}"style="margin-bottom: 20px">
+<!--            <p> hno:<span th:text="${homework.hno}"></span></p>-->
             <div class="card" style="border-color: #f78a76">
                 <div class="card-header" style="background-color: #f78a76">
                     <div style="text-align: left">
+                        수업명:
                       <span th:text="${homework.classname}"></span>
                     </div>
                     <div style="text-align: right">
+                        교수님:
                     <span  th:text="${homework.name}"></span>
                     </div>
                 </div>
                 <div class="card-body">
-                    <h5 style="text-overflow:ellipsis;" class="card-title">제목:<span th:text="${homework.title}"></span></h5>
+                    <h5 style="text-overflow:ellipsis;" class="card-title">
+                        과제 제목:
+                        <span th:text="${homework.title}"></span>
+                    </h5>
 <!--                    <p style="text-overflow:ellipsis;" class="card-text"><span th:text="${homework.des}"></span></p>-->
                     <a th:href="@{'/listHomework/' + ${homework.hno}}" style="background-color: #f78a76; border-color: #f78a76" class="btn btn-primary">Go</a>
+                    기간:<span th:text="${homework.dueday}"></span>
                 </div>
             </div>
         </div>
