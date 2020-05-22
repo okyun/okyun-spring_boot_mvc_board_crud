@@ -42,7 +42,7 @@
             <p> C숙제를 검사, 점수 매기기</p>
         </header>
         <!-- from 시작 -->
-        <form method="POST">
+        <form method="POST" id="writeCodingForm">
             <div class="row uniform" >
 <div style="margin-left: 120px;width: 100%">
 <!--                &lt;!&ndash; 숙제 제목  &ndash;&gt;-->
@@ -52,7 +52,7 @@
                            readonly/>
                 </div>
 <!--                &lt;!&ndash; hno  &ndash;&gt;-->
-                <div class="9u 12u$(small)" >
+                <div class="9u 12u$(small)" style="display: none">
                     hno:
                     <input type="text" title="hno" name="hno"  placeholder="hno" th:value="${homeworkDto.hno} "
                            readonly/>
@@ -65,7 +65,7 @@
                            readonly/>
                 </div>
 <!--                &lt;!&ndash; bno &ndash;&gt;-->
-                <div class="9u 12u$(small)" style ="">
+                <div class="9u 12u$(small)" style="display: none">
                     bno:
                     <input type="text" title="bno" name="bno"  placeholder="hno" th:value="${boardDto.bno} "
                            readonly/>
@@ -83,7 +83,7 @@
                            readonly/>
                 </div>
 
-                <div class="9u 12u$(small)" style ="">
+                <div class="9u 12u$(small)" style ="display: none">
                     숙제낸 교사:
                     <input type="text" title="teacher" name="teacher"  placeholder="선생님" th:value="${homeworkDto.name} "
                            readonly/>
@@ -98,6 +98,7 @@
 </div>
 <!--                    &lt;!&ndash; 숙제 설명 &ndash;&gt;-->
                     <div style="margin-left: 60px">
+                        설명:
                       <textarea placeholder="숙제 설명"
                                 style="margin: 0px 0px 0px 0px; width: 450px; height: 690px;resize: none; "
                                 th:text="${homeworkDto.des}" readonly></textarea>
@@ -110,6 +111,7 @@
 
                         <div><!--start 3-->
                             <div class="12u$">
+                                코드:
                             <textarea name="content" id="content" placeholder="코드 입력" th:text="${boardDto.content}"
                                       style="margin: 0px 3px 0px 0px; width: 500px; height: 345px;resize: none;" readonly>
 
@@ -118,7 +120,7 @@
                             <!-- 코딩결과 -->
                             <div class="12u$">
                                 <textarea name="contentresult" id="contentresult" placeholder="컴파일 버튼으로 결과를 확인하세요"
-                                          th:text="${boardDto.contentresult}" readonly
+                                          readonly
                                           style="margin: 0px -14px 0px 0px; width: 500px; height: 345px;resize: none; "></textarea>
                             </div>
 
@@ -141,6 +143,12 @@
                 </div>
             </div>
 
+            <!--코드 결과보기 버튼-->
+
+            <!--코드 결과보기 버튼-->
+            <div class="3u$ 12u$(small)">
+                <input onclick="codingResultAjax();" id="codingResult" name="codingResult" value="코드 결과보기" class="fit" formaction="/codingResult"/>
+            </div>
 
 
 <!--                &lt;!&ndash; 숙제 저장 버튼&ndash;&gt;-->

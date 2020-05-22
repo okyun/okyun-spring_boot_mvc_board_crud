@@ -28,10 +28,12 @@
             <div class="row uniform">
                 <!--제목 -->
                 <div class="9u 12u$(small)">
+                    제목:
                     <input name="title" type="text"  id="title" th:value="${homeworkDto.title}" placeholder="제목" required="required"/>
                 </div>
                 <!--dueday -->
                 <div class="9u 12u$(small)">
+                    기한:
                     <input name="dueday" type="text"  id="dueday" th:value="${homeworkDto.dueday}" placeholder="dueday" required="required"/>
                 </div>
 
@@ -43,11 +45,13 @@
 
                 <!-- classname  -->
                 <div class="9u 12u$(small)" style ="">
+                    수업명:
                     <input type="text" title="classname" name="classname"  placeholder="숙제명" th:value="${homeworkDto.classname} "
                            readonly/>
                 </div>
                 <!-- lang  -->
                 <div class="9u 12u$(small)" style ="">
+                    언어:
                     <input type="text" title="lang" name="lang" id="lang"  th:value="${homeworkDto.lang}"
                            readonly/>
                 </div>
@@ -65,6 +69,7 @@
 
                 <!--des -->
                 <div class="12u$">
+                    설명:
                     <textarea name="des" id="des" placeholder="설명를 입력하세요" th:text="${homeworkDto.des}" rows="6" cols="95" required="required"></textarea>
                 </div>
 

@@ -27,8 +27,10 @@ public class InfoController {
     public String teacherinfo(Model model, Authentication authentication){
         UserDto auth=(UserDto)authentication.getPrincipal();
         List<HomeworkDto> homeworkList=homeworkService.getHomeworkListByName(auth.getName());
+        //HomeworkDto homework=homeworkList.get(0);
         model.addAttribute("homeworkList",homeworkList);
-
+       // model.addAttribute("homework",homework);
+       // log.info("888888888888888888classname:"+homework);
         return "myinfo/teacherInfo";
     }
     @RequestMapping("/teacher/info/{hno}") //숙제list
@@ -36,6 +38,8 @@ public class InfoController {
         List<BoardDto>boardList=boardService.getBoardListByHno(hno);
 
         model.addAttribute("boardList", boardList);
+
+
 
         //log.info("888888888888888888"+boardDto.toString());
         return "myinfo/listhno";

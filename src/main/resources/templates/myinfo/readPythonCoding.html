@@ -13,7 +13,7 @@
         function codingResultAjax() {
 
             $.ajax({
-                url: "/codingResult",
+                url: "/pythonCodingResult",
                 type: "POST",
                 data: $("#writeCodingForm").serialize(),
                 success: function (data) {
@@ -42,7 +42,7 @@
             <p>python 검사 페이지, 점수 매기기</p>
         </header>
         <!-- from 시작 -->
-        <form method="post"  >
+        <form method="post" id="writeCodingForm"  >
             <div class="row uniform" >
                 <div style="width: 100%;margin-left: 80px">
 <!--                &lt;!&ndash; 수업이름  &ndash;&gt;-->
@@ -52,7 +52,7 @@
                            readonly/>
                 </div>
 <!--                &lt;!&ndash; hno  &ndash;&gt;-->
-                <div class="9u 12u$(small)" style ="">
+                <div class="9u 12u$(small)" style ="display: none">
                     hno:
                     <input type="text" title="hno" name="hno"  placeholder="hno" th:value="${homeworkDto.hno} "
                            readonly/>
@@ -65,7 +65,7 @@
                            readonly/>
                 </div>
 <!--                &lt;!&ndash; bno &ndash;&gt;-->
-                <div class="9u 12u$(small)" style ="">
+                <div class="9u 12u$(small)" style ="display: none">
                     bno:
                     <input type="text" title="bno" name="bno"  placeholder="bno" th:value="${boardDto.bno} "
                            readonly/>
@@ -82,7 +82,7 @@
                     <input type="text" title="classname" name="classname"  placeholder="수업명" th:value="${boardDto.classname} "
                            readonly/>
                 </div>
-                <div class="9u 12u$(small)" style ="">
+                <div class="9u 12u$(small)" style ="display: none">
                     교수이름:
                     <input type="text" title="teacher" name="teacher"  placeholder="선생님" th:value="${homeworkDto.name} "
                            readonly/>
@@ -97,6 +97,7 @@
 
 <!--                &lt;!&ndash; 숙제 설명 &ndash;&gt;-->
                     <div style="margin-left: 60px">
+                        설명:
                       <textarea placeholder="숙제 설명"
                                 style="margin: 0px 0px 0px 0px; width: 450px; height: 690px;resize: none; "
                                 th:text="${homeworkDto.des}" readonly></textarea>
@@ -109,6 +110,7 @@
 
                         <div><!--start 3-->
                             <div class="12u$">
+                                코드:
                             <textarea name="content" id="content" placeholder="코드 입력"  th:text="${boardDto.content}"
                                       style="margin: 0px 3px 0px 0px; width: 500px; height: 345px;resize: none;" readonly>
 
@@ -142,7 +144,11 @@
                 </div>
             </div>
 
-
+            <!-- 코딩컴파일 버튼 -->
+            <div class="3u$ 12u$(small)">
+                <input onclick="codingResultAjax();" id="codingResult" name="codingResult" value="코드 결과보기"
+                       class="fit" formaction="/pythonCodingResult"/>
+            </div>
 
 <!--            &lt;!&ndash; 숙제 저장 버튼&ndash;&gt;-->
             <div class="3u$ 12u$(small)" style="float: right; margin-top: 30px;">
